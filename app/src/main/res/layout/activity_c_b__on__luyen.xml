@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+        android:id="@+id/gtchinh3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:text="Bắt đầu làm bài"
+        android:textAllCaps="true"
+        android:textAppearance="bold"
+        android:textSize="30dp"
+        />
+
+    <Button
+        android:id="@+id/return3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="<"
+        android:textSize="25sp"/>
+
+    <TextView
+        android:id="@+id/thongbao1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/gtchinh3"
+        android:layout_marginTop="80dp"
+        android:text="TextView"
+        android:textAllCaps="true"
+        android:textAppearance="bold"
+        android:textSize="25dp"/>
+
+    <TextView
+        android:id="@+id/thongbaotg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/thongbao1"
+        android:layout_marginTop="60dp"
+        android:text="TextView"
+        android:textAllCaps="true"
+        android:textAppearance="bold"
+        android:textSize="25dp"/>
+
+    <SeekBar
+        android:id="@+id/seekBartime"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/thongbaotg"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:max="150"
+        android:progress="0"
+        />
+    <Button
+        android:id="@+id/bdlb1"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="bắt đầu làm bài"
+        android:textSize="20sp"
+        android:layout_below="@id/seekBartime"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        />
+
+
+</RelativeLayout>

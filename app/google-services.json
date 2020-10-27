@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "585118738660",
+    "firebase_url": "https://onthituyensinh-2e88a.firebaseio.com",
+    "project_id": "onthituyensinh-2e88a",
+    "storage_bucket": "onthituyensinh-2e88a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:585118738660:android:6c5a55c2c7b7b1baf424f1",
+        "android_client_info": {
+          "package_name": "com.example.onthituyensinh"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "585118738660-4scjj4s11qd94u47444ctbuvlo42h24b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAE1KqxPmvVgVeRn469vVmBSddFaMd0Il0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "585118738660-4scjj4s11qd94u47444ctbuvlo42h24b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

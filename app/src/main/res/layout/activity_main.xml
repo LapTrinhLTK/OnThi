@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+        android:id="@+id/gtchinh1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ôn luyện môn tổ hợp"
+        android:textAllCaps="true"
+        android:textSize="35sp"
+        android:textAppearance="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+
+        />
+
+    <TextView
+        android:id="@+id/gtchinh2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="kì thi tuyển sinh 10"
+        android:textAllCaps="true"
+        android:textSize="35sp"
+        android:textAppearance="bold"
+        android:layout_below="@id/gtchinh1"
+        android:layout_centerHorizontal="true"
+
+        />
+
+    <Button
+        android:id="@+id/btnthithu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="thi thử"
+        android:textSize="30sp"
+        android:layout_below="@id/gtchinh2"
+        android:layout_marginTop="70dp"
+
+        />
+
+    <Button
+        android:id="@+id/btnonluyen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ôn luyện"
+        android:textSize="30sp"
+        android:layout_below="@id/btnthithu"
+        android:layout_marginTop="30dp"
+
+        />
+
+    <Button
+        android:id="@+id/btnhuongdan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="hướng dẫn"
+        android:textSize="30sp"
+        android:layout_below="@id/btnonluyen"
+        android:layout_marginTop="30dp"
+
+        />
+</RelativeLayout>
