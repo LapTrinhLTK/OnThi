@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class On_Luyen extends AppCompatActivity {
-    Button btnreturn2, btnLy, btnHoa, btnSinh, btnDia, btnSu, btnGD;
+    Button btnreturn2, btnLy, btnHoa, btnSinh, btnDia, btnSu, btnGD, btnAnh;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,6 +79,16 @@ public class On_Luyen extends AppCompatActivity {
             public void onClick(View v) {
                 Intent chuyencb = new Intent(On_Luyen.this, CB_On_Luyen.class);
                 chuyencb.putExtra("monol","GDCD");
+                startActivity(chuyencb);
+            }
+        });
+
+        btnAnh = (Button) findViewById(R.id.btnAnh);
+        btnAnh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent chuyencb = new Intent(On_Luyen.this, CB_On_Luyen.class);
+                chuyencb.putExtra("monol","anh văn");
                 startActivity(chuyencb);
             }
         });

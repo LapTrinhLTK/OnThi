@@ -13,7 +13,7 @@
         android:text="Bắt đầu làm bài"
         android:textAllCaps="true"
         android:textAppearance="bold"
-        android:textSize="30dp"
+        android:textSize="30sp"
         />
 
     <Button
@@ -44,7 +44,7 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@id/thongbao1"
         android:layout_marginTop="60dp"
-        android:text="TextView"
+        android:text="thời gian: "
         android:textAllCaps="true"
         android:textAppearance="bold"
         android:textSize="25dp"/>
@@ -59,6 +59,7 @@
         android:max="150"
         android:progress="0"
         />
+
     <Button
         android:id="@+id/bdlb1"
         android:layout_height="wrap_content"
