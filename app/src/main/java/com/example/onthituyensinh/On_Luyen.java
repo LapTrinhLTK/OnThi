@@ -28,7 +28,7 @@ public class On_Luyen extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent chuyencb = new Intent(On_Luyen.this, CB_On_Luyen.class);
-                chuyencb.putExtra("monol","vật lý");
+                chuyencb.putExtra("monol","Vật Lý");
                 startActivity(chuyencb);
             }
         });
@@ -38,7 +38,7 @@ public class On_Luyen extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent chuyencb = new Intent(On_Luyen.this, CB_On_Luyen.class);
-                chuyencb.putExtra("monol","hoá học");
+                chuyencb.putExtra("monol","Hoá Học");
                 startActivity(chuyencb);
             }
         });
@@ -48,7 +48,7 @@ public class On_Luyen extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent chuyencb = new Intent(On_Luyen.this, CB_On_Luyen.class);
-                chuyencb.putExtra("monol","sinh học");
+                chuyencb.putExtra("monol","Sinh Học");
                 startActivity(chuyencb);
             }
         });
@@ -58,7 +58,7 @@ public class On_Luyen extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent chuyencb = new Intent(On_Luyen.this, CB_On_Luyen.class);
-                chuyencb.putExtra("monol","địa lý");
+                chuyencb.putExtra("monol","Địa Lý");
                 startActivity(chuyencb);
             }
         });
@@ -68,7 +68,7 @@ public class On_Luyen extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent chuyencb = new Intent(On_Luyen.this, CB_On_Luyen.class);
-                chuyencb.putExtra("monol","lịch sử");
+                chuyencb.putExtra("monol","Lịch Sử");
                 startActivity(chuyencb);
             }
         });
@@ -88,7 +88,7 @@ public class On_Luyen extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent chuyencb = new Intent(On_Luyen.this, CB_On_Luyen.class);
-                chuyencb.putExtra("monol","anh văn");
+                chuyencb.putExtra("monol","Anh Văn");
                 startActivity(chuyencb);
             }
         });

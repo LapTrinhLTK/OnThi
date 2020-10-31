@@ -10,7 +10,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 public class CB_On_Luyen extends AppCompatActivity {
-    Button btnreturn3;
+    Button btnreturn3, btnstart;
     TextView tbmon, tbtime;
     SeekBar time;
     @Override
@@ -35,21 +35,30 @@ public class CB_On_Luyen extends AppCompatActivity {
 
         tbtime = (TextView) findViewById(R.id.thongbaotg);
 
+        final int[] thoigian = new int[1];
         time = (SeekBar) findViewById(R.id.seekBartime);
         time.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int tg, boolean fromUser) {
+                thoigian[0] = tg;
                 tbtime.setText("thời gian: " + tg + "phút");
-            }
 
+            }
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
-
             }
-
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
+            }
+        });
 
+        btnstart = (Button) findViewById(R.id.bdlb1);
+        btnstart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent chuyenbl1 = new Intent(CB_On_Luyen.this, BL_On_Luyen.class);
+                chuyenbl1.putExtra("thoigian", thoigian[0]);
+                startActivity(chuyenbl1);
             }
         });
 
