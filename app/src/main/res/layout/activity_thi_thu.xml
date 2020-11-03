@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:text="hãy chọn bộ đề thi thử"
         android:textAllCaps="true"
-        android:textSize="30dp"
+        android:textSize="25dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="100dp"
 
