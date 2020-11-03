@@ -34,10 +34,10 @@
         android:textSize="20sp"
         android:layout_below="@id/gtchon2"
         android:layout_marginTop="100dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="40dp"
-        android:paddingRight="45dp"
-        android:paddingLeft="45dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="60dp"
+        android:paddingRight="35dp"
+        android:paddingLeft="35dp"
         />
 
     <Button
@@ -49,8 +49,8 @@
         android:layout_below="@id/gtchon2"
         android:layout_marginTop="100dp"
         android:layout_toRightOf="@id/btnLy"
-        android:paddingRight="45dp"
-        android:paddingLeft="45dp"
+        android:paddingRight="35dp"
+        android:paddingLeft="35dp"
 
         />
 
@@ -62,10 +62,10 @@
         android:textSize="20sp"
         android:layout_below="@id/btnLy"
         android:layout_marginTop="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="40dp"
-        android:paddingRight="35dp"
-        android:paddingLeft="30dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="60dp"
+        android:paddingRight="25dp"
+        android:paddingLeft="20dp"
         android:gravity="center"
         />
 
@@ -78,8 +78,8 @@
         android:layout_below="@id/btnSu"
         android:layout_marginTop="20dp"
         android:layout_toRightOf="@id/btnHoa"
-        android:paddingRight="50dp"
-        android:paddingLeft="55dp"
+        android:paddingRight="40dp"
+        android:paddingLeft="45dp"
 
         />
 
@@ -91,10 +91,10 @@
         android:textSize="20sp"
         android:layout_below="@id/btnHoa"
         android:layout_marginTop="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="40dp"
-        android:paddingRight="30dp"
-        android:paddingLeft="30dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="60dp"
+        android:paddingRight="20dp"
+        android:paddingLeft="20dp"
 
         />
 
@@ -107,8 +107,8 @@
         android:layout_below="@id/btnDia"
         android:layout_marginTop="20dp"
         android:layout_toRightOf="@id/btnSinh"
-        android:paddingRight="55dp"
-        android:paddingLeft="55dp"
+        android:paddingRight="45dp"
+        android:paddingLeft="45dp"
 
         />
 
@@ -120,8 +120,8 @@
         android:textSize="20sp"
         android:layout_below="@id/btnGD"
         android:layout_marginTop="20dp"
-        android:paddingRight="40dp"
-        android:paddingLeft="35dp"
+        android:paddingRight="30dp"
+        android:paddingLeft="25dp"
         android:layout_centerHorizontal="true"
 
         />

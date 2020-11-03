@@ -38,9 +38,9 @@
         android:layout_below="@id/gtchon"
         android:layout_marginTop="100dp"
         android:layout_marginRight="20dp"
-        android:layout_marginLeft="30dp"
-        android:paddingRight="45dp"
-        android:paddingLeft="45dp"
+        android:layout_marginLeft="50dp"
+        android:paddingRight="35dp"
+        android:paddingLeft="35dp"
 
         />
 
@@ -53,8 +53,8 @@
         android:layout_below="@id/gtchon"
         android:layout_marginTop="100dp"
         android:layout_toRightOf="@id/deso1"
-        android:paddingRight="45dp"
-        android:paddingLeft="45dp"
+        android:paddingRight="35dp"
+        android:paddingLeft="35dp"
 
         />
 
@@ -67,9 +67,9 @@
         android:layout_below="@id/deso1"
         android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginLeft="30dp"
-        android:paddingRight="45dp"
-        android:paddingLeft="45dp"
+        android:layout_marginLeft="50dp"
+        android:paddingRight="35dp"
+        android:paddingLeft="35dp"
 
         />
 
@@ -82,8 +82,8 @@
         android:layout_below="@id/deso2"
         android:layout_marginTop="20dp"
         android:layout_toRightOf="@id/deso3"
-        android:paddingRight="45dp"
-        android:paddingLeft="45dp"
+        android:paddingRight="35dp"
+        android:paddingLeft="35dp"
 
         />
 
@@ -96,9 +96,9 @@
         android:layout_below="@id/deso3"
         android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginLeft="30dp"
-        android:paddingRight="45dp"
-        android:paddingLeft="45dp"
+        android:layout_marginLeft="50dp"
+        android:paddingRight="35dp"
+        android:paddingLeft="35dp"
 
         />
 
@@ -111,8 +111,8 @@
         android:layout_below="@id/deso4"
         android:layout_marginTop="20dp"
         android:layout_toRightOf="@id/deso5"
-        android:paddingRight="45dp"
-        android:paddingLeft="45dp"
+        android:paddingRight="35dp"
+        android:paddingLeft="35dp"
 
         />
 
@@ -125,9 +125,9 @@
         android:layout_below="@id/deso5"
         android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginLeft="30dp"
-        android:paddingRight="45dp"
-        android:paddingLeft="45dp"
+        android:layout_marginLeft="50dp"
+        android:paddingRight="35dp"
+        android:paddingLeft="35dp"
 
         />
 
@@ -140,8 +140,8 @@
         android:layout_below="@id/deso6"
         android:layout_marginTop="20dp"
         android:layout_toRightOf="@id/deso7"
-        android:paddingRight="45dp"
-        android:paddingLeft="45dp"
+        android:paddingRight="35dp"
+        android:paddingLeft="35dp"
 
         />
 
@@ -154,9 +154,9 @@
         android:layout_below="@id/deso7"
         android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginLeft="30dp"
-        android:paddingRight="45dp"
-        android:paddingLeft="45dp"
+        android:layout_marginLeft="50dp"
+        android:paddingRight="35dp"
+        android:paddingLeft="35dp"
 
         />
 
@@ -170,7 +170,7 @@
         android:layout_marginTop="20dp"
         android:layout_toRightOf="@id/deso3"
         android:paddingRight="35dp"
-        android:paddingLeft="45dp"
+        android:paddingLeft="25dp"
 
         />
 </RelativeLayout>
