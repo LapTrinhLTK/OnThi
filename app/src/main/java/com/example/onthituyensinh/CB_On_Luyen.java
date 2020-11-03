@@ -41,7 +41,7 @@ public class CB_On_Luyen extends AppCompatActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int tg, boolean fromUser) {
                 thoigian[0] = tg;
-                tbtime.setText("thời gian: " + tg + "phút");
+                tbtime.setText("thời gian: " + tg + " phút");
 
             }
             @Override

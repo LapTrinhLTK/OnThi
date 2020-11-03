@@ -9,22 +9,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="120dp"
-        android:text="TextView"
-        android:textAllCaps="true"
+        android:layout_marginTop="90dp"
+        android:text="Nhận định nào sau đây không đúng thành tựu đáng kể trong việc nâng cao chất lượng cuộc sống của nhân dân ta là"
+        android:textAllCaps="false"
 
-        android:textSize="30sp"
+        android:textSize="25sp"
         />
 
     <Button
         android:id="@+id/btnA"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:text="A"
+        android:text="A.mức thu nhập bình quân đầu người tăng."
         android:textSize="20sp"
         android:layout_below="@id/cauhoi"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="40dp"
         android:layout_marginRight="60dp"
         android:textAllCaps="false"
         />
@@ -33,7 +33,7 @@
         android:id="@+id/btnB"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:text="B"
+        android:text="B.người dân được hưởng các dịch vụ xã hội ngày càng tốt hơn."
         android:textSize="20sp"
         android:layout_below="@id/btnA"
         android:layout_centerHorizontal="true"
@@ -46,7 +46,7 @@
         android:id="@+id/btnC"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:text="C"
+        android:text="C.chất lượng cuộc sống của dân cư giữa các vùng còn chênh lệch."
         android:textSize="20sp"
         android:layout_below="@id/btnB"
         android:layout_centerHorizontal="true"
@@ -59,7 +59,7 @@
         android:id="@+id/btnD"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:text="D"
+        android:text="D.tuổi thọ trung bình của người dân tăng."
         android:textSize="20sp"
         android:layout_below="@id/btnC"
         android:layout_centerHorizontal="true"
@@ -67,6 +67,18 @@
         android:layout_marginRight="60dp"
         android:textAllCaps="false"
     />
+
+    <TextView
+        android:id="@+id/timer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="00:38:46"
+        android:textAllCaps="false"
+
+        android:textSize="25sp"
+        />
 
 
 
