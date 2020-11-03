@@ -9,11 +9,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="90dp"
+        android:layout_marginTop="80dp"
         android:text="Nhận định nào sau đây không đúng thành tựu đáng kể trong việc nâng cao chất lượng cuộc sống của nhân dân ta là"
         android:textAllCaps="false"
 
-        android:textSize="25sp"
+        android:textSize="15sp"
         />
 
     <Button
@@ -21,10 +21,10 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:text="A.mức thu nhập bình quân đầu người tăng."
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:layout_below="@id/cauhoi"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="30dp"
         android:layout_marginRight="60dp"
         android:textAllCaps="false"
         />
@@ -34,7 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:text="B.người dân được hưởng các dịch vụ xã hội ngày càng tốt hơn."
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:layout_below="@id/btnA"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
@@ -47,7 +47,7 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:text="C.chất lượng cuộc sống của dân cư giữa các vùng còn chênh lệch."
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:layout_below="@id/btnB"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
@@ -60,7 +60,7 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:text="D.tuổi thọ trung bình của người dân tăng."
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:layout_below="@id/btnC"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
@@ -73,11 +73,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="25dp"
         android:text="00:38:46"
         android:textAllCaps="false"
 
-        android:textSize="25sp"
+        android:textSize="20sp"
         />
 
 
