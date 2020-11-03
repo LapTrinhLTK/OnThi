@@ -1,5 +1,7 @@
 package com.example.onthituyensinh;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -7,20 +9,24 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class BL_On_Luyen extends AppCompatActivity {
-    TextView cauhoi, btna,btnb,btnc,btnd;
+    TextView txtquestion, btna,btnb,btnc,btnd;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_b_l__on__luyen);
 
         //Anh xa cac view
-        cauhoi = (TextView) findViewById(R.id.cauhoi);
+        txtquestion = (TextView) findViewById(R.id.cauhoi);
         btna = (Button) findViewById(R.id.btnA);
         btnb = (Button) findViewById(R.id.btnB);
         btnc = (Button) findViewById(R.id.btnC);
@@ -30,21 +36,18 @@ public class BL_On_Luyen extends AppCompatActivity {
             Intent chuyencb = getIntent();
             String keynodemon = chuyencb.getStringExtra("monol");
 
-        //Lay du lieu mon on luyen da chon
-
-        Query mononluyen = FirebaseDatabase.getInstance().getReference().child(keynodemon);
-
-        //Mang chua node cac cau hoi cua mon da chon
-        String numcau;
-        ArrayList<String> cauhoi = new ArrayList<>();
-
-        for (int socau = 1; socau<=15; socau++ ){
-            numcau = String.valueOf(socau);
-            cauhoi.add("Câu " + socau);
+        //Xet so cau (sau nay bien so nguyen trong phan nay se la tham so cho random)
+        int sc;
+        if (keynodemon == "Anh Văn"){
+            sc = 20;
+        } else {
+            sc = 15;
         }
 
 
 
+        }
+        
 
 
 
@@ -53,4 +56,3 @@ public class BL_On_Luyen extends AppCompatActivity {
         
 
     }
-}

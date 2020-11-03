@@ -26,6 +26,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="100dp"
         android:layout_marginRight="60dp"
+        android:textAllCaps="fasle"
         />
 
     <Button
@@ -38,6 +39,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:layout_marginRight="60dp"
+        android:textAllCaps="fasle"
         />
 
     <Button
@@ -50,6 +52,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:layout_marginRight="60dp"
+        android:textAllCaps="fasle"
     />
 
     <Button
@@ -62,9 +65,11 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:layout_marginRight="60dp"
+        android:textAllCaps="fasle"
     />
 
     <TextView
         
         />
+
 </RelativeLayout>
