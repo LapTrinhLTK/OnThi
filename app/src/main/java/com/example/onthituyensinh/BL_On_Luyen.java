@@ -36,7 +36,7 @@ public class BL_On_Luyen extends AppCompatActivity {
             Intent chuyencb = getIntent();
             String keynodemon = chuyencb.getStringExtra("monol");
 
-        //Xet so cau (sau nay bien so nguyen trong phan nay se la tham so cho random)
+        //Xet so cau
         int sc;
         if (keynodemon == "Anh Văn"){
             sc = 20;
