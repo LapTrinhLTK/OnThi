@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:text="ôn luyện môn tổ hợp"
         android:textAllCaps="true"
-        android:textSize="35sp"
+        android:textSize="30sp"
 
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:text="kì thi tuyển sinh 10"
         android:textAllCaps="true"
-        android:textSize="35sp"
+        android:textSize="30sp"
 
         android:layout_below="@id/gtchinh1"
         android:layout_centerHorizontal="true"

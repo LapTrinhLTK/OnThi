@@ -13,7 +13,7 @@
         android:text="hãy chọn môn ôn luyện"
         android:textAllCaps="true"
 
-        android:textSize="30dp"
+        android:textSize="25dp"
         />
 
     <Button
@@ -23,18 +23,19 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:text="Quay lại"
-        android:textSize="25sp"/>
+        android:textAllCaps="false"
+        android:textSize="20sp"/>
 
     <Button
         android:id="@+id/btnLy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="vật lý"
-        android:textSize="24sp"
+        android:textSize="20sp"
         android:layout_below="@id/gtchon2"
-        android:layout_marginTop="110dp"
-        android:layout_marginRight="25dp"
-        android:layout_marginLeft="16dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="40dp"
         android:paddingRight="45dp"
         android:paddingLeft="45dp"
         />
@@ -44,9 +45,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="lịch sử"
-        android:textSize="24sp"
+        android:textSize="20sp"
         android:layout_below="@id/gtchon2"
-        android:layout_marginTop="110dp"
+        android:layout_marginTop="100dp"
         android:layout_toRightOf="@id/btnLy"
         android:paddingRight="45dp"
         android:paddingLeft="45dp"
@@ -58,12 +59,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="hóa học"
-        android:textSize="24sp"
+        android:textSize="20sp"
         android:layout_below="@id/btnLy"
         android:layout_marginTop="20dp"
-        android:layout_marginRight="25dp"
-        android:layout_marginLeft="16dp"
-        android:paddingRight="30dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="40dp"
+        android:paddingRight="35dp"
         android:paddingLeft="30dp"
         android:gravity="center"
         />
@@ -73,11 +74,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="địa lý"
-        android:textSize="24sp"
+        android:textSize="20sp"
         android:layout_below="@id/btnSu"
         android:layout_marginTop="20dp"
         android:layout_toRightOf="@id/btnHoa"
-        android:paddingRight="55dp"
+        android:paddingRight="50dp"
         android:paddingLeft="55dp"
 
         />
@@ -87,13 +88,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="sinh học"
-        android:textSize="24sp"
+        android:textSize="20sp"
         android:layout_below="@id/btnHoa"
         android:layout_marginTop="20dp"
-        android:layout_marginRight="25dp"
-        android:layout_marginLeft="16dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="40dp"
         android:paddingRight="30dp"
-        android:paddingLeft="25dp"
+        android:paddingLeft="30dp"
 
         />
 
@@ -102,12 +103,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="GDCD"
-        android:textSize="24sp"
+        android:textSize="20sp"
         android:layout_below="@id/btnDia"
         android:layout_marginTop="20dp"
         android:layout_toRightOf="@id/btnSinh"
         android:paddingRight="55dp"
-        android:paddingLeft="60dp"
+        android:paddingLeft="55dp"
 
         />
 
@@ -116,7 +117,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Anh Văn"
-        android:textSize="24sp"
+        android:textSize="20sp"
         android:layout_below="@id/btnGD"
         android:layout_marginTop="20dp"
         android:paddingRight="40dp"

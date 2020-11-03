@@ -31,6 +31,6 @@ public class CB_ThiThu extends AppCompatActivity {
         Intent chuyencbtt = getIntent();
         String cacmon = chuyencbtt.getStringExtra("monthi");
         tbmon2.setText(cacmon);
-        int k = 4;
+        int k = 5;
     }
 }
