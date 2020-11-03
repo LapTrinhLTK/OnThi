@@ -12,7 +12,7 @@
         android:layout_marginTop="120dp"
         android:text="TextView"
         android:textAllCaps="true"
-        android:textAppearance="bold"
+
         android:textSize="30sp"
         />
 
@@ -26,7 +26,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="100dp"
         android:layout_marginRight="60dp"
-        android:textAllCaps="fasle"
+        android:textAllCaps="false"
         />
 
     <Button
@@ -39,7 +39,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:layout_marginRight="60dp"
-        android:textAllCaps="fasle"
+        android:textAllCaps="false"
         />
 
     <Button
@@ -52,7 +52,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:layout_marginRight="60dp"
-        android:textAllCaps="fasle"
+        android:textAllCaps="false"
     />
 
     <Button
@@ -65,11 +65,9 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:layout_marginRight="60dp"
-        android:textAllCaps="fasle"
+        android:textAllCaps="false"
     />
 
-    <TextView
-        
-        />
+
 
 </RelativeLayout>

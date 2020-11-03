@@ -11,7 +11,7 @@
         android:text="ôn luyện môn tổ hợp"
         android:textAllCaps="true"
         android:textSize="35sp"
-        android:textAppearance="bold"
+
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
 
@@ -24,7 +24,7 @@
         android:text="kì thi tuyển sinh 10"
         android:textAllCaps="true"
         android:textSize="35sp"
-        android:textAppearance="bold"
+
         android:layout_below="@id/gtchinh1"
         android:layout_centerHorizontal="true"
 

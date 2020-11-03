@@ -13,14 +13,14 @@
         android:textSize="30sp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="100dp"
-        android:textAppearance="bold"
+
         />
 
     <Button
         android:id="@+id/return4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="<"
+        android:text="quay lại"
         android:textSize="25sp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
@@ -36,7 +36,7 @@
         android:textSize="25dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="80dp"
-        android:textAppearance="bold"
+
         android:layout_below="@id/thongbao2"
         />
     <TextView
@@ -48,7 +48,7 @@
         android:textSize="25dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="60dp"
-        android:textAppearance="bold"
+
         android:layout_below="@id/tbmon2"
         />
 
