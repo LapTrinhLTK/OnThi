@@ -37,6 +37,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        btnintro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent chuyenintro = new Intent(MainActivity.this, ThongKe.class);
+                startActivity(chuyenintro);
+            }
+        });
+
 
     }
 }

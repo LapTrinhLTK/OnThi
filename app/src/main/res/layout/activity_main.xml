@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:text="hướng dẫn ôn tập tuyển sinh 10"
         android:textAllCaps="true"
-        android:textSize="22sp"
+        android:textSize="20sp"
 
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:text="theo hình thức trắc nghiệm"
         android:textAllCaps="true"
-        android:textSize="22sp"
+        android:textSize="20sp"
         android:layout_below="@id/gtchinh1"
         android:layout_centerHorizontal="true"
 
@@ -35,7 +35,7 @@
         android:layout_height="wrap_content"
         android:text="tổ hợp các môn"
         android:textAllCaps="true"
-        android:textSize="22sp"
+        android:textSize="20sp"
         android:layout_below="@id/gtchinh2"
         android:layout_centerHorizontal="true"
 
