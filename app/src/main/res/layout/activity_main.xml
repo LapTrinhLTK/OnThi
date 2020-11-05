@@ -8,9 +8,9 @@
         android:id="@+id/gtchinh1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ôn luyện môn tổ hợp"
+        android:text="hướng dẫn ôn tập tuyển sinh 10"
         android:textAllCaps="true"
-        android:textSize="30sp"
+        android:textSize="22sp"
 
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
@@ -21,11 +21,22 @@
         android:id="@+id/gtchinh2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="kì thi tuyển sinh 10"
+        android:text="theo hình thức trắc nghiệm"
         android:textAllCaps="true"
-        android:textSize="30sp"
-
+        android:textSize="22sp"
         android:layout_below="@id/gtchinh1"
+        android:layout_centerHorizontal="true"
+
+        />
+
+    <TextView
+        android:id="@+id/gtchinh3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="tổ hợp các môn"
+        android:textAllCaps="true"
+        android:textSize="22sp"
+        android:layout_below="@id/gtchinh2"
         android:layout_centerHorizontal="true"
 
         />
@@ -36,8 +47,8 @@
         android:layout_height="wrap_content"
         android:text="thi thử"
         android:textSize="30sp"
-        android:layout_below="@id/gtchinh2"
-        android:layout_marginTop="70dp"
+        android:layout_below="@id/gtchinh3"
+        android:layout_marginTop="50dp"
 
         />
 

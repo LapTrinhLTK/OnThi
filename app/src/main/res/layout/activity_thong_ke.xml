@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+        android:id="@+id/gtkt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:text="Bài làm kết thúc"
+        android:textAllCaps="true"
+        android:textSize="30dp"
+        />
+
+    <TextView
+        android:id="@+id/kqsocau"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/gtkt"
+        android:layout_marginTop="80dp"
+        android:text="Tổng số câu đã làm: 15/15"
+        android:textAllCaps="false"
+        android:textSize="25dp"
+        />
+
+    <TextView
+        android:id="@+id/kqdung"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/kqsocau"
+        android:layout_marginTop="40dp"
+        android:text="Số câu đúng: 12/15"
+        android:textAllCaps="false"
+        android:textSize="25dp"
+        android:textColor="#21F30A"
+        />
+
+    <TextView
+        android:id="@+id/kqsai"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/kqdung"
+        android:layout_marginTop="40dp"
+        android:text="Số câu sai: 3/15"
+        android:textAllCaps="false"
+        android:textSize="25dp"
+        android:textColor="#F30A0A"
+        />
+
+    <Button
+        android:id="@+id/btnbackmain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="về trang chủ"
+        android:textSize="20dp"
+        android:layout_below="@id/kqsai"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"
+        />
+
+</RelativeLayout>
