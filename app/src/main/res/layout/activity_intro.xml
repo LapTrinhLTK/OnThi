@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+        android:id="@+id/gthd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="70dp"
+        android:text="hướng dẫn"
+        android:textAllCaps="true"
+        android:textSize="25dp"
+        />
+
+    <Button
+        android:id="@+id/return5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="Quay lại"
+        android:textAllCaps="false"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/hdthithu1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:layout_below="@id/gthd"
+        android:text="Thi Thử"
+        android:textAllCaps="false"
+        android:textSize="23dp"
+        />
+
+    <TextView
+        android:id="@+id/hdthithu2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="false"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/hdthithu1"
+        android:text="+Nháy chọn mục Thi Thử trên màn hình chính."
+        android:textAllCaps="false"
+        android:textSize="20dp"
+        />
+
+    <TextView
+        android:id="@+id/hdthithu3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="false"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/hdthithu2"
+        android:text="+Nháy chọn bộ đề"
+        android:textAllCaps="false"
+        android:textSize="20dp"
+        />
+
+    <TextView
+        android:id="@+id/hdthithu4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="false"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/hdthithu3"
+        android:text="+Xem thông tin bài thi và bắt đầu làm bài"
+        android:textAllCaps="false"
+        android:textSize="20dp"
+        />
+
+    <TextView
+        android:id="@+id/hdonluyen1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:layout_below="@id/hdthithu4"
+        android:text="Ôn Luyện"
+        android:textAllCaps="false"
+        android:textSize="23dp"
+        />
+
+    <TextView
+        android:id="@+id/hdonluyen2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="false"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/hdonluyen1"
+        android:text="+Nháy chọn mục Ôn Luyện trên màn hình chính."
+        android:textAllCaps="false"
+        android:textSize="20dp"
+        />
+
+    <TextView
+        android:id="@+id/hdonluyen3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="false"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/hdonluyen2"
+        android:text="+Nháy chọn môn cần ôn luyện"
+        android:textAllCaps="false"
+        android:textSize="20dp"
+        />
+
+    <TextView
+        android:id="@+id/hdonluyen4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="false"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/hdonluyen3"
+        android:text="+Xem thông tin môn ôn luyện và bắt đầu làm bài"
+        android:textAllCaps="false"
+        android:textSize="20dp"
+        />
+</RelativeLayout>
