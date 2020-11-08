@@ -26,14 +26,17 @@ public class BL_On_Luyen extends AppCompatActivity {
     TextView txtquestion,timer;
     Button btna, btnb, btnc, btnd;
 
-    //Khai bao cac bien
+
+    ArrayList<Boolean> dd = new ArrayList<>();
+
+
     int socaudung = 0;
     int socausai = 0;
     int tongsocau = 0;
-    int socau;
+    int socau, k;
     int dem = 0;
 
-    //Lay node mon on luyen da chon (string)
+
     Intent chuyencb = getIntent();
     String keynodemon = chuyencb.getStringExtra("monol");
 
@@ -81,71 +84,95 @@ public class BL_On_Luyen extends AppCompatActivity {
             Random random = new Random();
             int numcau = random.nextInt(socau);
             numcau++;
-            datacauhoi = FirebaseDatabase.getInstance().getReference().child(keynodemon).child("Câu "+ String.valueOf(numcau));
-            tongsocau++;
-            datacauhoi.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot snapshot)
-                {
-                    final GetData getdata = snapshot.getValue(GetData.class);
-                    txtquestion.setText(getdata.getCauhoi());
-                    btna.setText(getdata.getChona());
-                    btnb.setText(getdata.getChonb());
-                    btnc.setText(getdata.getChonc());
-                    btnd.setText(getdata.getChond());
 
-                    btna.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            String chon = btna.getText().toString();
-                            if (chon.equals(getdata.dapan))
-                            { socaudung++; }
-                            else {socausai++;}
-                            TaoCauHoi();
-                        }
-                    });
+            if (dd.get(numcau) == false)
+            {
+                dd.set(numcau, true);
+                datacauhoi = FirebaseDatabase.getInstance().getReference().child(keynodemon).child("Cau" + String.valueOf(numcau));
+                tongsocau++;
+                datacauhoi.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        final GetData getdata = snapshot.getValue(GetData.class);
+                        txtquestion.setText(getdata.getCauhoi());
+                        btna.setText(getdata.getOptiona());
+                        btnb.setText(getdata.getOptionb());
+                        btnc.setText(getdata.getOptionc());
+                        btnd.setText(getdata.getOptiond());
 
-                    btnb.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            String chon = btnb.getText().toString();
-                            if (chon.equals(getdata.dapan))
-                            { socaudung++; }
-                            else {socausai++;}
-                            TaoCauHoi();
-                        }
-                    });
+                        btna.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                String chon = "A";
+                                if (chon.equals(getdata.dapan)) {
+                                    socaudung++;
+                                    TaoCauHoi();
+                                } else {
+                                    socausai++;
+                                    TaoCauHoi();
+                                }
 
-                    btnc.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            String chon = btnc.getText().toString();
-                            if (chon.equals(getdata.dapan))
-                            { socaudung++; }
-                            else {socausai++;}
-                            TaoCauHoi();
-                        }
-                    });
+                            }
+                        });
 
-                    btnd.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            String chon = btnd.getText().toString();
-                            if (chon.equals(getdata.dapan))
-                            { socaudung++; }
-                            else {socausai++;}
-                            TaoCauHoi();
-                        }
-                    });
+                        btnb.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                String chon = "B";
+                                if (chon.equals(getdata.dapan)) {
+                                    socaudung++;
+                                    TaoCauHoi();
+                                } else {
+                                    socausai++;
+                                    TaoCauHoi();
+                                }
+
+                            }
+                        });
+
+                        btnc.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                String chon = "C";
+                                if (chon.equals(getdata.dapan)) {
+                                    socaudung++;
+                                    TaoCauHoi();
+                                } else {
+                                    socausai++;
+                                    TaoCauHoi();
+                                }
+
+                            }
+                        });
+
+                        btnd.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                String chon = "D";
+                                if (chon.equals(getdata.dapan)) {
+                                    socaudung++;
+                                    TaoCauHoi();
+                                } else {
+                                    socausai++;
+                                    TaoCauHoi();
+                                }
+
+                            }
+                        });
 
 
+                    }
 
-                }
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-                }
-            });
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                    }
+                });
 
+            }
+            else {
+                dem = dem-1;
+                TaoCauHoi();
+            }
 
 
 

@@ -3,15 +3,15 @@ package com.example.onthituyensinh;
 public class GetData
 {
     public String cauhoi;
-    public String chona, chonb, chonc, chond, dapan;
+    public String optiona, optionb, optionc, optiond, dapan;
 
-    public GetData(String cauhoi, String chona, String chonb, String chonc, String chond, String dapan)
+    public GetData(String cauhoi, String optiona, String optionb, String optionc, String optiond, String dapan)
     {
         this.cauhoi = cauhoi;
-        this.chona = chona;
-        this.chonb = chonb;
-        this.chonc = chonc;
-        this.chond = chond;
+        this.optiona = optiona;
+        this.optionb = optionb;
+        this.optionc = optionc;
+        this.optiond = optiond;
         this.dapan = dapan;
     }
 
@@ -21,21 +21,21 @@ public class GetData
 
     public void setCauhoi(String cauhoi) { this.cauhoi = cauhoi; }
 
-    public String getChona() {return chona; }
+    public String getOptiona() {return optiona; }
 
-    public void setChona(String chona) { this.chona = chona; }
+    public void setOptiona(String optiona) { this.optiona = optiona; }
 
-    public String getChonb() {return chonb; }
+    public String getOptionb() {return optionb; }
 
-    public void setChonb(String chonb) { this.chonb = chonb; }
+    public void setOptionb(String optionb) { this.optionb = optionb; }
 
-    public String getChonc() {return chonc; }
+    public String getOptionc() {return optionc; }
 
-    public void setChonc(String chonc) { this.chonc = chonc; }
+    public void setOptionc(String optionc) { this.optionc = optionc; }
 
-    public String getChond() {return chond; }
+    public String getOptiond() {return optiond; }
 
-    public void setChond(String chond) { this.chond = chond; }
+    public void setOptiond(String optiond) { this.optiond = optiond; }
 
     public String getDapan() {return dapan; }
 
