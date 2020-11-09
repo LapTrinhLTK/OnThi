@@ -36,11 +36,11 @@ public class BL_On_Luyen extends AppCompatActivity {
     int socau, k;
     int dem = 0;
 
-
     Intent chuyencb = getIntent();
     String keynodemon = chuyencb.getStringExtra("monol");
 
     DatabaseReference datacauhoi;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,10 +54,12 @@ public class BL_On_Luyen extends AppCompatActivity {
         btnd = (Button) findViewById(R.id.btnD);
 
 
-
         //Kiem tra so cau
         if (keynodemon == "Anh Văn") { socau = 20; }
         else { socau = 15; }
+
+
+
 
         TaoCauHoi();
 
@@ -88,7 +90,26 @@ public class BL_On_Luyen extends AppCompatActivity {
             if (dd.get(numcau) == false)
             {
                 dd.set(numcau, true);
-                datacauhoi = FirebaseDatabase.getInstance().getReference().child(keynodemon).child("Cau" + String.valueOf(numcau));
+
+                switch (keynodemon)
+                {
+                    case "Vật Lý": datacauhoi = FirebaseDatabase.getInstance().getReference().child("Vật Lý").child("Cau" + String.valueOf(numcau));
+                    break;
+                    case "Hóa Học": datacauhoi = FirebaseDatabase.getInstance().getReference().child("Hóa Học").child("Cau" + String.valueOf(numcau));
+                        break;
+                    case "Sinh Học": datacauhoi = FirebaseDatabase.getInstance().getReference().child("Sinh Học").child("Cau" + String.valueOf(numcau));
+                        break;
+                    case "Lịch Sử": datacauhoi = FirebaseDatabase.getInstance().getReference().child("Lịch Sử").child("Cau" + String.valueOf(numcau));
+                        break;
+                    case "Địa Lý": datacauhoi = FirebaseDatabase.getInstance().getReference().child("Địa Lý").child("Cau" + String.valueOf(numcau));
+                        break;
+                    case "GDCD": datacauhoi = FirebaseDatabase.getInstance().getReference().child("GDCD").child("Cau" + String.valueOf(numcau));
+                        break;
+                    case "Anh Văn": datacauhoi = FirebaseDatabase.getInstance().getReference().child("Anh Văn").child("Cau" + String.valueOf(numcau));
+                        break;
+                    default:
+                }
+
                 tongsocau++;
                 datacauhoi.addValueEventListener(new ValueEventListener() {
                     @Override
@@ -104,7 +125,7 @@ public class BL_On_Luyen extends AppCompatActivity {
                             @Override
                             public void onClick(View v) {
                                 String chon = "A";
-                                if (chon.equals(getdata.dapan)) {
+                                if (chon.equals(getdata.getDapan())) {
                                     socaudung++;
                                     TaoCauHoi();
                                 } else {
@@ -119,7 +140,7 @@ public class BL_On_Luyen extends AppCompatActivity {
                             @Override
                             public void onClick(View v) {
                                 String chon = "B";
-                                if (chon.equals(getdata.dapan)) {
+                                if (chon.equals(getdata.getDapan())) {
                                     socaudung++;
                                     TaoCauHoi();
                                 } else {
@@ -134,7 +155,7 @@ public class BL_On_Luyen extends AppCompatActivity {
                             @Override
                             public void onClick(View v) {
                                 String chon = "C";
-                                if (chon.equals(getdata.dapan)) {
+                                if (chon.equals(getdata.getDapan())) {
                                     socaudung++;
                                     TaoCauHoi();
                                 } else {
@@ -149,7 +170,7 @@ public class BL_On_Luyen extends AppCompatActivity {
                             @Override
                             public void onClick(View v) {
                                 String chon = "D";
-                                if (chon.equals(getdata.dapan)) {
+                                if (chon.equals(getdata.getDapan())){
                                     socaudung++;
                                     TaoCauHoi();
                                 } else {
