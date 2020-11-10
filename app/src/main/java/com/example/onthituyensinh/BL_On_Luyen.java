@@ -30,15 +30,15 @@ public class BL_On_Luyen extends AppCompatActivity {
     ArrayList<Boolean> dd = new ArrayList<>();
 
 
+
     int socaudung = 0;
     int socausai = 0;
     int tongsocau = 0;
     int socau, k;
     int dem = 0;
 
-    Intent chuyencb = getIntent();
-    String keynodemon = chuyencb.getStringExtra("monol");
 
+    String keynodemon;
     DatabaseReference datacauhoi;
 
     @Override
@@ -54,10 +54,18 @@ public class BL_On_Luyen extends AppCompatActivity {
         btnd = (Button) findViewById(R.id.btnD);
 
 
+        Intent chuyencb = getIntent();
+        String keynodemon = chuyencb.getStringExtra("monol");
+
+
         //Kiem tra so cau
-        if (keynodemon == "Anh Văn") { socau = 20; }
+        if (keynodemon.equals("Anh Văn")) { socau = 20; }
         else { socau = 15; }
 
+        for(int a = 0; a<=120; a++)
+        {
+            dd.set(a, false);
+        }
 
 
 
