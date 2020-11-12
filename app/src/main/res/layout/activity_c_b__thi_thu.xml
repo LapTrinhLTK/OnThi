@@ -20,8 +20,9 @@
         android:id="@+id/return4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="quay lại"
-        android:textSize="25sp"
+        android:text="Quay lại"
+        android:textAllCaps="false"
+        android:textSize="20sp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
 

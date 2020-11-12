@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -38,7 +39,7 @@ public class BL_On_Luyen extends AppCompatActivity {
     int dem = 0;
 
 
-    String keynodemon;
+    String keynodemon = "";
     DatabaseReference datacauhoi;
 
     @Override
@@ -59,12 +60,12 @@ public class BL_On_Luyen extends AppCompatActivity {
 
 
         //Kiem tra so cau
-        if (keynodemon.equals("Anh Văn")) { socau = 20; }
+        if (keynodemon == "Anh Văn") { socau = 20; }
         else { socau = 15; }
 
         for(int a = 0; a<=120; a++)
         {
-            dd.set(a, false);
+            dd.add(false);
         }
 
 
@@ -99,10 +100,11 @@ public class BL_On_Luyen extends AppCompatActivity {
             {
                 dd.set(numcau, true);
 
-                switch (keynodemon)
+                String mon = keynodemon;
+                switch (mon)
                 {
                     case "Vật Lý": datacauhoi = FirebaseDatabase.getInstance().getReference().child("Vật Lý").child("Cau" + String.valueOf(numcau));
-                    break;
+                        break;
                     case "Hóa Học": datacauhoi = FirebaseDatabase.getInstance().getReference().child("Hóa Học").child("Cau" + String.valueOf(numcau));
                         break;
                     case "Sinh Học": datacauhoi = FirebaseDatabase.getInstance().getReference().child("Sinh Học").child("Cau" + String.valueOf(numcau));
@@ -115,7 +117,8 @@ public class BL_On_Luyen extends AppCompatActivity {
                         break;
                     case "Anh Văn": datacauhoi = FirebaseDatabase.getInstance().getReference().child("Anh Văn").child("Cau" + String.valueOf(numcau));
                         break;
-                    default:
+                    default: datacauhoi = FirebaseDatabase.getInstance().getReference().child("Anh Văn").child("Cau" + String.valueOf(numcau));
+
                 }
 
                 tongsocau++;
@@ -208,7 +211,6 @@ public class BL_On_Luyen extends AppCompatActivity {
         }
 
     }
-
 
 
 
