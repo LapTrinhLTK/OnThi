@@ -71,7 +71,7 @@ public class BL_On_Luyen extends AppCompatActivity {
 
 
         TaoCauHoi();
-
+        CountDownTimer(150, timer);
 
         }
         
@@ -85,6 +85,7 @@ public class BL_On_Luyen extends AppCompatActivity {
         if (dem>socau)
         {
             Intent chuyenthongke = new Intent(BL_On_Luyen.this, ThongKe.class);
+            chuyenthongke.putExtra("socau", String.valueOf(socau));
             chuyenthongke.putExtra("tongcau", String.valueOf(tongsocau));
             chuyenthongke.putExtra("caudung", String.valueOf(socaudung));
             chuyenthongke.putExtra("causai", String.valueOf(socausai));
@@ -117,7 +118,7 @@ public class BL_On_Luyen extends AppCompatActivity {
                         break;
                     case "Anh Văn": datacauhoi = FirebaseDatabase.getInstance().getReference().child("Anh Văn").child("Cau" + String.valueOf(numcau));
                         break;
-                    default: datacauhoi = FirebaseDatabase.getInstance().getReference().child("Anh Văn").child("Cau" + String.valueOf(numcau));
+                    default: datacauhoi = FirebaseDatabase.getInstance().getReference().child(mon).child("Cau" + String.valueOf(numcau));
 
                 }
 
@@ -212,7 +213,30 @@ public class BL_On_Luyen extends AppCompatActivity {
 
     }
 
+    public void CountDownTimer(int seconds, final TextView tv)
+    {
+        new CountDownTimer(seconds * 1000 + 1000, 1000)
+        {
+            public void onTick(long millisUntilFinished)
+            {
+                int seconds = (int) (millisUntilFinished/1000);
+                int minutes = seconds/60;
+                seconds = seconds % 60;
+                tv.setText(String.format("%02d", minutes) + ":" + String.format("%02d", seconds));
+            }
 
+            public void onFinish()
+            {
+                tv.setText("Hết thời gian làm bài");
+                Intent chuyenthongke = new Intent(BL_On_Luyen.this, ThongKe.class);
+                chuyenthongke.putExtra("socau", String.valueOf(socau));
+                chuyenthongke.putExtra("tongcau", String.valueOf(tongsocau));
+                chuyenthongke.putExtra("caudung", String.valueOf(socaudung));
+                chuyenthongke.putExtra("causai", String.valueOf(socausai));
+                startActivity(chuyenthongke);
+            }
+        }.start();
+    }
 
         
 
