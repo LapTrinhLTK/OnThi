@@ -1,7 +1,6 @@
 package com.example.onthituyensinh;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -11,26 +10,20 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Random;
 
-public class BL_On_Luyen extends AppCompatActivity {
-
-    TextView txtquestion,timer;
-    Button btna, btnb, btnc, btnd;
-
+public class BLThiThu extends AppCompatActivity {
+    Button btna,btnb,btnc,btnd;
+    TextView txtquestion, timer;
 
     ArrayList<Boolean> dd = new ArrayList<>();
-
-
 
     int socaudung = 0;
     int socausai = 0;
@@ -38,48 +31,37 @@ public class BL_On_Luyen extends AppCompatActivity {
     int socau, k;
     int dem = 0;
 
-
-    String keynodemon = "";
+    String keytn, keyxh;
     DatabaseReference datacauhoi;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_b_l__on__luyen);
+        setContentView(R.layout.activity_b_l_thi_thu);
+
         //Anh xa cac view
-        txtquestion = (TextView) findViewById(R.id.cauhoi);
+        txtquestion = (TextView) findViewById(R.id.cauhoitt);
         timer = (TextView) findViewById(R.id.timer);
         btna = (Button) findViewById(R.id.btnA);
         btnb = (Button) findViewById(R.id.btnB);
         btnc = (Button) findViewById(R.id.btnC);
         btnd = (Button) findViewById(R.id.btnD);
 
-
-        Intent chuyencb = getIntent();
-        String keynodemon = chuyencb.getStringExtra("monol");
-
-        Intent chuyenbl1 = getIntent();
-        int time  = chuyenbl1.getIntExtra("thoigian", 150);
-        time = time*60;
-
-        //Kiem tra so cau
-        if (keynodemon == "Anh Văn") { socau = 20; }
-        else { socau = 15; }
+        Intent chuyencbtt = getIntent();
+        keytn = chuyencbtt.getStringExtra("montn");
+        keyxh = chuyencbtt.getStringExtra("monxh");
 
         for(int a = 0; a<=120; a++)
         {
             dd.add(false);
         }
 
+        TaoCauHoi("Anh Văn");
+        TaoCauHoi(keytn);
+        TaoCauHoi(keyxh);
+        CountDownTimer(150*60, timer);
 
 
-        TaoCauHoi(keynodemon);
-        CountDownTimer(time, timer);
-
-        }
-        
-
-
+    }
 
     public void TaoCauHoi(final String mon)
     {
@@ -87,7 +69,7 @@ public class BL_On_Luyen extends AppCompatActivity {
 
         if (dem>socau)
         {
-            Intent chuyenthongke = new Intent(BL_On_Luyen.this, ThongKe.class);
+            Intent chuyenthongke = new Intent(BLThiThu.this, ThongKe.class);
             chuyenthongke.putExtra("socau", String.valueOf(socau));
             chuyenthongke.putExtra("tongcau", String.valueOf(tongsocau));
             chuyenthongke.putExtra("caudung", String.valueOf(socaudung));
@@ -236,7 +218,7 @@ public class BL_On_Luyen extends AppCompatActivity {
             public void onFinish()
             {
                 tv.setText("Hết thời gian làm bài");
-                Intent chuyenthongke = new Intent(BL_On_Luyen.this, ThongKe.class);
+                Intent chuyenthongke = new Intent(BLThiThu.this, ThongKe.class);
                 chuyenthongke.putExtra("socau", String.valueOf(socau));
                 chuyenthongke.putExtra("tongcau", String.valueOf(tongsocau));
                 chuyenthongke.putExtra("caudung", String.valueOf(socaudung));
@@ -246,6 +228,4 @@ public class BL_On_Luyen extends AppCompatActivity {
         }.start();
     }
 
-        
-
-    }
+}
