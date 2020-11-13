@@ -39,9 +39,11 @@ public class BL_On_Luyen extends AppCompatActivity {
     int dem = 0;
 
 
-    String keynodemon = "";
+
     DatabaseReference datacauhoi;
 
+    Intent chuyencb = getIntent();
+    String keynodemon = chuyencb.getStringExtra("monol");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,8 +57,7 @@ public class BL_On_Luyen extends AppCompatActivity {
         btnd = (Button) findViewById(R.id.btnD);
 
 
-        Intent chuyencb = getIntent();
-        String keynodemon = chuyencb.getStringExtra("monol");
+
 
         Intent chuyenbl1 = getIntent();
         int time  = chuyenbl1.getIntExtra("thoigian", 150);
@@ -73,7 +74,7 @@ public class BL_On_Luyen extends AppCompatActivity {
 
 
 
-        TaoCauHoi(keynodemon);
+        TaoCauHoi();
         CountDownTimer(time, timer);
 
         }
@@ -81,7 +82,7 @@ public class BL_On_Luyen extends AppCompatActivity {
 
 
 
-    public void TaoCauHoi(final String mon)
+    public void TaoCauHoi()
     {
         dem++;
 
@@ -104,27 +105,27 @@ public class BL_On_Luyen extends AppCompatActivity {
             {
                 dd.set(numcau, true);
 
-//                String mon = keynodemon;
-//                switch (mon)
-//                {
-//                    case "Vật Lý": datacauhoi = FirebaseDatabase.getInstance().getReference().child("Vật Lý").child("Cau" + String.valueOf(numcau));
-//                        break;
-//                    case "Hóa Học": datacauhoi = FirebaseDatabase.getInstance().getReference().child("Hóa Học").child("Cau" + String.valueOf(numcau));
-//                        break;
-//                    case "Sinh Học": datacauhoi = FirebaseDatabase.getInstance().getReference().child("Sinh Học").child("Cau" + String.valueOf(numcau));
-//                        break;
-//                    case "Lịch Sử": datacauhoi = FirebaseDatabase.getInstance().getReference().child("Lịch Sử").child("Cau" + String.valueOf(numcau));
-//                        break;
-//                    case "Địa Lý": datacauhoi = FirebaseDatabase.getInstance().getReference().child("Địa Lý").child("Cau" + String.valueOf(numcau));
-//                        break;
-//                    case "GDCD": datacauhoi = FirebaseDatabase.getInstance().getReference().child("GDCD").child("Cau" + String.valueOf(numcau));
-//                        break;
-//                    case "Anh Văn": datacauhoi = FirebaseDatabase.getInstance().getReference().child("Anh Văn").child("Cau" + String.valueOf(numcau));
-//                        break;
-//                    default: datacauhoi = FirebaseDatabase.getInstance().getReference().child(keynodemon).child("Cau" + String.valueOf(numcau));
-//
-//                }
-                datacauhoi = FirebaseDatabase.getInstance().getReference().child(mon).child("Cau" + String.valueOf(numcau));
+                String mon = keynodemon;
+                switch (mon)
+                {
+                    case "Vật Lý": datacauhoi = FirebaseDatabase.getInstance().getReference().child("Vật Lý").child("Cau" + String.valueOf(numcau));
+                        break;
+                    case "Hóa Học": datacauhoi = FirebaseDatabase.getInstance().getReference().child("Hóa Học").child("Cau" + String.valueOf(numcau));
+                        break;
+                    case "Sinh Học": datacauhoi = FirebaseDatabase.getInstance().getReference().child("Sinh Học").child("Cau" + String.valueOf(numcau));
+                        break;
+                    case "Lịch Sử": datacauhoi = FirebaseDatabase.getInstance().getReference().child("Lịch Sử").child("Cau" + String.valueOf(numcau));
+                        break;
+                    case "Địa Lý": datacauhoi = FirebaseDatabase.getInstance().getReference().child("Địa Lý").child("Cau" + String.valueOf(numcau));
+                        break;
+                    case "GDCD": datacauhoi = FirebaseDatabase.getInstance().getReference().child("GDCD").child("Cau" + String.valueOf(numcau));
+                        break;
+                    case "Anh Văn": datacauhoi = FirebaseDatabase.getInstance().getReference().child("Anh Văn").child("Cau" + String.valueOf(numcau));
+                        break;
+                    default: datacauhoi = FirebaseDatabase.getInstance().getReference().child(keynodemon).child("Cau" + String.valueOf(numcau));
+
+                }
+
 
                 tongsocau++;
                 datacauhoi.addValueEventListener(new ValueEventListener() {
@@ -144,10 +145,10 @@ public class BL_On_Luyen extends AppCompatActivity {
                                 String chon = "A";
                                 if (chon.equals(getdata.getDapan())) {
                                     socaudung++;
-                                    TaoCauHoi(mon);
+                                    TaoCauHoi();
                                 } else {
                                     socausai++;
-                                    TaoCauHoi(mon);
+                                    TaoCauHoi();
                                 }
 
                             }
@@ -159,10 +160,10 @@ public class BL_On_Luyen extends AppCompatActivity {
                                 String chon = "B";
                                 if (chon.equals(getdata.getDapan())) {
                                     socaudung++;
-                                    TaoCauHoi(mon);
+                                    TaoCauHoi();
                                 } else {
                                     socausai++;
-                                    TaoCauHoi(mon);
+                                    TaoCauHoi();
                                 }
 
                             }
@@ -174,10 +175,10 @@ public class BL_On_Luyen extends AppCompatActivity {
                                 String chon = "C";
                                 if (chon.equals(getdata.getDapan())) {
                                     socaudung++;
-                                    TaoCauHoi(mon);
+                                    TaoCauHoi();
                                 } else {
                                     socausai++;
-                                    TaoCauHoi(mon);
+                                    TaoCauHoi();
                                 }
 
                             }
@@ -189,10 +190,10 @@ public class BL_On_Luyen extends AppCompatActivity {
                                 String chon = "D";
                                 if (chon.equals(getdata.getDapan())){
                                     socaudung++;
-                                    TaoCauHoi(mon);
+                                    TaoCauHoi();
                                 } else {
                                     socausai++;
-                                    TaoCauHoi(mon);
+                                    TaoCauHoi();
                                 }
 
                             }
@@ -209,7 +210,7 @@ public class BL_On_Luyen extends AppCompatActivity {
             }
             else {
                 dem = dem-1;
-                TaoCauHoi(mon);
+                TaoCauHoi();
             }
 
 
