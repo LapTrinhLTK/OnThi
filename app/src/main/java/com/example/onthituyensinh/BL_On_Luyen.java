@@ -44,6 +44,8 @@ public class BL_On_Luyen extends AppCompatActivity {
 
     Intent chuyencb = getIntent();
     String keynodemon = chuyencb.getStringExtra("monol");
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -122,8 +124,8 @@ public class BL_On_Luyen extends AppCompatActivity {
                         break;
                     case "Anh Văn": datacauhoi = FirebaseDatabase.getInstance().getReference().child("Anh Văn").child("Cau" + String.valueOf(numcau));
                         break;
-                    default: datacauhoi = FirebaseDatabase.getInstance().getReference().child(keynodemon).child("Cau" + String.valueOf(numcau));
-
+                    default: datacauhoi = FirebaseDatabase.getInstance().getReference().child(mon).child("Cau" + String.valueOf(numcau));
+                        break;
                 }
 
 
