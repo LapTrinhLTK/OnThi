@@ -38,13 +38,12 @@ public class BL_On_Luyen extends AppCompatActivity {
     int socau, k;
     int dem = 0;
 
-
+    String getmon;
 
     DatabaseReference datacauhoi;
 
-    Intent chuyencb = getIntent();
-    String chuoimon = chuyencb.getStringExtra("monol");
-    String keynodemon = chuoimon;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +57,8 @@ public class BL_On_Luyen extends AppCompatActivity {
         btnc = (Button) findViewById(R.id.btnC);
         btnd = (Button) findViewById(R.id.btnD);
 
-
+        Intent chuyencb = getIntent();
+        String keynodemon = chuyencb.getStringExtra("monol");
 
 
         Intent chuyenbl1 = getIntent();
@@ -68,6 +68,8 @@ public class BL_On_Luyen extends AppCompatActivity {
         //Kiem tra so cau
         if (keynodemon == "Anh Văn") { socau = 20; }
         else { socau = 15; }
+
+        ReturnMon(keynodemon);
 
         for(int a = 0; a<=120; a++)
         {
@@ -107,25 +109,32 @@ public class BL_On_Luyen extends AppCompatActivity {
             {
                 dd.set(numcau, true);
 
-                String mon = keynodemon;
+                String mon = getmon;
                 switch (mon)
                 {
-                    case "Vật Lý": datacauhoi = FirebaseDatabase.getInstance().getReference().child("Vật Lý").child("Cau" + String.valueOf(numcau));
+                    case "Vật Lý":
+                        datacauhoi = FirebaseDatabase.getInstance().getReference().child("Vật Lý").child("Cau" + String.valueOf(numcau));
                         break;
-                    case "Hóa Học": datacauhoi = FirebaseDatabase.getInstance().getReference().child("Hóa Học").child("Cau" + String.valueOf(numcau));
+                    case "Hóa Học":
+                        datacauhoi = FirebaseDatabase.getInstance().getReference().child("Hóa Học").child("Cau" + String.valueOf(numcau));
                         break;
-                    case "Sinh Học": datacauhoi = FirebaseDatabase.getInstance().getReference().child("Sinh Học").child("Cau" + String.valueOf(numcau));
+                    case "Sinh Học":
+                        datacauhoi = FirebaseDatabase.getInstance().getReference().child("Sinh Học").child("Cau" + String.valueOf(numcau));
                         break;
-                    case "Lịch Sử": datacauhoi = FirebaseDatabase.getInstance().getReference().child("Lịch Sử").child("Cau" + String.valueOf(numcau));
+                    case "Lịch Sử":
+                        datacauhoi = FirebaseDatabase.getInstance().getReference().child("Lịch Sử").child("Cau" + String.valueOf(numcau));
                         break;
-                    case "Địa Lý": datacauhoi = FirebaseDatabase.getInstance().getReference().child("Địa Lý").child("Cau" + String.valueOf(numcau));
+                    case "Địa Lý":
+                        datacauhoi = FirebaseDatabase.getInstance().getReference().child("Địa Lý").child("Cau" + String.valueOf(numcau));
                         break;
-                    case "GDCD": datacauhoi = FirebaseDatabase.getInstance().getReference().child("GDCD").child("Cau" + String.valueOf(numcau));
+                    case "GDCD":
+                        datacauhoi = FirebaseDatabase.getInstance().getReference().child("GDCD").child("Cau" + String.valueOf(numcau));
                         break;
-                    case "Anh Văn": datacauhoi = FirebaseDatabase.getInstance().getReference().child("Anh Văn").child("Cau" + String.valueOf(numcau));
+                    case "Anh Văn":
+                        datacauhoi = FirebaseDatabase.getInstance().getReference().child("Anh Văn").child("Cau" + String.valueOf(numcau));
                         break;
                     default: datacauhoi = FirebaseDatabase.getInstance().getReference().child(mon).child("Cau" + String.valueOf(numcau));
-                        break;
+
                 }
 
 
@@ -249,6 +258,9 @@ public class BL_On_Luyen extends AppCompatActivity {
         }.start();
     }
 
-        
+    public void ReturnMon(String keynodemon)
+    {
+        getmon = keynodemon;
+    }
 
     }
