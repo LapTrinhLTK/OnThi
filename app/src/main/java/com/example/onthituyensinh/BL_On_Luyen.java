@@ -38,7 +38,7 @@ public class BL_On_Luyen extends AppCompatActivity {
     int socau, k;
     int dem = 0;
 
-    String getmon;
+    String keynodemon;
 
     DatabaseReference datacauhoi;
 
@@ -58,7 +58,7 @@ public class BL_On_Luyen extends AppCompatActivity {
         btnd = (Button) findViewById(R.id.btnD);
 
         Intent chuyencb = getIntent();
-        String keynodemon = chuyencb.getStringExtra("monol");
+        keynodemon = chuyencb.getStringExtra("monol");
 
 
         Intent chuyenbl1 = getIntent();
@@ -69,7 +69,7 @@ public class BL_On_Luyen extends AppCompatActivity {
         if (keynodemon == "Anh Văn") { socau = 20; }
         else { socau = 15; }
 
-        ReturnMon(keynodemon);
+       
 
         for(int a = 0; a<=120; a++)
         {
@@ -109,7 +109,7 @@ public class BL_On_Luyen extends AppCompatActivity {
             {
                 dd.set(numcau, true);
 
-                String mon = getmon;
+                String mon = keynodemon;
                 switch (mon)
                 {
                     case "Vật Lý":
@@ -133,7 +133,7 @@ public class BL_On_Luyen extends AppCompatActivity {
                     case "Anh Văn":
                         datacauhoi = FirebaseDatabase.getInstance().getReference().child("Anh Văn").child("Cau" + String.valueOf(numcau));
                         break;
-                    default: datacauhoi = FirebaseDatabase.getInstance().getReference().child(mon).child("Cau" + String.valueOf(numcau));
+                    default: datacauhoi = FirebaseDatabase.getInstance().getReference().child("").child("Cau" + String.valueOf(numcau));
 
                 }
 
@@ -258,9 +258,6 @@ public class BL_On_Luyen extends AppCompatActivity {
         }.start();
     }
 
-    public void ReturnMon(String keynodemon)
-    {
-        getmon = keynodemon;
-    }
+
 
     }
