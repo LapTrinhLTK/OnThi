@@ -43,8 +43,8 @@ public class BL_On_Luyen extends AppCompatActivity {
     DatabaseReference datacauhoi;
 
     Intent chuyencb = getIntent();
-    String keynodemon = chuyencb.getStringExtra("monol");
-
+    String chuoimon = chuyencb.getStringExtra("monol");
+    String keynodemon = chuoimon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
