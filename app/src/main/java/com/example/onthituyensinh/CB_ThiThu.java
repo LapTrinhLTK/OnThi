@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class CB_ThiThu extends AppCompatActivity {
-    Button btnreturn4;
+    Button btnreturn4, btnbdlb2;
     TextView tbmon2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,5 +32,14 @@ public class CB_ThiThu extends AppCompatActivity {
         String cacmon = chuyencbtt.getStringExtra("monthi");
         tbmon2.setText(cacmon);
         int k = 5;
+
+        btnbdlb2 = (Button) findViewById(R.id.bdlb1);
+        btnbdlb2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent chuyenbltt = new Intent(CB_ThiThu.this, BLThiThu.class);
+                startActivity(chuyenbltt);
+            }
+        });
     }
 }
