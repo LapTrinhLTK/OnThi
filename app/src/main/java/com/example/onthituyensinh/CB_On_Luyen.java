@@ -30,7 +30,7 @@ public class CB_On_Luyen extends AppCompatActivity {
         tbmon = (TextView) findViewById(R.id.thongbao1);
         //Nhan thong bao mon
         Intent chuyencb = getIntent();
-        String mon = chuyencb.getStringExtra("monol");
+        final String mon = chuyencb.getStringExtra("monol");
         tbmon.setText("môn: " + mon);
 
         tbtime = (TextView) findViewById(R.id.thongbaotg);
@@ -58,6 +58,7 @@ public class CB_On_Luyen extends AppCompatActivity {
             public void onClick(View v) {
                 Intent chuyenbl1 = new Intent(CB_On_Luyen.this, BL_On_Luyen.class);
                 chuyenbl1.putExtra("thoigian", thoigian[0]);
+                chuyenbl1.putExtra("monchon", mon);
                 startActivity(chuyenbl1);
             }
         });

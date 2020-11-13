@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -58,7 +59,7 @@ public class BL_On_Luyen extends AppCompatActivity {
         btnd = (Button) findViewById(R.id.btnD);
 
         Intent chuyencb = getIntent();
-        keynodemon = chuyencb.getStringExtra("monol");
+        keynodemon = chuyencb.getStringExtra("monchon");
 
 
         Intent chuyenbl1 = getIntent();
@@ -69,7 +70,7 @@ public class BL_On_Luyen extends AppCompatActivity {
         if (keynodemon == "Anh Văn") { socau = 20; }
         else { socau = 15; }
 
-       
+        Log.d("hello", keynodemon + " "+ socau);
 
         for(int a = 0; a<=120; a++)
         {
@@ -109,8 +110,8 @@ public class BL_On_Luyen extends AppCompatActivity {
             {
                 dd.set(numcau, true);
 
-                String mon = keynodemon;
-                switch (mon)
+
+                switch (keynodemon)
                 {
                     case "Vật Lý":
                         datacauhoi = FirebaseDatabase.getInstance().getReference().child("Vật Lý").child("Cau" + String.valueOf(numcau));
@@ -133,7 +134,7 @@ public class BL_On_Luyen extends AppCompatActivity {
                     case "Anh Văn":
                         datacauhoi = FirebaseDatabase.getInstance().getReference().child("Anh Văn").child("Cau" + String.valueOf(numcau));
                         break;
-                    default: datacauhoi = FirebaseDatabase.getInstance().getReference().child("").child("Cau" + String.valueOf(numcau));
+                    default: datacauhoi = FirebaseDatabase.getInstance().getReference().child("Vật Lý").child("Cau" + String.valueOf(numcau));
 
                 }
 
