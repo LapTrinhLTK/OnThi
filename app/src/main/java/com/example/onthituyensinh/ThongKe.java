@@ -30,12 +30,14 @@ public class ThongKe extends AppCompatActivity {
         txtsocausai = (TextView) findViewById(R.id.kqsai);
 
         Intent chuyenthongke = getIntent();
+        int kt = chuyenthongke.getIntExtra("check", 0);
         String socau = chuyenthongke.getStringExtra("socau");
-        String tongsocau = chuyenthongke.getStringExtra("tongsocau");
-        String socaudung = chuyenthongke.getStringExtra("socaudung");
-        String socausai = chuyenthongke.getStringExtra("socausai");
+        String tongsocau = chuyenthongke.getStringExtra("tongcau");
+        String socaudung = chuyenthongke.getStringExtra("caudung");
+        String socausai = chuyenthongke.getStringExtra("causai");
 
-        txttongsocau.setText("Tổng số câu đã làm: " + tongsocau + "/" + socau);
+        if (kt == 1){ txttongsocau.setText("Tổng số câu đã làm: " + tongsocau + "/" + "50");}
+        else {txttongsocau.setText("Tổng số câu đã làm: " + tongsocau + "/" + socau);}
         txtsocaudung.setText("Số câu đúng: " + socaudung + "/" + tongsocau);
         txtsocausai.setText("Số câu sai: " + socausai + "/" + tongsocau);
 

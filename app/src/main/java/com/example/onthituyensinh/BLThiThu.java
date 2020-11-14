@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -30,7 +31,9 @@ public class BLThiThu extends AppCompatActivity {
     int tongsocau = 0;
     int socau, k;
     int dem = 0;
-
+    int minutes;
+    int seconds;
+    int kt = 1;
     String keytn, keyxh;
     DatabaseReference datacauhoi;
     @Override
@@ -47,17 +50,15 @@ public class BLThiThu extends AppCompatActivity {
         btnd = (Button) findViewById(R.id.btnD);
 
         Intent chuyencbtt = getIntent();
-        keytn = chuyencbtt.getStringExtra("montn");
-        keyxh = chuyencbtt.getStringExtra("monxh");
+        keytn = chuyencbtt.getStringExtra("getmontunhien");
+        keyxh = chuyencbtt.getStringExtra("getmonxahoi");
 
-        for(int a = 0; a<=120; a++)
-        {
-            dd.add(false);
-        }
+
+
+        for(int a = 0; a<=120; a++) { dd.add(false); }
 
         TaoCauHoi("Anh Văn");
-        TaoCauHoi(keytn);
-        TaoCauHoi(keyxh);
+
         CountDownTimer(150*60, timer);
 
 
@@ -67,14 +68,19 @@ public class BLThiThu extends AppCompatActivity {
     {
         dem++;
 
+        if (mon.equals("Anh Văn")){socau = 20;} else{socau = 15;}
+
         if (dem>socau)
         {
-            Intent chuyenthongke = new Intent(BLThiThu.this, ThongKe.class);
-            chuyenthongke.putExtra("socau", String.valueOf(socau));
-            chuyenthongke.putExtra("tongcau", String.valueOf(tongsocau));
-            chuyenthongke.putExtra("caudung", String.valueOf(socaudung));
-            chuyenthongke.putExtra("causai", String.valueOf(socausai));
-            startActivity(chuyenthongke);
+                Intent chuyenbltunhien = new Intent(BLThiThu.this, BLThiThu2.class);
+                chuyenbltunhien.putExtra("tongcau", tongsocau);
+                chuyenbltunhien.putExtra("caudung", socaudung);
+                chuyenbltunhien.putExtra("causai", socausai);
+                chuyenbltunhien.putExtra("timeminute", minutes);
+                chuyenbltunhien.putExtra("timesecond", seconds);
+                chuyenbltunhien.putExtra("keytunhien", keytn);
+                chuyenbltunhien.putExtra("keyxahoi", keyxh);
+                startActivity(chuyenbltunhien);
         }
         else
         {
@@ -86,29 +92,11 @@ public class BLThiThu extends AppCompatActivity {
             {
                 dd.set(numcau, true);
 
-//                String mon = keynodemon;
-//                switch (mon)
-//                {
-//                    case "Vật Lý": datacauhoi = FirebaseDatabase.getInstance().getReference().child("Vật Lý").child("Cau" + String.valueOf(numcau));
-//                        break;
-//                    case "Hóa Học": datacauhoi = FirebaseDatabase.getInstance().getReference().child("Hóa Học").child("Cau" + String.valueOf(numcau));
-//                        break;
-//                    case "Sinh Học": datacauhoi = FirebaseDatabase.getInstance().getReference().child("Sinh Học").child("Cau" + String.valueOf(numcau));
-//                        break;
-//                    case "Lịch Sử": datacauhoi = FirebaseDatabase.getInstance().getReference().child("Lịch Sử").child("Cau" + String.valueOf(numcau));
-//                        break;
-//                    case "Địa Lý": datacauhoi = FirebaseDatabase.getInstance().getReference().child("Địa Lý").child("Cau" + String.valueOf(numcau));
-//                        break;
-//                    case "GDCD": datacauhoi = FirebaseDatabase.getInstance().getReference().child("GDCD").child("Cau" + String.valueOf(numcau));
-//                        break;
-//                    case "Anh Văn": datacauhoi = FirebaseDatabase.getInstance().getReference().child("Anh Văn").child("Cau" + String.valueOf(numcau));
-//                        break;
-//                    default: datacauhoi = FirebaseDatabase.getInstance().getReference().child(keynodemon).child("Cau" + String.valueOf(numcau));
-//
-//                }
+
                 datacauhoi = FirebaseDatabase.getInstance().getReference().child(mon).child("Cau" + String.valueOf(numcau));
 
                 tongsocau++;
+                
                 datacauhoi.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -194,20 +182,18 @@ public class BLThiThu extends AppCompatActivity {
                 TaoCauHoi(mon);
             }
 
-
-
         }
 
     }
 
-    public void CountDownTimer(int seconds, final TextView tv)
+    public void CountDownTimer(int giay, final TextView tv)
     {
-        new CountDownTimer(seconds * 1000 + 1000, 1000)
+        new CountDownTimer(giay * 1000 + 1000, 1000)
         {
             public void onTick(long millisUntilFinished)
             {
-                int seconds = (int) (millisUntilFinished/1000);
-                int minutes = seconds/60;
+                seconds = (int) (millisUntilFinished/1000);
+                minutes = seconds/60;
                 int hours = minutes/60;
 
                 seconds = seconds % 60;
@@ -219,10 +205,10 @@ public class BLThiThu extends AppCompatActivity {
             {
                 tv.setText("Hết thời gian làm bài");
                 Intent chuyenthongke = new Intent(BLThiThu.this, ThongKe.class);
-                chuyenthongke.putExtra("socau", String.valueOf(socau));
                 chuyenthongke.putExtra("tongcau", String.valueOf(tongsocau));
                 chuyenthongke.putExtra("caudung", String.valueOf(socaudung));
                 chuyenthongke.putExtra("causai", String.valueOf(socausai));
+                chuyenthongke.putExtra("check", kt);
                 startActivity(chuyenthongke);
             }
         }.start();

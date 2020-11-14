@@ -1,86 +1,80 @@
 package com.example.onthituyensinh;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Random;
 
-public class BL_On_Luyen extends AppCompatActivity {
-
-    TextView txtquestion,timer;
-    Button btna, btnb, btnc, btnd;
+public class BLThiThu3 extends AppCompatActivity {
+    Button btna,btnb,btnc,btnd;
+    TextView txtquestion, timer;
 
     ArrayList<Boolean> dd = new ArrayList<>();
 
     int socaudung = 0;
     int socausai = 0;
     int tongsocau = 0;
-    int socau;
+    int socau, k;
     int dem = 0;
-
-    String keynodemon;
-
+    int minutes;
+    int seconds;
+    int kt = 1;
+    String keyxh;
     DatabaseReference datacauhoi;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_b_l__on__luyen);
+        setContentView(R.layout.activity_b_l_thi_thu3);
+
         //Anh xa cac view
-        txtquestion = (TextView) findViewById(R.id.cauhoi);
+        txtquestion = (TextView) findViewById(R.id.cauhoitt3);
         timer = (TextView) findViewById(R.id.timer);
         btna = (Button) findViewById(R.id.btnA);
         btnb = (Button) findViewById(R.id.btnB);
         btnc = (Button) findViewById(R.id.btnC);
         btnd = (Button) findViewById(R.id.btnD);
 
-        Intent chuyenbl1 = getIntent();
-        keynodemon = chuyenbl1.getStringExtra("monchon");
-
-        int time  = chuyenbl1.getIntExtra("thoigian", 150);
-        time = time*60;
+        Intent chuyenbltunhien = getIntent();
+        keyxh = chuyenbltunhien.getStringExtra("keyxahoi");
+        minutes = chuyenbltunhien.getIntExtra("timeminute", 150);
+        seconds = chuyenbltunhien.getIntExtra("timesecond", 0);
+        tongsocau = chuyenbltunhien.getIntExtra("tongcau", 20);
+        socaudung = chuyenbltunhien.getIntExtra("caudung", 20);
+        socausai = chuyenbltunhien.getIntExtra("causai", 20);
 
         for(int a = 0; a<=120; a++) { dd.add(false); }
 
-        TaoCauHoi();
-        CountDownTimer(time, timer);
+        TaoCauHoi(keyxh);
+        CountDownTimer(minutes*60, timer);
+    }
 
-        }
-        
-
-
-
-    public void TaoCauHoi()
+    public void TaoCauHoi(final String mon)
     {
         dem++;
-        if (keynodemon.equals("Anh Văn")) { socau = 20; }
-        else { socau = 15; }
+
+        if (mon.equals("Anh Văn")){socau = 20;} else{socau = 15;}
 
         if (dem>socau)
         {
-            Intent chuyenthongke = new Intent(BL_On_Luyen.this, ThongKe.class);
-            chuyenthongke.putExtra("socau", String.valueOf(socau));
+            Intent chuyenthongke = new Intent(BLThiThu3.this, ThongKe.class);
             chuyenthongke.putExtra("tongcau", String.valueOf(tongsocau));
             chuyenthongke.putExtra("caudung", String.valueOf(socaudung));
             chuyenthongke.putExtra("causai", String.valueOf(socausai));
+            chuyenthongke.putExtra("check", kt);
             startActivity(chuyenthongke);
         }
         else
@@ -94,35 +88,10 @@ public class BL_On_Luyen extends AppCompatActivity {
                 dd.set(numcau, true);
 
 
-                switch (keynodemon)
-                {
-                    case "Vật Lý":
-                        datacauhoi = FirebaseDatabase.getInstance().getReference().child("Vật Lý").child("Cau" + String.valueOf(numcau));
-                        break;
-                    case "Hóa Học":
-                        datacauhoi = FirebaseDatabase.getInstance().getReference().child("Hóa Học").child("Cau" + String.valueOf(numcau));
-                        break;
-                    case "Sinh Học":
-                        datacauhoi = FirebaseDatabase.getInstance().getReference().child("Sinh Học").child("Cau" + String.valueOf(numcau));
-                        break;
-                    case "Lịch Sử":
-                        datacauhoi = FirebaseDatabase.getInstance().getReference().child("Lịch Sử").child("Cau" + String.valueOf(numcau));
-                        break;
-                    case "Địa Lý":
-                        datacauhoi = FirebaseDatabase.getInstance().getReference().child("Địa Lý").child("Cau" + String.valueOf(numcau));
-                        break;
-                    case "GDCD":
-                        datacauhoi = FirebaseDatabase.getInstance().getReference().child("GDCD").child("Cau" + String.valueOf(numcau));
-                        break;
-                    case "Anh Văn":
-                        datacauhoi = FirebaseDatabase.getInstance().getReference().child("Anh Văn").child("Cau" + String.valueOf(numcau));
-                        break;
-                    default: datacauhoi = FirebaseDatabase.getInstance().getReference().child("").child("Cau" + String.valueOf(numcau));
-
-                }
-
+                datacauhoi = FirebaseDatabase.getInstance().getReference().child(mon).child("Cau" + String.valueOf(numcau));
 
                 tongsocau++;
+
                 datacauhoi.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -140,10 +109,10 @@ public class BL_On_Luyen extends AppCompatActivity {
                                 String chon = "A";
                                 if (chon.equals(getdata.getDapan())) {
                                     socaudung++;
-                                    TaoCauHoi();
+                                    TaoCauHoi(mon);
                                 } else {
                                     socausai++;
-                                    TaoCauHoi();
+                                    TaoCauHoi(mon);
                                 }
 
                             }
@@ -155,10 +124,10 @@ public class BL_On_Luyen extends AppCompatActivity {
                                 String chon = "B";
                                 if (chon.equals(getdata.getDapan())) {
                                     socaudung++;
-                                    TaoCauHoi();
+                                    TaoCauHoi(mon);
                                 } else {
                                     socausai++;
-                                    TaoCauHoi();
+                                    TaoCauHoi(mon);
                                 }
 
                             }
@@ -170,10 +139,10 @@ public class BL_On_Luyen extends AppCompatActivity {
                                 String chon = "C";
                                 if (chon.equals(getdata.getDapan())) {
                                     socaudung++;
-                                    TaoCauHoi();
+                                    TaoCauHoi(mon);
                                 } else {
                                     socausai++;
-                                    TaoCauHoi();
+                                    TaoCauHoi(mon);
                                 }
 
                             }
@@ -185,10 +154,10 @@ public class BL_On_Luyen extends AppCompatActivity {
                                 String chon = "D";
                                 if (chon.equals(getdata.getDapan())){
                                     socaudung++;
-                                    TaoCauHoi();
+                                    TaoCauHoi(mon);
                                 } else {
                                     socausai++;
-                                    TaoCauHoi();
+                                    TaoCauHoi(mon);
                                 }
 
                             }
@@ -205,23 +174,21 @@ public class BL_On_Luyen extends AppCompatActivity {
             }
             else {
                 dem = dem-1;
-                TaoCauHoi();
+                TaoCauHoi(mon);
             }
-
-
 
         }
 
     }
 
-    public void CountDownTimer(int seconds, final TextView tv)
+    public void CountDownTimer(int giay, final TextView tv)
     {
-        new CountDownTimer(seconds * 1000 + 1000, 1000)
+        new CountDownTimer(giay * 1000 + 1000, 1000)
         {
             public void onTick(long millisUntilFinished)
             {
-                int seconds = (int) (millisUntilFinished/1000);
-                int minutes = seconds/60;
+                seconds = (int) (millisUntilFinished/1000);
+                minutes = seconds/60;
                 int hours = minutes/60;
 
                 seconds = seconds % 60;
@@ -232,16 +199,13 @@ public class BL_On_Luyen extends AppCompatActivity {
             public void onFinish()
             {
                 tv.setText("Hết thời gian làm bài");
-                Intent chuyenthongke = new Intent(BL_On_Luyen.this, ThongKe.class);
-                chuyenthongke.putExtra("socau", String.valueOf(socau));
-                chuyenthongke.putExtra("tongcau", String.valueOf(tongsocau-1));
+                Intent chuyenthongke = new Intent(BLThiThu3.this, ThongKe.class);
+                chuyenthongke.putExtra("tongcau", String.valueOf(tongsocau));
                 chuyenthongke.putExtra("caudung", String.valueOf(socaudung));
                 chuyenthongke.putExtra("causai", String.valueOf(socausai));
+                chuyenthongke.putExtra("check", kt);
                 startActivity(chuyenthongke);
             }
         }.start();
     }
-
-
-
-    }
+}
