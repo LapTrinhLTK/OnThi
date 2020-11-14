@@ -36,7 +36,7 @@ public class BL_On_Luyen extends AppCompatActivity {
     int socaudung = 0;
     int socausai = 0;
     int tongsocau = 0;
-    int socau, k;
+    int socau;
     int dem = 0;
 
     String keynodemon;
@@ -58,11 +58,10 @@ public class BL_On_Luyen extends AppCompatActivity {
         btnc = (Button) findViewById(R.id.btnC);
         btnd = (Button) findViewById(R.id.btnD);
 
-        Intent chuyencb = getIntent();
-        keynodemon = chuyencb.getStringExtra("monchon");
-
-
         Intent chuyenbl1 = getIntent();
+        keynodemon = chuyenbl1.getStringExtra("monchon");
+
+//        Intent chuyenbl1 = getIntent();
         int time  = chuyenbl1.getIntExtra("thoigian", 150);
         time = time*60;
 
@@ -134,7 +133,7 @@ public class BL_On_Luyen extends AppCompatActivity {
                     case "Anh Văn":
                         datacauhoi = FirebaseDatabase.getInstance().getReference().child("Anh Văn").child("Cau" + String.valueOf(numcau));
                         break;
-                    default: datacauhoi = FirebaseDatabase.getInstance().getReference().child("Vật Lý").child("Cau" + String.valueOf(numcau));
+                    default: datacauhoi = FirebaseDatabase.getInstance().getReference().child("").child("Cau" + String.valueOf(numcau));
 
                 }
 
