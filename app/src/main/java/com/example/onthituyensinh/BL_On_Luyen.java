@@ -55,6 +55,7 @@ public class BL_On_Luyen extends AppCompatActivity {
         Intent chuyenbl1 = getIntent();
         keynodemon = chuyenbl1.getStringExtra("monchon");
 
+
         int time  = chuyenbl1.getIntExtra("thoigian", 150);
         time = time*60;
 
@@ -117,7 +118,7 @@ public class BL_On_Luyen extends AppCompatActivity {
                     case "Anh Văn":
                         datacauhoi = FirebaseDatabase.getInstance().getReference().child("Anh Văn").child("Cau" + String.valueOf(numcau));
                         break;
-                    default: datacauhoi = FirebaseDatabase.getInstance().getReference().child("").child("Cau" + String.valueOf(numcau));
+                    default:   datacauhoi = FirebaseDatabase.getInstance().getReference().child("Hóa Học").child("Cau" + String.valueOf(numcau));
 
                 }
 
