@@ -2,6 +2,7 @@
 <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#DAD290"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <TextView
@@ -13,6 +14,8 @@
         android:text="hướng dẫn"
         android:textAllCaps="true"
         android:textSize="25dp"
+        android:textColor="#000000"
+        android:textStyle="bold"
         />
 
     <Button
@@ -35,6 +38,7 @@
         android:text="Thi Thử"
         android:textAllCaps="false"
         android:textSize="23dp"
+        android:textColor="#000000"
         />
 
     <TextView
@@ -47,6 +51,7 @@
         android:text="+Nháy chọn mục Thi Thử trên màn hình chính."
         android:textAllCaps="false"
         android:textSize="20dp"
+        android:textColor="#000000"
         />
 
     <TextView
@@ -59,6 +64,7 @@
         android:text="+Nháy chọn bộ đề"
         android:textAllCaps="false"
         android:textSize="20dp"
+        android:textColor="#000000"
         />
 
     <TextView
@@ -71,6 +77,7 @@
         android:text="+Xem thông tin bài thi và bắt đầu làm bài"
         android:textAllCaps="false"
         android:textSize="20dp"
+        android:textColor="#000000"
         />
 
     <TextView
@@ -83,6 +90,7 @@
         android:text="Ôn Luyện"
         android:textAllCaps="false"
         android:textSize="23dp"
+        android:textColor="#000000"
         />
 
     <TextView
@@ -95,6 +103,7 @@
         android:text="+Nháy chọn mục Ôn Luyện trên màn hình chính."
         android:textAllCaps="false"
         android:textSize="20dp"
+        android:textColor="#000000"
         />
 
     <TextView
@@ -107,6 +116,7 @@
         android:text="+Nháy chọn môn cần ôn luyện"
         android:textAllCaps="false"
         android:textSize="20dp"
+        android:textColor="#000000"
         />
 
     <TextView
@@ -119,5 +129,6 @@
         android:text="+Xem thông tin môn ôn luyện và bắt đầu làm bài"
         android:textAllCaps="false"
         android:textSize="20dp"
+        android:textColor="#000000"
         />
 </RelativeLayout>

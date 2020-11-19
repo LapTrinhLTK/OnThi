@@ -2,7 +2,9 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#DAD290"
+    >
 
     <TextView
         android:id="@+id/gtchon2"
@@ -14,6 +16,8 @@
         android:textAllCaps="true"
 
         android:textSize="25dp"
+        android:textStyle="bold"
+        android:textColor="#000000"
         />
 
     <Button
@@ -35,7 +39,7 @@
         android:layout_below="@id/gtchon2"
         android:layout_marginTop="40dp"
         android:layout_marginRight="15dp"
-        android:layout_marginLeft="40dp"
+        android:layout_marginLeft="50dp"
         android:paddingRight="35dp"
         android:paddingLeft="35dp"
         />
@@ -63,7 +67,7 @@
         android:layout_below="@id/btnLy"
         android:layout_marginTop="20dp"
         android:layout_marginRight="15dp"
-        android:layout_marginLeft="40dp"
+        android:layout_marginLeft="50dp"
         android:paddingRight="25dp"
         android:paddingLeft="20dp"
         android:gravity="center"
@@ -92,7 +96,7 @@
         android:layout_below="@id/btnHoa"
         android:layout_marginTop="20dp"
         android:layout_marginRight="15dp"
-        android:layout_marginLeft="40dp"
+        android:layout_marginLeft="50dp"
         android:paddingRight="20dp"
         android:paddingLeft="20dp"
 

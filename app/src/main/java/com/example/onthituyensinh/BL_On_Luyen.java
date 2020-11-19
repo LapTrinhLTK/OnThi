@@ -25,7 +25,11 @@ import java.util.Random;
 
 public class BL_On_Luyen extends AppCompatActivity {
 
-    TextView txtquestion,timer;
+
+
+
+
+       TextView txtquestion,timer;
     Button btna, btnb, btnc, btnd;
 
     ArrayList<Boolean> dd = new ArrayList<>();
