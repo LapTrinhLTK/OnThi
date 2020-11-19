@@ -83,7 +83,7 @@ public class BLThiThu2 extends AppCompatActivity {
         else
         {
             Random random = new Random();
-            int numcau = random.nextInt(socau);
+            int numcau = random.nextInt(30);
             numcau++;
 
             if (dd.get(numcau) == false)

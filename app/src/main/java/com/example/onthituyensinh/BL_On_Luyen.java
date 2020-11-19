@@ -33,7 +33,7 @@ public class BL_On_Luyen extends AppCompatActivity {
     Button btna, btnb, btnc, btnd;
 
     ArrayList<Boolean> dd = new ArrayList<>();
-
+    int numrandom;
     int socaudung = 0;
     int socausai = 0;
     int tongsocau = 0;
@@ -76,8 +76,8 @@ public class BL_On_Luyen extends AppCompatActivity {
     public void TaoCauHoi()
     {
         dem++;
-        if (keynodemon.equals("Anh Văn")) { socau = 20; }
-        else { socau = 15; }
+        if (keynodemon.equals("Anh Văn")) { socau = 20; numrandom = 40;}
+        else { socau = 15; numrandom = 30;}
 
         if (dem>socau)
         {
@@ -91,7 +91,7 @@ public class BL_On_Luyen extends AppCompatActivity {
         else
         {
             Random random = new Random();
-            int numcau = random.nextInt(socau);
+            int numcau = random.nextInt(numrandom);
             numcau++;
 
             if (dd.get(numcau) == false)
