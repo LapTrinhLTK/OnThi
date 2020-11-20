@@ -20,19 +20,20 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Random;
 
 public class BL_On_Luyen extends AppCompatActivity {
 
-
-
-
-
-       TextView txtquestion,timer;
+    TextView txtquestion,timer;
     Button btna, btnb, btnc, btnd;
 
+    ArrayList<String> String_cau = new ArrayList<>();
+    ArrayList<Integer> Store_random = new ArrayList<>();
+    ArrayList<Boolean> check_random = new ArrayList<>();
     ArrayList<Boolean> dd = new ArrayList<>();
+
     int numrandom;
     int socaudung = 0;
     int socausai = 0;
@@ -64,6 +65,7 @@ public class BL_On_Luyen extends AppCompatActivity {
         time = time*60;
 
         for(int a = 0; a<=120; a++) { dd.add(false); }
+        for(int b=0; b<=4; b++) { check_random.add(false); }
 
         TaoCauHoi();
         CountDownTimer(time, timer);
@@ -133,17 +135,40 @@ public class BL_On_Luyen extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         final GetData getdata = snapshot.getValue(GetData.class);
                         assert getdata != null;
+
+                        int counter = 0;
+                        //Add option into array
+                        String_cau.add(getdata.getOptiona());
+                        String_cau.add(getdata.getOptionb());
+                        String_cau.add(getdata.getOptionc());
+                        String_cau.add(getdata.getOptiond());
+
+                        //Get random option index
+                        Random random1 = new Random();
+
+                        while (counter<=4) {
+                            int indexcau = random1.nextInt(4);
+                            if (check_random.get(indexcau) == false)
+                            {
+                                check_random.set(indexcau, true);
+                                Store_random.add(indexcau);
+                                counter++;
+                            }
+                        }
+
+
+
                         txtquestion.setText(getdata.getCauhoi());
-                        btna.setText(getdata.getOptiona());
-                        btnb.setText(getdata.getOptionb());
-                        btnc.setText(getdata.getOptionc());
-                        btnd.setText(getdata.getOptiond());
+                        btna.setText(String_cau.get(Store_random.get(0)));
+                        btnb.setText(String_cau.get(Store_random.get(1)));
+                        btnc.setText(String_cau.get(Store_random.get(2)));
+                        btnd.setText(String_cau.get(Store_random.get(3)));
 
                         btna.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
                                 String chon = "A";
-                                if (chon.equals(getdata.getDapan())) {
+                                if (btna.getText().toString().equals(getdata.getDapan())) {
                                     socaudung++;
                                     TaoCauHoi();
                                 } else {
@@ -158,7 +183,7 @@ public class BL_On_Luyen extends AppCompatActivity {
                             @Override
                             public void onClick(View v) {
                                 String chon = "B";
-                                if (chon.equals(getdata.getDapan())) {
+                                if (btnb.getText().toString().equals(getdata.getDapan())) {
                                     socaudung++;
                                     TaoCauHoi();
                                 } else {
@@ -173,7 +198,7 @@ public class BL_On_Luyen extends AppCompatActivity {
                             @Override
                             public void onClick(View v) {
                                 String chon = "C";
-                                if (chon.equals(getdata.getDapan())) {
+                                if (btnc.getText().toString().equals(getdata.getDapan())) {
                                     socaudung++;
                                     TaoCauHoi();
                                 } else {
@@ -188,7 +213,7 @@ public class BL_On_Luyen extends AppCompatActivity {
                             @Override
                             public void onClick(View v) {
                                 String chon = "D";
-                                if (chon.equals(getdata.getDapan())){
+                                if (btnd.getText().toString().equals(getdata.getDapan())){
                                     socaudung++;
                                     TaoCauHoi();
                                 } else {
