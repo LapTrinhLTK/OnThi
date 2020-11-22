@@ -30,6 +30,8 @@ public class BL_On_Luyen extends AppCompatActivity {
     Button btna, btnb, btnc, btnd;
 
 
+    ArrayList<String> selection = new ArrayList<>();
+    ArrayList<Integer> indexcausai = new ArrayList<>();
 
     ArrayList<Boolean> dd = new ArrayList<>();
 
@@ -129,6 +131,7 @@ public class BL_On_Luyen extends AppCompatActivity {
 
 
                 tongsocau++;
+                final int finalNumcau = numcau;
                 datacauhoi.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -179,6 +182,7 @@ public class BL_On_Luyen extends AppCompatActivity {
                                     socaudung++;
                                     TaoCauHoi();
                                 } else {
+                                    indexcausai.add(finalNumcau);
                                     socausai++;
                                     TaoCauHoi();
                                 }
