@@ -24,9 +24,7 @@ public class BLThiThu extends AppCompatActivity {
     Button btna,btnb,btnc,btnd;
     TextView txtquestion, timer;
 
-    ArrayList<String> String_cau = new ArrayList<>();
-    ArrayList<Integer> Store_random = new ArrayList<>();
-    ArrayList<Boolean> check_random = new ArrayList<>();
+
     ArrayList<Boolean> dd = new ArrayList<>();
 
 
@@ -58,7 +56,7 @@ public class BLThiThu extends AppCompatActivity {
         keyxh = chuyencbtt.getStringExtra("getmonxahoi");
 
         for(int a = 0; a<=120; a++) { dd.add(false); }
-        for(int b=0; b<=4; b++) { check_random.add(false); }
+
 
         TaoCauHoi("Anh Văn");
 
@@ -105,6 +103,12 @@ public class BLThiThu extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         final GetData getdata = snapshot.getValue(GetData.class);
                         assert getdata != null;
+
+                        ArrayList<String> String_cau = new ArrayList<>();
+                        ArrayList<Integer> Store_random = new ArrayList<>();
+                        ArrayList<Boolean> check_random = new ArrayList<>();
+
+                        for(int b=0; b<=4; b++) { check_random.add(false); }
 
                         int counter = 0;
                         //Add option into array

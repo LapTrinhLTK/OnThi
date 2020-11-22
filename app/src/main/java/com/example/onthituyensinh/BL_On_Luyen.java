@@ -29,9 +29,8 @@ public class BL_On_Luyen extends AppCompatActivity {
     TextView txtquestion,timer;
     Button btna, btnb, btnc, btnd;
 
-    ArrayList<String> String_cau = new ArrayList<>();
-    ArrayList<Integer> Store_random = new ArrayList<>();
-    ArrayList<Boolean> check_random = new ArrayList<>();
+
+
     ArrayList<Boolean> dd = new ArrayList<>();
 
     int numrandom;
@@ -65,7 +64,7 @@ public class BL_On_Luyen extends AppCompatActivity {
         time = time*60;
 
         for(int a = 0; a<=120; a++) { dd.add(false); }
-        for(int b=0; b<=4; b++) { check_random.add(false); }
+
 
         TaoCauHoi();
         CountDownTimer(time, timer);
@@ -136,12 +135,20 @@ public class BL_On_Luyen extends AppCompatActivity {
                         final GetData getdata = snapshot.getValue(GetData.class);
                         assert getdata != null;
 
+                        ArrayList<String> String_cau = new ArrayList<>();
+                        ArrayList<Integer> Store_random = new ArrayList<>();
+                        ArrayList<Boolean> check_random = new ArrayList<>();
+
+                        for(int b=0; b<=4; b++) { check_random.add(false); }
+
                         int counter = 0;
                         //Add option into array
                         String_cau.add(getdata.getOptiona());
                         String_cau.add(getdata.getOptionb());
                         String_cau.add(getdata.getOptionc());
                         String_cau.add(getdata.getOptiond());
+
+//                        for(int t=0; t<=3; t++){ Log.d("hello", String_cau.get(t));}
 
                         //Get random option index
                         Random random1 = new Random();
