@@ -58,13 +58,24 @@
         />
 
     <Button
+        android:id="@+id/btnhtcs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="hiển thị câu sai"
+        android:textSize="20dp"
+        android:layout_below="@id/kqsai"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"
+        />
+
+    <Button
         android:id="@+id/btnbackmain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="về trang chủ"
         android:textSize="20dp"
-        android:layout_below="@id/kqsai"
-        android:layout_marginTop="50dp"
+        android:layout_below="@id/btnhtcs"
+        android:layout_marginTop="10dp"
         android:layout_centerHorizontal="true"
         />
 

@@ -9,13 +9,14 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class ThongKe extends AppCompatActivity {
-    Button btnvtt;
+    Button btnvtt, btnhtcs;
     TextView txttongsocau, txtsocaudung, txtsocausai;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_thong_ke);
 
+        btnhtcs = (Button) findViewById((R.id.btnhtcs));
         btnvtt = (Button) findViewById(R.id.btnbackmain);
         btnvtt.setOnClickListener(new View.OnClickListener() {
             @Override
