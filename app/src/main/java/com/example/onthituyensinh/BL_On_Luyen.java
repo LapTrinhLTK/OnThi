@@ -151,7 +151,7 @@ public class BL_On_Luyen extends AppCompatActivity {
                         String_cau.add(getdata.getOptionc());
                         String_cau.add(getdata.getOptiond());
 
-//                        for(int t=0; t<=3; t++){ Log.d("hello", String_cau.get(t));}
+
 
                         //Get random option index
                         Random random1 = new Random();
@@ -166,7 +166,7 @@ public class BL_On_Luyen extends AppCompatActivity {
                             }
                         }
 
-
+                        for(int k = 0; k<=3; k++){ Log.d("hello", ""+Store_random.get(k));}
 
                         txtquestion.setText(getdata.getCauhoi());
                         btna.setText(String_cau.get(Store_random.get(0)));
@@ -179,10 +179,11 @@ public class BL_On_Luyen extends AppCompatActivity {
                             public void onClick(View v) {
                                 String chon = "A";
                                 if (btna.getText().toString().equals(getdata.getDapan())) {
+
                                     socaudung++;
                                     TaoCauHoi();
                                 } else {
-                                    indexcausai.add(finalNumcau);
+                                    
                                     socausai++;
                                     TaoCauHoi();
                                 }
