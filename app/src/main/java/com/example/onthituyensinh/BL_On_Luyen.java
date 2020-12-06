@@ -1,26 +1,21 @@
 package com.example.onthituyensinh;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.google.firebase.database.ChildEventListener;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -29,18 +24,22 @@ public class BL_On_Luyen extends AppCompatActivity {
     TextView txtquestion,timer;
     Button btna, btnb, btnc, btnd;
 
+    //Bộ các mảng xử lý HTCS
+    ArrayList<Integer> Store_index = new ArrayList<>();
 
+    ArrayList<Integer> Index_cau = new ArrayList();
     ArrayList<String> selection = new ArrayList<>();
-    ArrayList<Integer> indexcausai = new ArrayList<>();
+    int[][] mixed_position = new int[10000][4];
+
 
     ArrayList<Boolean> dd = new ArrayList<>();
-
-    int numrandom;
+    int numrandom, numcau;
     int socaudung = 0;
     int socausai = 0;
     int tongsocau = 0;
     int socau;
     int dem = 0;
+    String chon;
 
     String keynodemon;
 
@@ -65,7 +64,10 @@ public class BL_On_Luyen extends AppCompatActivity {
         int time  = chuyenbl1.getIntExtra("thoigian", 150);
         time = time*60;
 
-        for(int a = 0; a<=120; a++) { dd.add(false); }
+        for(int a = 0; a<=9999; a++) { dd.add(false); }
+        for(int j = 0; j<=9999; j++) { selection.add("X");}
+        //Add value into Store_index
+        for (int k=0; k<=3; k++) { Store_index.add(k);}
 
 
         TaoCauHoi();
@@ -85,16 +87,24 @@ public class BL_On_Luyen extends AppCompatActivity {
         if (dem>socau)
         {
             Intent chuyenthongke = new Intent(BL_On_Luyen.this, ThongKe.class);
+            //Truyen thong ke
             chuyenthongke.putExtra("socau", String.valueOf(socau));
             chuyenthongke.putExtra("tongcau", String.valueOf(tongsocau));
             chuyenthongke.putExtra("caudung", String.valueOf(socaudung));
             chuyenthongke.putExtra("causai", String.valueOf(socausai));
+            chuyenthongke.putExtra("keynodemon", keynodemon);
+
+            //Truyền bộ mảng HTCS
+            chuyenthongke.putExtra("index_cau_array", Index_cau);
+            chuyenthongke.putExtra("selection_array", selection);
+            chuyenthongke.putExtra("mixed_position_array", mixed_position);
+
             startActivity(chuyenthongke);
         }
         else
         {
             Random random = new Random();
-            int numcau = random.nextInt(numrandom);
+            numcau = random.nextInt(numrandom);
             numcau++;
 
             if (dd.get(numcau) == false)
@@ -138,13 +148,12 @@ public class BL_On_Luyen extends AppCompatActivity {
                         final GetData getdata = snapshot.getValue(GetData.class);
                         assert getdata != null;
 
+                        //Tron cau chon
                         ArrayList<String> String_cau = new ArrayList<>();
-                        ArrayList<Integer> Store_random = new ArrayList<>();
-                        ArrayList<Boolean> check_random = new ArrayList<>();
 
-                        for(int b=0; b<=4; b++) { check_random.add(false); }
+                        int tg = 0;
+                        int counter = 1;
 
-                        int counter = 0;
                         //Add option into array
                         String_cau.add(getdata.getOptiona());
                         String_cau.add(getdata.getOptionb());
@@ -153,40 +162,43 @@ public class BL_On_Luyen extends AppCompatActivity {
 
 
 
-                        //Get random option index
-                        Random random1 = new Random();
 
-                        while (counter<=4) {
-                            int indexcau = random1.nextInt(4);
-                            if (check_random.get(indexcau) == false)
-                            {
-                                check_random.set(indexcau, true);
-                                Store_random.add(indexcau);
-                                counter++;
-                            }
+                        //Get random times
+                        Random random1 = new Random();
+                        int times = random1.nextInt(10);
+                        times++;
+
+                        while (counter<=times)
+                        {
+                            Random rannum = new Random();
+                            int num1 = rannum.nextInt(4);
+                            int num2 = rannum.nextInt(4);
+
+                            while (num2 == num1){ num2 = rannum.nextInt(4); }
+
+                            tg = Store_index.get(num1);
+                            Store_index.set(num1, Store_index.get(num2));
+                            Store_index.set(num2, tg);
+
+                            counter++;
                         }
 
-                        for(int k = 0; k<=3; k++){ Log.d("hello", ""+Store_random.get(k));}
 
                         txtquestion.setText(getdata.getCauhoi());
-                        btna.setText(String_cau.get(Store_random.get(0)));
-                        btnb.setText(String_cau.get(Store_random.get(1)));
-                        btnc.setText(String_cau.get(Store_random.get(2)));
-                        btnd.setText(String_cau.get(Store_random.get(3)));
+                        btna.setText(String_cau.get(Store_index.get(0)));
+                        btnb.setText(String_cau.get(Store_index.get(1)));
+                        btnc.setText(String_cau.get(Store_index.get(2)));
+                        btnd.setText(String_cau.get(Store_index.get(3)));
 
                         btna.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                String chon = "A";
+                                chon = "A";
                                 if (btna.getText().toString().equals(getdata.getDapan())) {
-
                                     socaudung++;
                                     TaoCauHoi();
-                                } else {
-                                    
-                                    socausai++;
-                                    TaoCauHoi();
                                 }
+                                else { Incorrect(); }
 
                             }
                         });
@@ -194,14 +206,12 @@ public class BL_On_Luyen extends AppCompatActivity {
                         btnb.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                String chon = "B";
+                                chon = "B";
                                 if (btnb.getText().toString().equals(getdata.getDapan())) {
                                     socaudung++;
                                     TaoCauHoi();
-                                } else {
-                                    socausai++;
-                                    TaoCauHoi();
                                 }
+                                else { Incorrect(); }
 
                             }
                         });
@@ -209,14 +219,12 @@ public class BL_On_Luyen extends AppCompatActivity {
                         btnc.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                String chon = "C";
+                                chon = "C";
                                 if (btnc.getText().toString().equals(getdata.getDapan())) {
                                     socaudung++;
                                     TaoCauHoi();
-                                } else {
-                                    socausai++;
-                                    TaoCauHoi();
                                 }
+                                else { Incorrect(); }
 
                             }
                         });
@@ -224,14 +232,12 @@ public class BL_On_Luyen extends AppCompatActivity {
                         btnd.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                String chon = "D";
+                                chon = "D";
                                 if (btnd.getText().toString().equals(getdata.getDapan())){
                                     socaudung++;
                                     TaoCauHoi();
-                                } else {
-                                    socausai++;
-                                    TaoCauHoi();
                                 }
+                                else { Incorrect(); }
 
                             }
                         });
@@ -254,6 +260,20 @@ public class BL_On_Luyen extends AppCompatActivity {
 
         }
 
+    }
+
+    public void Incorrect()
+    {
+        socausai++;
+
+        Index_cau.add(numcau);
+        selection.set(numcau, chon);
+
+        for (int m = 0; m<=3; m++)
+        {
+            mixed_position[numcau][m] = Store_index.get(m);
+        }
+        TaoCauHoi();
     }
 
     public void CountDownTimer(int seconds, final TextView tv)

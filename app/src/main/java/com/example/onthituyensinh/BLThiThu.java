@@ -104,39 +104,49 @@ public class BLThiThu extends AppCompatActivity {
                         final GetData getdata = snapshot.getValue(GetData.class);
                         assert getdata != null;
 
+                        //Tron cau chon
                         ArrayList<String> String_cau = new ArrayList<>();
-                        ArrayList<Integer> Store_random = new ArrayList<>();
-                        ArrayList<Boolean> check_random = new ArrayList<>();
+                        ArrayList<Integer> Store_index = new ArrayList<Integer>();
+                        int tg = 0;
+                        int counter = 1;
 
-                        for(int b=0; b<=4; b++) { check_random.add(false); }
-
-                        int counter = 0;
                         //Add option into array
                         String_cau.add(getdata.getOptiona());
                         String_cau.add(getdata.getOptionb());
                         String_cau.add(getdata.getOptionc());
                         String_cau.add(getdata.getOptiond());
 
-                        //Get random option index
-                        Random random1 = new Random();
 
-                        while (counter<=4) {
-                            int indexcau = random1.nextInt(4);
-                            if (check_random.get(indexcau) == false)
-                            {
-                                check_random.set(indexcau, true);
-                                Store_random.add(indexcau);
-                                counter++;
-                            }
+                        //Add value into Store_index
+                        for (int k=0; k<=3; k++) { Store_index.add(k);}
+
+                        //Get random times
+                        Random random1 = new Random();
+                        int times = random1.nextInt(10);
+                        times++;
+
+                        while (counter<=times)
+                        {
+                            Random rannum = new Random();
+                            int num1 = rannum.nextInt(4);
+                            int num2 = rannum.nextInt(4);
+
+                            while (num2 == num1){ num2 = rannum.nextInt(4); }
+
+                            tg = Store_index.get(num1);
+                            Store_index.set(num1, Store_index.get(num2));
+                            Store_index.set(num2, tg);
+
+                            counter++;
                         }
 
 
-
                         txtquestion.setText(getdata.getCauhoi());
-                        btna.setText(String_cau.get(Store_random.get(0)));
-                        btnb.setText(String_cau.get(Store_random.get(1)));
-                        btnc.setText(String_cau.get(Store_random.get(2)));
-                        btnd.setText(String_cau.get(Store_random.get(3)));
+                        btna.setText(String_cau.get(Store_index.get(0)));
+                        btnb.setText(String_cau.get(Store_index.get(1)));
+                        btnc.setText(String_cau.get(Store_index.get(2)));
+                        btnd.setText(String_cau.get(Store_index.get(3)));
+
 
                         btna.setOnClickListener(new View.OnClickListener() {
                             @Override
