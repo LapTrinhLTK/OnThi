@@ -23,17 +23,17 @@ public class BLThiThu2 extends AppCompatActivity {
     Button btna,btnb,btnc,btnd;
     TextView txtquestion, timer;
 
-    ArrayList<Integer> Store_index = new ArrayList<Integer>();
+    ArrayList<Integer> Store_index = new ArrayList<>();
 
     //Bộ mảng môn Anh
-    ArrayList<Integer> Index_cau_Anh;
-    ArrayList<String> selection_Anh;
-    int [][] mixed_position_Anh;
+//    ArrayList<Integer> Index_cau_Anh;
+//    ArrayList<String> selection_Anh;
+//    int [][] mixed_position_Anh;
 
     //Bộ mảng môn tự nhiên
-    ArrayList<Integer> Index_cau_tn = new ArrayList();
-    ArrayList<String> selection_tn = new ArrayList<>();
-    int[][] mixed_position_tn = new int[10000][4];
+//    ArrayList<Integer> Index_cau_tn = new ArrayList();
+//    ArrayList<String> selection_tn = new ArrayList<>();
+//    int[][] mixed_position_tn = new int[10000][4];
 
     ArrayList<Boolean> dd = new ArrayList<>();
 
@@ -70,12 +70,12 @@ public class BLThiThu2 extends AppCompatActivity {
         socausai = chuyenbltunhien.getIntExtra("causai", 20);
 
         //Nhận bộ mảng môn Anh
-        Index_cau_Anh= chuyenbltunhien.getIntegerArrayListExtra("index_cau_array_anh");
-        selection_Anh = chuyenbltunhien.getStringArrayListExtra("selection_array_anh");
-        mixed_position_Anh = (int[][]) getIntent().getSerializableExtra("mixed_position_array_anh");
+//        Index_cau_Anh= chuyenbltunhien.getIntegerArrayListExtra("index_cau_array_anh");
+//        selection_Anh = chuyenbltunhien.getStringArrayListExtra("selection_array_anh");
+//        mixed_position_Anh = (int[][]) getIntent().getSerializableExtra("mixed_position_array_anh");
 
         for(int a = 0; a<=120; a++) { dd.add(false); }
-        for(int j = 0; j<=9999; j++) { selection_tn.add("X");}
+        for(int j = 0; j<=9999; j++) { Arrays.selection_tn.add("X");}
         //Add value into Store_index
         for (int k=0; k<=3; k++) { Store_index.add(k);}
 
@@ -101,14 +101,14 @@ public class BLThiThu2 extends AppCompatActivity {
             chuyenblxahoi.putExtra("keytunhien", keytn);
 
             //Truyền bộ mảng Anh Văn
-            chuyenblxahoi.putExtra("index_cau_array_anh", Index_cau_Anh);
-            chuyenblxahoi.putExtra("selection_array_anh", selection_Anh);
-            chuyenblxahoi.putExtra("mixed_position_array_anh", mixed_position_Anh);
+//            chuyenblxahoi.putExtra("index_cau_array_anh", Index_cau_Anh);
+//            chuyenblxahoi.putExtra("selection_array_anh", selection_Anh);
+//            chuyenblxahoi.putExtra("mixed_position_array_anh", mixed_position_Anh);
 
             //Truyền bộ mảng tự nhiên
-            chuyenblxahoi.putExtra("index_cau_array_tn", Index_cau_tn);
-            chuyenblxahoi.putExtra("selection_array_tn", selection_tn);
-            chuyenblxahoi.putExtra("mixed_position_array_tn", mixed_position_tn);
+//            chuyenblxahoi.putExtra("index_cau_array_tn", Index_cau_tn);
+//            chuyenblxahoi.putExtra("selection_array_tn", selection_tn);
+//            chuyenblxahoi.putExtra("mixed_position_array_tn", mixed_position_tn);
 
             startActivity(chuyenblxahoi);
         }
@@ -169,7 +169,6 @@ public class BLThiThu2 extends AppCompatActivity {
 
                             counter++;
                         }
-
 
                         txtquestion.setText(getdata.getCauhoi());
                         btna.setText(String_cau.get(Store_index.get(0)));
@@ -248,12 +247,12 @@ public class BLThiThu2 extends AppCompatActivity {
     {
         socausai++;
 
-        Index_cau_tn.add(numcau);
-        selection_tn.set(numcau, chon);
+        Arrays.Index_cau_tn.add(numcau);
+        Arrays.selection_tn.set(numcau, chon);
 
         for (int m = 0; m<=3; m++)
         {
-            mixed_position_tn[numcau][m] = Store_index.get(m);
+            Arrays.mixed_position_tn[numcau][m] = Store_index.get(m);
         }
         TaoCauHoi(keytn);
     }
@@ -284,15 +283,15 @@ public class BLThiThu2 extends AppCompatActivity {
                 chuyenthongke.putExtra("keytunhien", keytn);
                 chuyenthongke.putExtra("check", kt);
 
-                //Truyền bộ mảng Anh Văn
-                chuyenthongke.putExtra("index_cau_array_anh", Index_cau_Anh);
-                chuyenthongke.putExtra("selection_array_anh", selection_Anh);
-                chuyenthongke.putExtra("mixed_position_array_anh", mixed_position_Anh);
-
-                //Truyền bộ mảng môn tự nhiên
-                chuyenthongke.putExtra("index_cau_array_tn", Index_cau_tn);
-                chuyenthongke.putExtra("selection_array_tn", selection_tn);
-                chuyenthongke.putExtra("mixed_position_array_tn", mixed_position_tn);
+//                //Truyền bộ mảng Anh Văn
+//                chuyenthongke.putExtra("index_cau_array_anh", Index_cau_Anh);
+//                chuyenthongke.putExtra("selection_array_anh", selection_Anh);
+//                chuyenthongke.putExtra("mixed_position_array_anh", mixed_position_Anh);
+//
+//                //Truyền bộ mảng môn tự nhiên
+//                chuyenthongke.putExtra("index_cau_array_tn", Index_cau_tn);
+//                chuyenthongke.putExtra("selection_array_tn", selection_tn);
+//                chuyenthongke.putExtra("mixed_position_array_tn", mixed_position_tn);
 
                 startActivity(chuyenthongke);
             }

@@ -33,20 +33,20 @@ public class ThongKe extends AppCompatActivity {
         ArrayList<String> selection = chuyenthongke.getStringArrayListExtra("selection_array");
         int [][] mixed_position = (int[][]) getIntent().getSerializableExtra("mixed_position_array");
 
-        //Nhận bộ mảng Anh
-        ArrayList<Integer> Index_cau_Anh = chuyenthongke.getIntegerArrayListExtra("index_cau_array_anh");
-        ArrayList<String> selection_Anh = chuyenthongke.getStringArrayListExtra("selection_array_anh");
-        int [][] mixed_position_Anh = (int[][]) getIntent().getSerializableExtra("mixed_position_array_anh");
-
-        //Nhận bộ mảng tự nhiên
-        ArrayList<Integer> Index_cau_tn = chuyenthongke.getIntegerArrayListExtra("index_cau_array_tn");
-        ArrayList<String> selection_tn = chuyenthongke.getStringArrayListExtra("selection_array_tn");
-        int [][] mixed_position_tn = (int[][]) getIntent().getSerializableExtra("mixed_position_array_tn");
-
-        //Nhận bộ mảng xã hội
-        ArrayList<Integer> Index_cau_xh = chuyenthongke.getIntegerArrayListExtra("index_cau_array_xh");
-        ArrayList<String> selection_xh = chuyenthongke.getStringArrayListExtra("selection_array_xh");
-        int [][] mixed_position_xh = (int[][]) getIntent().getSerializableExtra("mixed_position_array_xh");
+//        //Nhận bộ mảng Anh
+//        ArrayList<Integer> Index_cau_Anh = chuyenthongke.getIntegerArrayListExtra("index_cau_array_anh");
+//        ArrayList<String> selection_Anh = chuyenthongke.getStringArrayListExtra("selection_array_anh");
+//        int [][] mixed_position_Anh = (int[][]) getIntent().getSerializableExtra("mixed_position_array_anh");
+//
+//        //Nhận bộ mảng tự nhiên
+//        ArrayList<Integer> Index_cau_tn = chuyenthongke.getIntegerArrayListExtra("index_cau_array_tn");
+//        ArrayList<String> selection_tn = chuyenthongke.getStringArrayListExtra("selection_array_tn");
+//        int [][] mixed_position_tn = (int[][]) getIntent().getSerializableExtra("mixed_position_array_tn");
+//
+//        //Nhận bộ mảng xã hội
+//        ArrayList<Integer> Index_cau_xh = chuyenthongke.getIntegerArrayListExtra("index_cau_array_xh");
+//        ArrayList<String> selection_xh = chuyenthongke.getStringArrayListExtra("selection_array_xh");
+//        int [][] mixed_position_xh = (int[][]) getIntent().getSerializableExtra("mixed_position_array_xh");
 
         String keynodemon = chuyenthongke.getStringExtra("keynodemon");
 
@@ -58,20 +58,20 @@ public class ThongKe extends AppCompatActivity {
         selection = chuyenthongke2.getStringArrayListExtra("selection_array");
         mixed_position = (int[][]) getIntent().getSerializableExtra("mixed_position_array");
 
-        //Nhận bộ mảng môn Anh truyền về
-        Index_cau_Anh = chuyenthongke2.getIntegerArrayListExtra("index_cau_array_anh");
-        selection_Anh = chuyenthongke2.getStringArrayListExtra("selection_array_anh");
-        mixed_position_Anh = (int[][]) getIntent().getSerializableExtra("mixed_position_array_anh");
-
-        //Nhận bộ mảng tự nhiên truyền về
-        Index_cau_tn = chuyenthongke2.getIntegerArrayListExtra("index_cau_array_tn");
-        selection_tn = chuyenthongke2.getStringArrayListExtra("selection_array_tn");
-        mixed_position_tn = (int[][]) getIntent().getSerializableExtra("mixed_position_array_tn");
-
-        //Nhận bộ mảng xã hội truyền về
-        Index_cau_xh = chuyenthongke2.getIntegerArrayListExtra("index_cau_array_xh");
-        selection_xh = chuyenthongke2.getStringArrayListExtra("selection_array_xh");
-        mixed_position_xh = (int[][]) getIntent().getSerializableExtra("mixed_position_array_xh");
+//        //Nhận bộ mảng môn Anh truyền về
+//        Index_cau_Anh = chuyenthongke2.getIntegerArrayListExtra("index_cau_array_anh");
+//        selection_Anh = chuyenthongke2.getStringArrayListExtra("selection_array_anh");
+//        mixed_position_Anh = (int[][]) getIntent().getSerializableExtra("mixed_position_array_anh");
+//
+//        //Nhận bộ mảng tự nhiên truyền về
+//        Index_cau_tn = chuyenthongke2.getIntegerArrayListExtra("index_cau_array_tn");
+//        selection_tn = chuyenthongke2.getStringArrayListExtra("selection_array_tn");
+//        mixed_position_tn = (int[][]) getIntent().getSerializableExtra("mixed_position_array_tn");
+//
+//        //Nhận bộ mảng xã hội truyền về
+//        Index_cau_xh = chuyenthongke2.getIntegerArrayListExtra("index_cau_array_xh");
+//        selection_xh = chuyenthongke2.getStringArrayListExtra("selection_array_xh");
+//        mixed_position_xh = (int[][]) getIntent().getSerializableExtra("mixed_position_array_xh");
 
         kt = chuyenthongke2.getIntExtra("check", 0);
         socau = chuyenthongke2.getStringExtra("socau");
@@ -97,20 +97,20 @@ public class ThongKe extends AppCompatActivity {
         final ArrayList<Integer> finalIndex_cau = Index_cau;
         final ArrayList<String> finalSelection = selection;
 
-        //Final mảng Anh
-        final int[][] finalMixed_position_Anh = mixed_position_Anh;
-        final ArrayList<Integer> finalIndex_cau_Anh = Index_cau_Anh;
-        final ArrayList<String> finalSelection_Anh = selection_Anh;
-
-        //Final mảng tự nhiên
-        final ArrayList<Integer> finalIndex_cau_tn = Index_cau_tn;
-        final ArrayList<String> finalSelection_tn = selection_tn;
-        final int[][] finalMixed_position_tn = mixed_position_tn;
-
-        //Final mảng xã hội
-        final int[][] finalMixed_position_xh = mixed_position_xh;
-        final ArrayList<String> finalSelection_xh = selection_xh;
-        final ArrayList<Integer> finalIndex_cau_xh = Index_cau_xh;
+//        //Final mảng Anh
+//        final int[][] finalMixed_position_Anh = mixed_position_Anh;
+//        final ArrayList<Integer> finalIndex_cau_Anh = Index_cau_Anh;
+//        final ArrayList<String> finalSelection_Anh = selection_Anh;
+//
+//        //Final mảng tự nhiên
+//        final ArrayList<Integer> finalIndex_cau_tn = Index_cau_tn;
+//        final ArrayList<String> finalSelection_tn = selection_tn;
+//        final int[][] finalMixed_position_tn = mixed_position_tn;
+//
+//        //Final mảng xã hội
+//        final int[][] finalMixed_position_xh = mixed_position_xh;
+//        final ArrayList<String> finalSelection_xh = selection_xh;
+//        final ArrayList<Integer> finalIndex_cau_xh = Index_cau_xh;
 
         final String finalKeytn = keytn;
         final String finalKeyxh = keyxh;
@@ -130,20 +130,20 @@ public class ThongKe extends AppCompatActivity {
                 chuyenhtcs.putExtra("selection_array", finalSelection);
                 chuyenhtcs.putExtra("mixed_position_array", finalMixed_position);
 
-                //Truyền bộ mảng Anh
-                chuyenhtcs.putExtra("index_cau_array_anh", finalIndex_cau_Anh);
-                chuyenhtcs.putExtra("selection_array_anh", finalSelection_Anh);
-                chuyenhtcs.putExtra("mixed_position_array_anh", finalMixed_position_Anh);
-
-                //Truyền bộ mảng tự nhiên
-                chuyenhtcs.putExtra("index_cau_array_tn", finalIndex_cau_tn);
-                chuyenhtcs.putExtra("selection_array_tn", finalSelection_tn);
-                chuyenhtcs.putExtra("mixed_position_array_tn", finalMixed_position_tn);
-
-                //Truyền bộ mảng xã hội
-                chuyenhtcs.putExtra("index_cau_array_xh", finalIndex_cau_xh);
-                chuyenhtcs.putExtra("selection_array_xh", finalSelection_xh);
-                chuyenhtcs.putExtra("mixed_position_array_xh", finalMixed_position_xh);
+//                //Truyền bộ mảng Anh
+//                chuyenhtcs.putExtra("index_cau_array_anh", finalIndex_cau_Anh);
+//                chuyenhtcs.putExtra("selection_array_anh", finalSelection_Anh);
+//                chuyenhtcs.putExtra("mixed_position_array_anh", finalMixed_position_Anh);
+//
+//                //Truyền bộ mảng tự nhiên
+//                chuyenhtcs.putExtra("index_cau_array_tn", finalIndex_cau_tn);
+//                chuyenhtcs.putExtra("selection_array_tn", finalSelection_tn);
+//                chuyenhtcs.putExtra("mixed_position_array_tn", finalMixed_position_tn);
+//
+//                //Truyền bộ mảng xã hội
+//                chuyenhtcs.putExtra("index_cau_array_xh", finalIndex_cau_xh);
+//                chuyenhtcs.putExtra("selection_array_xh", finalSelection_xh);
+//                chuyenhtcs.putExtra("mixed_position_array_xh", finalMixed_position_xh);
 
                 chuyenthongke.putExtra("keyxahoi", finalKeyxh);
                 chuyenthongke.putExtra("keytunhien", finalKeytn);

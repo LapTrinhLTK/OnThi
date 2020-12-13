@@ -27,19 +27,17 @@ public class HTCS extends AppCompatActivity {
     ArrayList<String> selection;
     int [][] mixed_position;
 
-    ArrayList<Integer> Index_cau_Anh;
-    ArrayList<String> selection_Anh;
-    int [][] mixed_position_Anh;
-
-    ArrayList<Integer> Index_cau_tn;
-    ArrayList<String> selection_tn;
-    int [][] mixed_position_tn;
-
-    ArrayList<Integer> Index_cau_xh;
-    ArrayList<String> selection_xh;
-    int [][] mixed_position_xh;
-
-    ArrayList<String> MTT = new ArrayList<>();
+//    ArrayList<Integer> Index_cau_Anh;
+//    ArrayList<String> selection_Anh;
+//    int [][] mixed_position_Anh;
+//
+//    ArrayList<Integer> Index_cau_tn;
+//    ArrayList<String> selection_tn;
+//    int [][] mixed_position_tn;
+//
+//    ArrayList<Integer> Index_cau_xh;
+//    ArrayList<String> selection_xh;
+//    int [][] mixed_position_xh;
 
     DatabaseReference datacauhoi;
 
@@ -67,7 +65,7 @@ public class HTCS extends AppCompatActivity {
 
         Intent chuyenhtcs = getIntent();
         //Nhận lưu trữ các giá trị thống kê
-        final int kt = chuyenhtcs.getIntExtra("check", 0);
+        kt = chuyenhtcs.getIntExtra("check", 0);
         final String socau = chuyenhtcs.getStringExtra("socau");
         final String tongsocau = chuyenhtcs.getStringExtra("tongcau");
         final String socaudung = chuyenhtcs.getStringExtra("caudung");
@@ -76,29 +74,27 @@ public class HTCS extends AppCompatActivity {
         keytn = chuyenhtcs.getStringExtra("keytunhien");
         keyxh = chuyenhtcs.getStringExtra("keyxahoi");
 
-        MTT.add("Anh Văn");
-        MTT.add(keytn);
-        MTT.add(keyxh);
+
 
         //Nhận bộ mảng ôn luyện
         Index_cau= chuyenhtcs.getIntegerArrayListExtra("index_cau_array");
         selection = chuyenhtcs.getStringArrayListExtra("selection_array");
         mixed_position = (int[][]) getIntent().getSerializableExtra("mixed_position_array");
 
-        //Nhận bộ mảng môn Anh
-        Index_cau_Anh = chuyenhtcs.getIntegerArrayListExtra("index_cau_array_anh");
-        selection_Anh = chuyenhtcs.getStringArrayListExtra("selection_array_anh");
-        mixed_position_Anh = (int[][]) getIntent().getSerializableExtra("mixed_position_array_anh");
-
-        //Nhận bộ mảng tự nhiên
-        Index_cau_tn = chuyenhtcs.getIntegerArrayListExtra("index_cau_array_tn");
-        selection_tn= chuyenhtcs.getStringArrayListExtra("selection_array_tn");
-        mixed_position_tn = (int[][]) getIntent().getSerializableExtra("mixed_position_array_tn");
-
-        //Nhận bộ mảng xã hội
-        Index_cau_xh = chuyenhtcs.getIntegerArrayListExtra("index_cau_array_xh");
-        selection_xh = chuyenhtcs.getStringArrayListExtra("selection_array_xh");
-        mixed_position_xh = (int[][]) getIntent().getSerializableExtra("mixed_position_array_xh");
+//        //Nhận bộ mảng môn Anh
+//        Index_cau_Anh = chuyenhtcs.getIntegerArrayListExtra("index_cau_array_anh");
+//        selection_Anh = chuyenhtcs.getStringArrayListExtra("selection_array_anh");
+//        mixed_position_Anh = (int[][]) getIntent().getSerializableExtra("mixed_position_array_anh");
+//
+//        //Nhận bộ mảng tự nhiên
+//        Index_cau_tn = chuyenhtcs.getIntegerArrayListExtra("index_cau_array_tn");
+//        selection_tn= chuyenhtcs.getStringArrayListExtra("selection_array_tn");
+//        mixed_position_tn = (int[][]) getIntent().getSerializableExtra("mixed_position_array_tn");
+//
+//        //Nhận bộ mảng xã hội
+//        Index_cau_xh = chuyenhtcs.getIntegerArrayListExtra("index_cau_array_xh");
+//        selection_xh = chuyenhtcs.getStringArrayListExtra("selection_array_xh");
+//        mixed_position_xh = (int[][]) getIntent().getSerializableExtra("mixed_position_array_xh");
 
 
         btnreturn5.setOnClickListener(new View.OnClickListener() {
@@ -116,20 +112,20 @@ public class HTCS extends AppCompatActivity {
                 chuyenthongke2.putExtra("selection_array", selection);
                 chuyenthongke2.putExtra("mixed_position_array", mixed_position);
 
-                //Truyền trở vềbộ mảng Anh
-                chuyenthongke2.putExtra("index_cau_array_anh", Index_cau_Anh);
-                chuyenthongke2.putExtra("selection_array_anh", selection_Anh);
-                chuyenthongke2.putExtra("mixed_position_array_anh", mixed_position_Anh);
-
-                //Truyền trở về bộ mảng tự nhiên
-                chuyenthongke2.putExtra("index_cau_array_tn", Index_cau_tn);
-                chuyenthongke2.putExtra("selection_array_tn", selection_tn);
-                chuyenthongke2.putExtra("mixed_position_array_tn", mixed_position_tn);
-
-                //Truyền trở về bộ mảng xã hội
-                chuyenthongke2.putExtra("index_cau_array_xh", Index_cau_xh);
-                chuyenthongke2.putExtra("selection_array_xh", selection_xh);
-                chuyenthongke2.putExtra("mixed_position_array_xh", mixed_position_xh);
+//                //Truyền trở vềbộ mảng Anh
+//                chuyenthongke2.putExtra("index_cau_array_anh", Index_cau_Anh);
+//                chuyenthongke2.putExtra("selection_array_anh", selection_Anh);
+//                chuyenthongke2.putExtra("mixed_position_array_anh", mixed_position_Anh);
+//
+//                //Truyền trở về bộ mảng tự nhiên
+//                chuyenthongke2.putExtra("index_cau_array_tn", Index_cau_tn);
+//                chuyenthongke2.putExtra("selection_array_tn", selection_tn);
+//                chuyenthongke2.putExtra("mixed_position_array_tn", mixed_position_tn);
+//
+//                //Truyền trở về bộ mảng xã hội
+//                chuyenthongke2.putExtra("index_cau_array_xh", Index_cau_xh);
+//                chuyenthongke2.putExtra("selection_array_xh", selection_xh);
+//                chuyenthongke2.putExtra("mixed_position_array_xh", mixed_position_xh);
 
                 chuyenthongke2.putExtra("keyxahoi", keyxh);
                 chuyenthongke2.putExtra("keytunhien", keytn);
@@ -149,10 +145,7 @@ public class HTCS extends AppCompatActivity {
 
     public void HienThiCauSaiOnLuyen(final int index)
     {
-        if (keynodemon.equals("Hóa Học")) {
-            datacauhoi = FirebaseDatabase.getInstance().getReference().child("Hóa Học").child("Cau" + String.valueOf(Index_cau.get(index)));
-        }
-        else { datacauhoi = FirebaseDatabase.getInstance().getReference().child(keynodemon).child("Cau" + String.valueOf(Index_cau.get(index)));}
+        datacauhoi = FirebaseDatabase.getInstance().getReference().child(keynodemon).child("Cau" + String.valueOf(Index_cau.get(index)));
 
         datacauhoi.addValueEventListener(new ValueEventListener() {
             @Override
@@ -253,7 +246,7 @@ public class HTCS extends AppCompatActivity {
 
     public void HienThiCauSaiAnh(final int index_anh)
     {
-        datacauhoi = FirebaseDatabase.getInstance().getReference().child("Anh Văn").child("Cau" + String.valueOf(Index_cau_Anh.get(index_anh)));
+        datacauhoi = FirebaseDatabase.getInstance().getReference().child("Anh Văn").child("Cau" + String.valueOf(Arrays.Index_cau_Anh.get(index_anh)));
 
 
         datacauhoi.addValueEventListener(new ValueEventListener() {
@@ -272,13 +265,13 @@ public class HTCS extends AppCompatActivity {
 
                 //Hiện câu hỏi đã sai
                 txtquestion.setText(getdata.getCauhoi());
-                btna.setText(String_cau.get(mixed_position_Anh[Index_cau_Anh.get(index_anh)][0]));
-                btnb.setText(String_cau.get(mixed_position_Anh[Index_cau_Anh.get(index_anh)][1]));
-                btnc.setText(String_cau.get(mixed_position_Anh[Index_cau_Anh.get(index_anh)][2]));
-                btnd.setText(String_cau.get(mixed_position_Anh[Index_cau_Anh.get(index_anh)][3]));
+                btna.setText(String_cau.get(Arrays.mixed_position_Anh[Arrays.Index_cau_Anh.get(index_anh)][0]));
+                btnb.setText(String_cau.get(Arrays.mixed_position_Anh[Arrays.Index_cau_Anh.get(index_anh)][1]));
+                btnc.setText(String_cau.get(Arrays.mixed_position_Anh[Arrays.Index_cau_Anh.get(index_anh)][2]));
+                btnd.setText(String_cau.get(Arrays.mixed_position_Anh[Arrays.Index_cau_Anh.get(index_anh)][3]));
 
                 //Tô đỏ câu chọn sai
-                String incorrect_ans = selection_Anh.get(Index_cau_Anh.get(index_anh));
+                String incorrect_ans = Arrays.selection_Anh.get(Arrays.Index_cau_Anh.get(index_anh));
 
                 switch (incorrect_ans)
                 {
@@ -315,7 +308,7 @@ public class HTCS extends AppCompatActivity {
 
                 //Kiểm tra giới hạn
                 //Giới hạn trên
-                if (index_anh < Index_cau_Anh.size()-1)
+                if (index_anh < Arrays.Index_cau_Anh.size()-1)
                 {
                     next.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -329,7 +322,7 @@ public class HTCS extends AppCompatActivity {
                     });
                 }
                 else {
-                    if (index_anh == Index_cau_Anh.size()-1)
+                    if (index_anh == Arrays.Index_cau_Anh.size()-1)
                     {
                         next.setOnClickListener(new View.OnClickListener() {
                             @Override
@@ -371,7 +364,7 @@ public class HTCS extends AppCompatActivity {
 
     public void HienthiCauSaiTN(final int index_tunhien)
     {
-        datacauhoi = FirebaseDatabase.getInstance().getReference().child(keytn).child("Cau" + String.valueOf(Index_cau_tn.get(index_tunhien)));
+        datacauhoi = FirebaseDatabase.getInstance().getReference().child(keytn).child("Cau" + String.valueOf(Arrays.Index_cau_tn.get(index_tunhien)));
         datacauhoi.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -388,13 +381,13 @@ public class HTCS extends AppCompatActivity {
 
                 //Hiện câu hỏi đã sai
                 txtquestion.setText(getdata.getCauhoi());
-                btna.setText(String_cau.get(mixed_position_tn[Index_cau_tn.get(index_tunhien)][0]));
-                btnb.setText(String_cau.get(mixed_position_tn[Index_cau_tn.get(index_tunhien)][1]));
-                btnc.setText(String_cau.get(mixed_position_tn[Index_cau_tn.get(index_tunhien)][2]));
-                btnd.setText(String_cau.get(mixed_position_tn[Index_cau_tn.get(index_tunhien)][3]));
+                btna.setText(String_cau.get(Arrays.mixed_position_tn[Arrays.Index_cau_tn.get(index_tunhien)][0]));
+                btnb.setText(String_cau.get(Arrays.mixed_position_tn[Arrays.Index_cau_tn.get(index_tunhien)][1]));
+                btnc.setText(String_cau.get(Arrays.mixed_position_tn[Arrays.Index_cau_tn.get(index_tunhien)][2]));
+                btnd.setText(String_cau.get(Arrays.mixed_position_tn[Arrays.Index_cau_tn.get(index_tunhien)][3]));
 
                 //Tô đỏ câu chọn sai
-                String incorrect_ans = selection_tn.get(Index_cau_tn.get(index_tunhien));
+                String incorrect_ans = Arrays.selection_tn.get(Arrays.Index_cau_tn.get(index_tunhien));
 
                 switch (incorrect_ans)
                 {
@@ -431,7 +424,7 @@ public class HTCS extends AppCompatActivity {
 
                 //Kiểm tra giới hạn
                 //Giới hạn trên
-                if (index_tunhien < Index_cau_tn.size()-1)
+                if (index_tunhien < Arrays.Index_cau_tn.size()-1)
                 {
                     next.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -445,7 +438,7 @@ public class HTCS extends AppCompatActivity {
                     });
                 }
                 else {
-                    if (index_tunhien == Index_cau_tn.size()-1)
+                    if (index_tunhien == Arrays.Index_cau_tn.size()-1)
                     {
                         next.setOnClickListener(new View.OnClickListener() {
                             @Override
@@ -500,7 +493,7 @@ public class HTCS extends AppCompatActivity {
 
     public void HienThiCauSaiXH(final int index_xahoi)
     {
-        datacauhoi = FirebaseDatabase.getInstance().getReference().child(keyxh).child("Cau" + String.valueOf(Index_cau_xh.get(index_xahoi)));
+        datacauhoi = FirebaseDatabase.getInstance().getReference().child(keyxh).child("Cau" + String.valueOf(Arrays.Index_cau_xh.get(index_xahoi)));
         datacauhoi.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -517,13 +510,13 @@ public class HTCS extends AppCompatActivity {
 
                 //Hiện câu hỏi đã sai
                 txtquestion.setText(getdata.getCauhoi());
-                btna.setText(String_cau.get(mixed_position_xh[Index_cau_xh.get(index_xahoi)][0]));
-                btnb.setText(String_cau.get(mixed_position_xh[Index_cau_xh.get(index_xahoi)][1]));
-                btnc.setText(String_cau.get(mixed_position_xh[Index_cau_xh.get(index_xahoi)][2]));
-                btnd.setText(String_cau.get(mixed_position_xh[Index_cau_xh.get(index_xahoi)][3]));
+                btna.setText(String_cau.get(Arrays.mixed_position_xh[Arrays.Index_cau_xh.get(index_xahoi)][0]));
+                btnb.setText(String_cau.get(Arrays.mixed_position_xh[Arrays.Index_cau_xh.get(index_xahoi)][1]));
+                btnc.setText(String_cau.get(Arrays.mixed_position_xh[Arrays.Index_cau_xh.get(index_xahoi)][2]));
+                btnd.setText(String_cau.get(Arrays.mixed_position_xh[Arrays.Index_cau_xh.get(index_xahoi)][3]));
 
                 //Tô đỏ câu chọn sai
-                String incorrect_ans = selection_xh.get(Index_cau_xh.get(index_xahoi));
+                String incorrect_ans = Arrays.selection_xh.get(Arrays.Index_cau_xh.get(index_xahoi));
 
                 switch (incorrect_ans)
                 {
@@ -560,7 +553,7 @@ public class HTCS extends AppCompatActivity {
 
                 //Kiểm tra giới hạn
                 //Giới hạn trên
-                if (index_xahoi < Index_cau_xh.size()-1)
+                if (index_xahoi < Arrays.Index_cau_xh.size()-1)
                 {
                     next.setOnClickListener(new View.OnClickListener() {
                         @Override

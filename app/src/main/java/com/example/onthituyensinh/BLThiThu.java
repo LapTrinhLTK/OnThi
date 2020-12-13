@@ -25,9 +25,9 @@ public class BLThiThu extends AppCompatActivity {
 
     ArrayList<Integer> Store_index = new ArrayList<Integer>();
 
-    ArrayList<Integer> Index_cau_Anh = new ArrayList();
-    ArrayList<String> selection_Anh = new ArrayList<>();
-    int[][] mixed_position_Anh = new int[10000][4];
+//    ArrayList<Integer> Index_cau_Anh = new ArrayList();
+//    ArrayList<String> selection_Anh = new ArrayList<>();
+//    int[][] mixed_position_Anh = new int[10000][4];
 
     ArrayList<Boolean> dd = new ArrayList<>();
 
@@ -60,7 +60,7 @@ public class BLThiThu extends AppCompatActivity {
         keyxh = chuyencbtt.getStringExtra("getmonxahoi");
 
         for(int a = 0; a<=120; a++) { dd.add(false); }
-        for(int j = 0; j<=9999; j++) { selection_Anh.add("X");}
+        for(int j = 0; j<=9999; j++) {Arrays.selection_Anh.add("X");}
         //Add value into Store_index
         for (int k=0; k<=3; k++) { Store_index.add(k);}
 
@@ -89,9 +89,10 @@ public class BLThiThu extends AppCompatActivity {
                 chuyenbltunhien.putExtra("keyxahoi", keyxh);
 
                 //Truyền bộ mảng HTCS
-                chuyenbltunhien.putExtra("index_cau_array_anh", Index_cau_Anh);
-                chuyenbltunhien.putExtra("selection_array_anh", selection_Anh);
-                chuyenbltunhien.putExtra("mixed_position_array_anh", mixed_position_Anh);
+//                chuyenbltunhien.putExtra("index_cau_array_anh", Index_cau_Anh);
+//                chuyenbltunhien.putExtra("selection_array_anh", selection_Anh);
+//                chuyenbltunhien.putExtra("mixed_position_array_anh", mixed_position_Anh);
+
                 startActivity(chuyenbltunhien);
         }
         else
@@ -229,12 +230,12 @@ public class BLThiThu extends AppCompatActivity {
     {
         socausai++;
 
-        Index_cau_Anh.add(numcau);
-        selection_Anh.set(numcau, chon);
+        Arrays.Index_cau_Anh.add(numcau);
+        Arrays.selection_Anh.set(numcau, chon);
 
         for (int m = 0; m<=3; m++)
         {
-            mixed_position_Anh[numcau][m] = Store_index.get(m);
+            Arrays.mixed_position_Anh[numcau][m] = Store_index.get(m);
         }
         TaoCauHoi("Anh Văn");
     }
@@ -266,9 +267,9 @@ public class BLThiThu extends AppCompatActivity {
                 chuyenthongke.putExtra("check", kt);
 
                 //Truyền bộ mảng HTCS
-                chuyenthongke.putExtra("index_cau_array_anh", Index_cau_Anh);
-                chuyenthongke.putExtra("selection_array_anh", selection_Anh);
-                chuyenthongke.putExtra("mixed_position_array_anh", mixed_position_Anh);
+//                chuyenthongke.putExtra("index_cau_array_anh", Index_cau_Anh);
+//                chuyenthongke.putExtra("selection_array_anh", selection_Anh);
+//                chuyenthongke.putExtra("mixed_position_array_anh", mixed_position_Anh);
 
                 startActivity(chuyenthongke);
             }

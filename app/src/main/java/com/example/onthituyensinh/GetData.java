@@ -4,7 +4,6 @@ public class GetData
 {
     public String cauhoi,optiona, optionb, optionc, optiond, dapan;
 
-
     public GetData(String cauhoi, String optiona, String optionb, String optionc, String optiond, String dapan) {
         this.cauhoi = cauhoi;
         this.optiona = optiona;
