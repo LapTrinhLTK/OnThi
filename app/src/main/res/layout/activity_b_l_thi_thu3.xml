@@ -30,6 +30,7 @@
         android:layout_marginRight="60dp"
         android:layout_marginLeft="60dp"
         android:textAllCaps="false"
+        android:background="#ffffff"
         />
 
     <Button
@@ -44,6 +45,7 @@
         android:layout_marginRight="60dp"
         android:layout_marginLeft="60dp"
         android:textAllCaps="false"
+        android:background="#ffffff"
         />
 
     <Button
@@ -59,6 +61,7 @@
 
         android:layout_marginLeft="60dp"
         android:textAllCaps="false"
+        android:background="#ffffff"
         />
 
     <Button
@@ -71,7 +74,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:layout_marginRight="60dp"
-
+        android:background="#ffffff"
         android:layout_marginLeft="60dp"
         android:textAllCaps="false"
         />

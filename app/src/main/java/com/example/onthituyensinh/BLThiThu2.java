@@ -23,19 +23,29 @@ public class BLThiThu2 extends AppCompatActivity {
     Button btna,btnb,btnc,btnd;
     TextView txtquestion, timer;
 
+    ArrayList<Integer> Store_index = new ArrayList<Integer>();
+
+    //Bộ mảng môn Anh
+    ArrayList<Integer> Index_cau_Anh;
+    ArrayList<String> selection_Anh;
+    int [][] mixed_position_Anh;
+
+    //Bộ mảng môn tự nhiên
+    ArrayList<Integer> Index_cau_tn = new ArrayList();
+    ArrayList<String> selection_tn = new ArrayList<>();
+    int[][] mixed_position_tn = new int[10000][4];
 
     ArrayList<Boolean> dd = new ArrayList<>();
-
 
     int socaudung = 0;
     int socausai = 0;
     int tongsocau = 0;
-    int socau, k;
+    int socau, numcau;
     int dem = 0;
     int minutes;
     int seconds;
     int kt = 1;
-    String keytn, keyxh;
+    String keytn, keyxh, chon;
     DatabaseReference datacauhoi;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,8 +69,15 @@ public class BLThiThu2 extends AppCompatActivity {
         socaudung = chuyenbltunhien.getIntExtra("caudung", 20);
         socausai = chuyenbltunhien.getIntExtra("causai", 20);
 
-        for(int a = 0; a<=120; a++) { dd.add(false); }
+        //Nhận bộ mảng môn Anh
+        Index_cau_Anh= chuyenbltunhien.getIntegerArrayListExtra("index_cau_array_anh");
+        selection_Anh = chuyenbltunhien.getStringArrayListExtra("selection_array_anh");
+        mixed_position_Anh = (int[][]) getIntent().getSerializableExtra("mixed_position_array_anh");
 
+        for(int a = 0; a<=120; a++) { dd.add(false); }
+        for(int j = 0; j<=9999; j++) { selection_tn.add("X");}
+        //Add value into Store_index
+        for (int k=0; k<=3; k++) { Store_index.add(k);}
 
         TaoCauHoi(keytn);
         CountDownTimer(minutes*60, timer);
@@ -81,12 +98,24 @@ public class BLThiThu2 extends AppCompatActivity {
             chuyenblxahoi.putExtra("timeminute", minutes);
             chuyenblxahoi.putExtra("timesecond", seconds);
             chuyenblxahoi.putExtra("keyxahoi", keyxh);
+            chuyenblxahoi.putExtra("keytunhien", keytn);
+
+            //Truyền bộ mảng Anh Văn
+            chuyenblxahoi.putExtra("index_cau_array_anh", Index_cau_Anh);
+            chuyenblxahoi.putExtra("selection_array_anh", selection_Anh);
+            chuyenblxahoi.putExtra("mixed_position_array_anh", mixed_position_Anh);
+
+            //Truyền bộ mảng tự nhiên
+            chuyenblxahoi.putExtra("index_cau_array_tn", Index_cau_tn);
+            chuyenblxahoi.putExtra("selection_array_tn", selection_tn);
+            chuyenblxahoi.putExtra("mixed_position_array_tn", mixed_position_tn);
+
             startActivity(chuyenblxahoi);
         }
         else
         {
             Random random = new Random();
-            int numcau = random.nextInt(30);
+            numcau = random.nextInt(30);
             numcau++;
 
             if (dd.get(numcau) == false)
@@ -107,7 +136,7 @@ public class BLThiThu2 extends AppCompatActivity {
 
                         //Tron cau chon
                         ArrayList<String> String_cau = new ArrayList<>();
-                        ArrayList<Integer> Store_index = new ArrayList<Integer>();
+
                         int tg = 0;
                         int counter = 1;
 
@@ -156,10 +185,7 @@ public class BLThiThu2 extends AppCompatActivity {
                                 if (btna.getText().toString().equals(getdata.getDapan())) {
                                     socaudung++;
                                     TaoCauHoi(mon);
-                                } else {
-                                    socausai++;
-                                    TaoCauHoi(mon);
-                                }
+                                } else {Incorrect();}
 
                             }
                         });
@@ -171,10 +197,7 @@ public class BLThiThu2 extends AppCompatActivity {
                                 if (btnb.getText().toString().equals(getdata.getDapan())) {
                                     socaudung++;
                                     TaoCauHoi(mon);
-                                } else {
-                                    socausai++;
-                                    TaoCauHoi(mon);
-                                }
+                                } else {Incorrect(); }
 
                             }
                         });
@@ -186,10 +209,7 @@ public class BLThiThu2 extends AppCompatActivity {
                                 if (btnc.getText().toString().equals(getdata.getDapan())) {
                                     socaudung++;
                                     TaoCauHoi(mon);
-                                } else {
-                                    socausai++;
-                                    TaoCauHoi(mon);
-                                }
+                                } else {Incorrect(); }
 
                             }
                         });
@@ -201,10 +221,7 @@ public class BLThiThu2 extends AppCompatActivity {
                                 if (btnd.getText().toString().equals(getdata.getDapan())){
                                     socaudung++;
                                     TaoCauHoi(mon);
-                                } else {
-                                    socausai++;
-                                    TaoCauHoi(mon);
-                                }
+                                } else {Incorrect(); }
 
                             }
                         });
@@ -225,6 +242,20 @@ public class BLThiThu2 extends AppCompatActivity {
 
         }
 
+    }
+
+    public void Incorrect()
+    {
+        socausai++;
+
+        Index_cau_tn.add(numcau);
+        selection_tn.set(numcau, chon);
+
+        for (int m = 0; m<=3; m++)
+        {
+            mixed_position_tn[numcau][m] = Store_index.get(m);
+        }
+        TaoCauHoi(keytn);
     }
 
     public void CountDownTimer(int giay, final TextView tv)
@@ -249,7 +280,20 @@ public class BLThiThu2 extends AppCompatActivity {
                 chuyenthongke.putExtra("tongcau", String.valueOf(tongsocau));
                 chuyenthongke.putExtra("caudung", String.valueOf(socaudung));
                 chuyenthongke.putExtra("causai", String.valueOf(socausai));
+                chuyenthongke.putExtra("keyxahoi", keyxh);
+                chuyenthongke.putExtra("keytunhien", keytn);
                 chuyenthongke.putExtra("check", kt);
+
+                //Truyền bộ mảng Anh Văn
+                chuyenthongke.putExtra("index_cau_array_anh", Index_cau_Anh);
+                chuyenthongke.putExtra("selection_array_anh", selection_Anh);
+                chuyenthongke.putExtra("mixed_position_array_anh", mixed_position_Anh);
+
+                //Truyền bộ mảng môn tự nhiên
+                chuyenthongke.putExtra("index_cau_array_tn", Index_cau_tn);
+                chuyenthongke.putExtra("selection_array_tn", selection_tn);
+                chuyenthongke.putExtra("mixed_position_array_tn", mixed_position_tn);
+
                 startActivity(chuyenthongke);
             }
         }.start();

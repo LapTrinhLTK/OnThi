@@ -1,14 +1,14 @@
 package com.example.onthituyensinh;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -23,18 +23,35 @@ public class BLThiThu3 extends AppCompatActivity {
     Button btna,btnb,btnc,btnd;
     TextView txtquestion, timer;
 
+    ArrayList<Integer> Store_index = new ArrayList<>();
+
+    //Bộ mảng Anh
+    ArrayList<Integer> Index_cau_Anh;
+    ArrayList<String> selection_Anh;
+    int [][] mixed_position_Anh;
+
+    //Bộ mảng tự nhiên
+    ArrayList<Integer> Index_cau_tn;
+    ArrayList<String> selection_tn;
+    int [][] mixed_position_tn;
+
+    //Bộ mảng xã hội
+    ArrayList<Integer> Index_cau_xh = new ArrayList();
+    ArrayList<String> selection_xh = new ArrayList<>();
+    int[][] mixed_position_xh = new int[10000][4];
+
     ArrayList<Boolean> dd = new ArrayList<>();
 
 
     int socaudung = 0;
     int socausai = 0;
     int tongsocau = 0;
-    int socau, k;
+    int socau, numcau;
     int dem = 0;
     int minutes;
     int seconds;
     int kt = 1;
-    String keyxh;
+    String keyxh, keytn, chon;
     DatabaseReference datacauhoi;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,16 +66,29 @@ public class BLThiThu3 extends AppCompatActivity {
         btnc = (Button) findViewById(R.id.btnC);
         btnd = (Button) findViewById(R.id.btnD);
 
-        Intent chuyenbltunhien = getIntent();
-        keyxh = chuyenbltunhien.getStringExtra("keyxahoi");
-        minutes = chuyenbltunhien.getIntExtra("timeminute", 150);
-        seconds = chuyenbltunhien.getIntExtra("timesecond", 0);
-        tongsocau = chuyenbltunhien.getIntExtra("tongcau", 20);
-        socaudung = chuyenbltunhien.getIntExtra("caudung", 20);
-        socausai = chuyenbltunhien.getIntExtra("causai", 20);
+        Intent chuyenblxahoi = getIntent();
+        keytn = chuyenblxahoi.getStringExtra("keytunhien");
+        keyxh = chuyenblxahoi.getStringExtra("keyxahoi");
+        minutes = chuyenblxahoi.getIntExtra("timeminute", 150);
+        seconds = chuyenblxahoi.getIntExtra("timesecond", 0);
+        tongsocau = chuyenblxahoi.getIntExtra("tongcau", 20);
+        socaudung = chuyenblxahoi.getIntExtra("caudung", 20);
+        socausai = chuyenblxahoi.getIntExtra("causai", 20);
+
+        //Nhận bộ mảng môn Anh
+        Index_cau_Anh= chuyenblxahoi.getIntegerArrayListExtra("index_cau_array_anh");
+        selection_Anh = chuyenblxahoi.getStringArrayListExtra("selection_array_anh");
+        mixed_position_Anh = (int[][]) getIntent().getSerializableExtra("mixed_position_array_anh");
+
+        //Nhận bộ mảng tự nhiên
+        Index_cau_tn = chuyenblxahoi.getIntegerArrayListExtra("index_cau_array_tn");
+        selection_tn = chuyenblxahoi.getStringArrayListExtra("selection_array_tn");
+        mixed_position_tn = (int[][]) getIntent().getSerializableExtra("mixed_position_array_tn");
 
         for(int a = 0; a<=120; a++) { dd.add(false); }
-
+        for(int j = 0; j<=9999; j++) { selection_xh.add("X");}
+        //Add value into Store_index
+        for (int k=0; k<=3; k++) { Store_index.add(k);}
 
         TaoCauHoi(keyxh);
         CountDownTimer(minutes*60, timer);
@@ -76,13 +106,30 @@ public class BLThiThu3 extends AppCompatActivity {
             chuyenthongke.putExtra("tongcau", String.valueOf(tongsocau));
             chuyenthongke.putExtra("caudung", String.valueOf(socaudung));
             chuyenthongke.putExtra("causai", String.valueOf(socausai));
+            chuyenthongke.putExtra("keyxahoi", keyxh);
+            chuyenthongke.putExtra("keytunhien", keytn);
             chuyenthongke.putExtra("check", kt);
+
+            //Truyền bộ mảng Anh
+            chuyenthongke.putExtra("index_cau_array_anh", Index_cau_Anh);
+            chuyenthongke.putExtra("selection_array_anh", selection_Anh);
+            chuyenthongke.putExtra("mixed_position_array_anh", mixed_position_Anh);
+
+            //Truyền bộ mảng tự nhiên
+            chuyenthongke.putExtra("index_cau_array_tn", Index_cau_tn);
+            chuyenthongke.putExtra("selection_array_tn", selection_tn);
+            chuyenthongke.putExtra("mixed_position_array_tn", mixed_position_tn);
+
+            //Truyền bộ mảng xã hội
+            chuyenthongke.putExtra("index_cau_array_xh", Index_cau_xh);
+            chuyenthongke.putExtra("selection_array_xh", selection_xh);
+            chuyenthongke.putExtra("mixed_position_array_xh", mixed_position_xh);
             startActivity(chuyenthongke);
         }
         else
         {
             Random random = new Random();
-            int numcau = random.nextInt(30);
+            numcau = random.nextInt(30);
             numcau++;
 
             if (dd.get(numcau) == false)
@@ -101,7 +148,7 @@ public class BLThiThu3 extends AppCompatActivity {
 
                         //Tron cau chon
                         ArrayList<String> String_cau = new ArrayList<>();
-                        ArrayList<Integer> Store_index = new ArrayList<Integer>();
+
                         int tg = 0;
                         int counter = 1;
 
@@ -221,6 +268,19 @@ public class BLThiThu3 extends AppCompatActivity {
 
     }
 
+    public void Incorrect()
+    {
+        socausai++;
+
+        Index_cau_xh.add(numcau);
+        selection_xh.set(numcau, chon);
+
+        for (int m = 0; m<=3; m++)
+        {
+            mixed_position_xh[numcau][m] = Store_index.get(m);
+        }
+        TaoCauHoi(keyxh);
+    }
     public void CountDownTimer(int giay, final TextView tv)
     {
         new CountDownTimer(giay * 1000 + 1000, 1000)
@@ -243,7 +303,25 @@ public class BLThiThu3 extends AppCompatActivity {
                 chuyenthongke.putExtra("tongcau", String.valueOf(tongsocau));
                 chuyenthongke.putExtra("caudung", String.valueOf(socaudung));
                 chuyenthongke.putExtra("causai", String.valueOf(socausai));
+                chuyenthongke.putExtra("keyxahoi", keyxh);
+                chuyenthongke.putExtra("keytunhien", keytn);
                 chuyenthongke.putExtra("check", kt);
+
+                //Truyền bộ mảng Anh
+                chuyenthongke.putExtra("index_cau_array_anh", Index_cau_Anh);
+                chuyenthongke.putExtra("selection_array_anh", selection_Anh);
+                chuyenthongke.putExtra("mixed_position_array_anh", mixed_position_Anh);
+
+                //Truyền bộ mảng tự nhiên
+                chuyenthongke.putExtra("index_cau_array_tn", Index_cau_tn);
+                chuyenthongke.putExtra("selection_array_tn", selection_tn);
+                chuyenthongke.putExtra("mixed_position_array_tn", mixed_position_tn);
+
+                //Truyền bộ mảng xã hội
+                chuyenthongke.putExtra("index_cau_array_xh", Index_cau_xh);
+                chuyenthongke.putExtra("selection_array_xh", selection_xh);
+                chuyenthongke.putExtra("mixed_position_array_xh", mixed_position_xh);
+
                 startActivity(chuyenthongke);
             }
         }.start();

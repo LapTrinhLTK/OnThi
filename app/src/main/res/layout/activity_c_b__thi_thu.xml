@@ -27,7 +27,7 @@
         android:textSize="20sp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-
+        android:background="#ffffff"
         />
 
     <TextView
@@ -64,6 +64,7 @@
         android:layout_below="@id/thongbaotg2"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
+        android:background="#ffffff"
         />
 
 

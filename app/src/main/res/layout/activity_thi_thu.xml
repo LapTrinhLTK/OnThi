@@ -28,7 +28,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:textAllCaps="false"
-
+        android:background="#ffffff"
         />
 
     <Button
@@ -43,7 +43,7 @@
         android:layout_marginLeft="50dp"
         android:paddingRight="35dp"
         android:paddingLeft="35dp"
-
+        android:background="#ffffff"
         />
 
     <Button
@@ -57,7 +57,7 @@
         android:layout_toRightOf="@id/deso1"
         android:paddingRight="35dp"
         android:paddingLeft="35dp"
-
+        android:background="#ffffff"
         />
 
     <Button
@@ -72,7 +72,7 @@
         android:layout_marginLeft="50dp"
         android:paddingRight="35dp"
         android:paddingLeft="35dp"
-
+        android:background="#ffffff"
         />
 
     <Button
@@ -86,7 +86,7 @@
         android:layout_toRightOf="@id/deso3"
         android:paddingRight="35dp"
         android:paddingLeft="35dp"
-
+        android:background="#ffffff"
         />
 
     <Button
@@ -101,7 +101,7 @@
         android:layout_marginLeft="50dp"
         android:paddingRight="35dp"
         android:paddingLeft="35dp"
-
+        android:background="#ffffff"
         />
 
     <Button
@@ -115,7 +115,7 @@
         android:layout_toRightOf="@id/deso5"
         android:paddingRight="35dp"
         android:paddingLeft="35dp"
-
+        android:background="#ffffff"
         />
 
     <Button
@@ -130,7 +130,7 @@
         android:layout_marginLeft="50dp"
         android:paddingRight="35dp"
         android:paddingLeft="35dp"
-
+        android:background="#ffffff"
         />
 
     <Button
@@ -144,7 +144,7 @@
         android:layout_toRightOf="@id/deso7"
         android:paddingRight="35dp"
         android:paddingLeft="35dp"
-
+        android:background="#ffffff"
         />
 
     <Button
@@ -159,7 +159,7 @@
         android:layout_marginLeft="50dp"
         android:paddingRight="35dp"
         android:paddingLeft="35dp"
-
+        android:background="#ffffff"
         />
 
     <Button
@@ -173,6 +173,6 @@
         android:layout_toRightOf="@id/deso3"
         android:paddingRight="35dp"
         android:paddingLeft="25dp"
-
+        android:background="#ffffff"
         />
 </RelativeLayout>

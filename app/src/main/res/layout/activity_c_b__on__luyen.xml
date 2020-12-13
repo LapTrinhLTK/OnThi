@@ -26,7 +26,9 @@
         android:layout_alignParentTop="true"
         android:text="Quay lại"
         android:textAllCaps="false"
-        android:textSize="20sp"/>
+        android:textSize="20sp"
+        android:background="#ffffff"
+        />
 
     <TextView
         android:id="@+id/thongbao1"
@@ -72,6 +74,7 @@
         android:layout_below="@id/seekBartime"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
+        android:background="#ffffff"
         />
 
 

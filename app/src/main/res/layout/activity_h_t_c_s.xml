@@ -29,6 +29,7 @@
         android:layout_marginRight="60dp"
         android:layout_marginLeft="60dp"
         android:textAllCaps="false"
+        android:background="#ffffff"
         />
 
     <Button
@@ -43,6 +44,7 @@
         android:layout_marginRight="60dp"
         android:layout_marginLeft="60dp"
         android:textAllCaps="false"
+        android:background="#ffffff"
         />
 
     <Button
@@ -57,6 +59,7 @@
         android:layout_marginRight="60dp"
         android:layout_marginLeft="60dp"
         android:textAllCaps="false"
+        android:background="#ffffff"
         />
 
     <Button
@@ -71,6 +74,7 @@
         android:layout_marginRight="60dp"
         android:layout_marginLeft="60dp"
         android:textAllCaps="false"
+        android:background="#ffffff"
         />
 
     <Button
@@ -81,12 +85,13 @@
         android:textSize="15sp"
         android:layout_below="@id/btnD"
         android:layout_centerHorizontal="false"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="50dp"
         android:layout_marginRight="0dp"
         android:layout_marginLeft="210dp"
         android:paddingBottom="40dp"
         android:paddingTop="40dp"
         android:textAllCaps="true"
+        android:background="#ffffff"
         />
 
     <Button
@@ -97,12 +102,13 @@
         android:textSize="15sp"
         android:layout_below="@id/btnD"
         android:layout_centerHorizontal="false"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="50dp"
         android:layout_marginRight="210dp"
         android:layout_marginLeft="0dp"
         android:paddingBottom="40dp"
         android:paddingTop="40dp"
         android:textAllCaps="true"
+        android:background="#ffffff"
         />
 
     <Button
@@ -113,6 +119,7 @@
         android:layout_alignParentTop="true"
         android:text="Quay lại"
         android:textAllCaps="false"
-        android:textSize="20sp"/>
+        android:textSize="20sp"
+        android:background="#ffffff"/>
 
 </RelativeLayout>

@@ -160,9 +160,6 @@ public class BL_On_Luyen extends AppCompatActivity {
                         String_cau.add(getdata.getOptionc());
                         String_cau.add(getdata.getOptiond());
 
-
-
-
                         //Get random times
                         Random random1 = new Random();
                         int times = random1.nextInt(10);
@@ -299,6 +296,13 @@ public class BL_On_Luyen extends AppCompatActivity {
                 chuyenthongke.putExtra("tongcau", String.valueOf(tongsocau-1));
                 chuyenthongke.putExtra("caudung", String.valueOf(socaudung));
                 chuyenthongke.putExtra("causai", String.valueOf(socausai));
+                chuyenthongke.putExtra("keynodemon", keynodemon);
+
+                //Truyền bộ mảng HTCS
+                chuyenthongke.putExtra("index_cau_array", Index_cau);
+                chuyenthongke.putExtra("selection_array", selection);
+                chuyenthongke.putExtra("mixed_position_array", mixed_position);
+
                 startActivity(chuyenthongke);
             }
         }.start();

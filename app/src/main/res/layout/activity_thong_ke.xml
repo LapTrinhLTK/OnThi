@@ -66,6 +66,7 @@
         android:layout_below="@id/kqsai"
         android:layout_marginTop="50dp"
         android:layout_centerHorizontal="true"
+        android:background="#ffffff"
         />
 
     <Button
@@ -77,6 +78,7 @@
         android:layout_below="@id/btnhtcs"
         android:layout_marginTop="10dp"
         android:layout_centerHorizontal="true"
+        android:background="#ffffff"
         />
 
 </RelativeLayout>
