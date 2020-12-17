@@ -136,6 +136,7 @@ public class HTCS extends AppCompatActivity {
             }
         });
 
+        Log.d("pikachu", "hdfwuifhiew");
         Log.d("pikachu", ""+kt);
         if (kt == 1)
         {

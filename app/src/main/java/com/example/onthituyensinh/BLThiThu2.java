@@ -122,10 +122,20 @@ public class BLThiThu2 extends AppCompatActivity {
             {
                 dd.set(numcau, true);
 
-                if (mon.equals("Hóa Học")) {
-                    datacauhoi = FirebaseDatabase.getInstance().getReference().child("Hóa Học").child("Cau" + String.valueOf(numcau));
+//                if (mon.equals("Hóa Học")) {
+//                    datacauhoi = FirebaseDatabase.getInstance().getReference().child("Hóa Học").child("Cau" + String.valueOf(numcau));
+//                }
+//                else { datacauhoi = FirebaseDatabase.getInstance().getReference().child(mon).child("Cau" + String.valueOf(numcau));}
+
+                switch (mon){
+                    case "Vật Lý": datacauhoi = FirebaseDatabase.getInstance().getReference().child("Vật Lý").child("Cau" + String.valueOf(numcau));
+                    break;
+                    case "Sinh Học": datacauhoi = FirebaseDatabase.getInstance().getReference().child("Sinh Học").child("Cau" + String.valueOf(numcau));
+                        break;
+                    default: datacauhoi = FirebaseDatabase.getInstance().getReference().child("Hóa Học").child("Cau" + String.valueOf(numcau));
+
+
                 }
-                else { datacauhoi = FirebaseDatabase.getInstance().getReference().child(mon).child("Cau" + String.valueOf(numcau));}
                 tongsocau++;
 
                 datacauhoi.addValueEventListener(new ValueEventListener() {
