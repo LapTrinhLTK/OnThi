@@ -136,7 +136,7 @@ public class HTCS extends AppCompatActivity {
             }
         });
 
-
+        Log.d("pikachu", ""+kt);
         if (kt == 1)
         {
             HienThiCauSaiAnh(index_anh);
