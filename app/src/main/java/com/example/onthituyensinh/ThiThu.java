@@ -152,8 +152,11 @@ public class ThiThu extends AppCompatActivity {
 
 
         chuyencbtt.putExtra("monthi", "Môn: Anh Văn, " + tunhien + ", " + xahoi);
-        chuyencbtt.putExtra("montn", tunhien);
-        chuyencbtt.putExtra("monxh", xahoi);
+        Arrays.keytn = tunhien;
+        Arrays.keyxh = xahoi;
+
+//        chuyencbtt.putExtra("montn", tunhien);
+//        chuyencbtt.putExtra("monxh", xahoi);
         startActivity(chuyencbtt);
     }
 }

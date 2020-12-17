@@ -23,8 +23,8 @@ public class ThongKe extends AppCompatActivity {
         String tongsocau = chuyenthongke.getStringExtra("tongcau");
         String socaudung = chuyenthongke.getStringExtra("caudung");
         String socausai = chuyenthongke.getStringExtra("causai");
-        String keytn = chuyenthongke.getStringExtra("keytunhien");
-        String keyxh = chuyenthongke.getStringExtra("keyxahoi");
+//        String keytn = chuyenthongke.getStringExtra("keytunhien");
+//        String keyxh = chuyenthongke.getStringExtra("keyxahoi");
 
         //Nhan bo mang HTCS ôn luyện
 //        ArrayList<Integer> Index_cau = chuyenthongke.getIntegerArrayListExtra("index_cau_array");
@@ -77,8 +77,8 @@ public class ThongKe extends AppCompatActivity {
         socaudung = chuyenthongke2.getStringExtra("caudung");
         socausai = chuyenthongke2.getStringExtra("causai");
 //        keynodemon = chuyenthongke2.getStringExtra("keynodemon");
-        keytn = chuyenthongke.getStringExtra("keytunhien");
-        keyxh = chuyenthongke.getStringExtra("keyxahoi");
+//        keytn = chuyenthongke.getStringExtra("keytunhien");
+//        keyxh = chuyenthongke.getStringExtra("keyxahoi");
 
         //Đẩy các mảng sang HTCS.java
         btnhtcs = (Button) findViewById((R.id.btnhtcs));
@@ -110,8 +110,8 @@ public class ThongKe extends AppCompatActivity {
 //        final ArrayList<String> finalSelection_xh = selection_xh;
 //        final ArrayList<Integer> finalIndex_cau_xh = Index_cau_xh;
 
-        final String finalKeytn = keytn;
-        final String finalKeyxh = keyxh;
+//        final String finalKeytn = keytn;
+//        final String finalKeyxh = keyxh;
         btnhtcs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -143,8 +143,8 @@ public class ThongKe extends AppCompatActivity {
 //                chuyenhtcs.putExtra("selection_array_xh", finalSelection_xh);
 //                chuyenhtcs.putExtra("mixed_position_array_xh", finalMixed_position_xh);
 
-                chuyenthongke.putExtra("keyxahoi", finalKeyxh);
-                chuyenthongke.putExtra("keytunhien", finalKeytn);
+//                chuyenthongke.putExtra("keyxahoi", finalKeyxh);
+//                chuyenthongke.putExtra("keytunhien", finalKeytn);
 
 //                chuyenhtcs.putExtra("keynodemon", finalKeynodemon);
                 startActivity(chuyenhtcs);

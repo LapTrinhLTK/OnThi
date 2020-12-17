@@ -40,7 +40,8 @@ public class BLThiThu extends AppCompatActivity {
     int minutes;
     int seconds;
 //    int kt = 1;
-    String keytn, keyxh, chon;
+//    String keytn, keyxh, chon;
+    String chon;
     DatabaseReference datacauhoi;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,8 +57,8 @@ public class BLThiThu extends AppCompatActivity {
         btnd = (Button) findViewById(R.id.btnD);
 
         Intent chuyencbtt = getIntent();
-        keytn = chuyencbtt.getStringExtra("getmontunhien");
-        keyxh = chuyencbtt.getStringExtra("getmonxahoi");
+//        keytn = chuyencbtt.getStringExtra("getmontunhien");
+//        keyxh = chuyencbtt.getStringExtra("getmonxahoi");
 
         for(int a = 0; a<=120; a++) { dd.add(false); }
         for(int j = 0; j<=9999; j++) {Arrays.selection_Anh.add("X");}
@@ -85,8 +86,8 @@ public class BLThiThu extends AppCompatActivity {
                 chuyenbltunhien.putExtra("causai", socausai);
                 chuyenbltunhien.putExtra("timeminute", minutes);
                 chuyenbltunhien.putExtra("timesecond", seconds);
-                chuyenbltunhien.putExtra("keytunhien", keytn);
-                chuyenbltunhien.putExtra("keyxahoi", keyxh);
+//                chuyenbltunhien.putExtra("keytunhien", keytn);
+//                chuyenbltunhien.putExtra("keyxahoi", keyxh);
 
                 //Truyền bộ mảng HTCS
 //                chuyenbltunhien.putExtra("index_cau_array_anh", Index_cau_Anh);
@@ -262,8 +263,8 @@ public class BLThiThu extends AppCompatActivity {
                 chuyenthongke.putExtra("tongcau", String.valueOf(tongsocau));
                 chuyenthongke.putExtra("caudung", String.valueOf(socaudung));
                 chuyenthongke.putExtra("causai", String.valueOf(socausai));
-                chuyenthongke.putExtra("keyxahoi", keyxh);
-                chuyenthongke.putExtra("keytunhien", keytn);
+//                chuyenthongke.putExtra("keyxahoi", keyxh);
+//                chuyenthongke.putExtra("keytunhien", keytn);
 //                chuyenthongke.putExtra("check", kt);
 
                 //Truyền bộ mảng HTCS

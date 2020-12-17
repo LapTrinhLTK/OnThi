@@ -44,10 +44,10 @@ public class HTCS extends AppCompatActivity {
 //    String keynodemon;
     int index = 0;
     int index_anh = 0;
-    int index_tunhien = 0;
-    int index_xahoi = 0;
+    int index_tn = 0;
+    int index_xh = 0;
 //    int kt = 0;
-    String keytn, keyxh;
+//    String keytn, keyxh;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,8 +71,8 @@ public class HTCS extends AppCompatActivity {
         final String socaudung = chuyenhtcs.getStringExtra("caudung");
         final String socausai = chuyenhtcs.getStringExtra("causai");
 //        keynodemon = chuyenhtcs.getStringExtra("keynodemon");
-        keytn = chuyenhtcs.getStringExtra("keytunhien");
-        keyxh = chuyenhtcs.getStringExtra("keyxahoi");
+//        keytn = chuyenhtcs.getStringExtra("keytunhien");
+//        keyxh = chuyenhtcs.getStringExtra("keyxahoi");
 
 
 
@@ -127,8 +127,8 @@ public class HTCS extends AppCompatActivity {
 //                chuyenthongke2.putExtra("selection_array_xh", selection_xh);
 //                chuyenthongke2.putExtra("mixed_position_array_xh", mixed_position_xh);
 
-                chuyenthongke2.putExtra("keyxahoi", keyxh);
-                chuyenthongke2.putExtra("keytunhien", keytn);
+//                chuyenthongke2.putExtra("keyxahoi", keyxh);
+//                chuyenthongke2.putExtra("keytunhien", keytn);
 
 //                chuyenthongke2.putExtra("keynodemon", keynodemon);
 
@@ -254,9 +254,9 @@ public class HTCS extends AppCompatActivity {
         });
     }
 
-    public void HienThiCauSaiAnh(final int index_anh)
+    public void HienThiCauSaiAnh(final int index_eng)
     {
-        datacauhoi = FirebaseDatabase.getInstance().getReference().child("Anh Văn").child("Cau" + String.valueOf(Arrays.Index_cau_Anh.get(index_anh)));
+        datacauhoi = FirebaseDatabase.getInstance().getReference().child("Anh Văn").child("Cau" + String.valueOf(Arrays.Index_cau_Anh.get(index_eng)));
 
 
         datacauhoi.addValueEventListener(new ValueEventListener() {
@@ -275,13 +275,13 @@ public class HTCS extends AppCompatActivity {
 
                 //Hiện câu hỏi đã sai
                 txtquestion.setText(getdata.getCauhoi());
-                btna.setText(String_cau.get(Arrays.mixed_position_Anh[Arrays.Index_cau_Anh.get(index_anh)][0]));
-                btnb.setText(String_cau.get(Arrays.mixed_position_Anh[Arrays.Index_cau_Anh.get(index_anh)][1]));
-                btnc.setText(String_cau.get(Arrays.mixed_position_Anh[Arrays.Index_cau_Anh.get(index_anh)][2]));
-                btnd.setText(String_cau.get(Arrays.mixed_position_Anh[Arrays.Index_cau_Anh.get(index_anh)][3]));
+                btna.setText(String_cau.get(Arrays.mixed_position_Anh[Arrays.Index_cau_Anh.get(index_eng)][0]));
+                btnb.setText(String_cau.get(Arrays.mixed_position_Anh[Arrays.Index_cau_Anh.get(index_eng)][1]));
+                btnc.setText(String_cau.get(Arrays.mixed_position_Anh[Arrays.Index_cau_Anh.get(index_eng)][2]));
+                btnd.setText(String_cau.get(Arrays.mixed_position_Anh[Arrays.Index_cau_Anh.get(index_eng)][3]));
 
                 //Tô đỏ câu chọn sai
-                String incorrect_ans = Arrays.selection_Anh.get(Arrays.Index_cau_Anh.get(index_anh));
+                String incorrect_ans = Arrays.selection_Anh.get(Arrays.Index_cau_Anh.get(index_eng));
 
                 switch (incorrect_ans)
                 {
@@ -318,12 +318,13 @@ public class HTCS extends AppCompatActivity {
 
                 //Kiểm tra giới hạn
                 //Giới hạn trên
-                if (index_anh < Arrays.Index_cau_Anh.size()-1)
+                if (index_eng < Arrays.Index_cau_Anh.size()-1)
                 {
                     next.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            HienThiCauSaiAnh(index_anh + 1);
+                            index_anh++;
+                            HienThiCauSaiAnh(index_eng+1);
                             btna.setBackgroundColor(Color.WHITE);
                             btnb.setBackgroundColor(Color.WHITE);
                             btnc.setBackgroundColor(Color.WHITE);
@@ -332,12 +333,12 @@ public class HTCS extends AppCompatActivity {
                     });
                 }
                 else {
-                    if (index_anh == Arrays.Index_cau_Anh.size()-1)
+                    if (index_eng == Arrays.Index_cau_Anh.size()-1)
                     {
                         next.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                HienthiCauSaiTN(index_tunhien);
+                                HienthiCauSaiTN(index_tn);
                                 btna.setBackgroundColor(Color.WHITE);
                                 btnb.setBackgroundColor(Color.WHITE);
                                 btnc.setBackgroundColor(Color.WHITE);
@@ -348,12 +349,14 @@ public class HTCS extends AppCompatActivity {
                 }
 
                 //Giới hạn dưới
-                if (index_anh > 0)
+                if (index_eng > 0)
                 {
                     back.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            HienThiCauSaiAnh(index_anh-1);
+                            index_anh = index_anh-1;
+//                            Log.d("hk",""+index_anh);
+                            HienThiCauSaiAnh(index_eng-1);
                             btna.setBackgroundColor(Color.WHITE);
                             btnb.setBackgroundColor(Color.WHITE);
                             btnc.setBackgroundColor(Color.WHITE);
@@ -374,7 +377,17 @@ public class HTCS extends AppCompatActivity {
 
     public void HienthiCauSaiTN(final int index_tunhien)
     {
-        datacauhoi = FirebaseDatabase.getInstance().getReference().child(keytn).child("Cau" + String.valueOf(Arrays.Index_cau_tn.get(index_tunhien)));
+//        Log.d("roko", ""+Arrays.keytn);
+        switch (Arrays.keytn)
+        {
+            case "Vật Lý":  datacauhoi = FirebaseDatabase.getInstance().getReference().child("Vật Lý").child("Cau" + String.valueOf(Arrays.Index_cau_tn.get(index_tunhien)));
+            break;
+            case "Sinh Học":  datacauhoi = FirebaseDatabase.getInstance().getReference().child("Sinh Học").child("Cau" + String.valueOf(Arrays.Index_cau_tn.get(index_tunhien)));
+            break;
+            default:  datacauhoi = FirebaseDatabase.getInstance().getReference().child("Hóa Học").child("Cau" + String.valueOf(Arrays.Index_cau_tn.get(index_tunhien)));
+        }
+
+//        datacauhoi = FirebaseDatabase.getInstance().getReference().child(Arrays.keytn).child("Cau" + String.valueOf(Arrays.Index_cau_tn.get(index_tunhien)));
         datacauhoi.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -396,8 +409,12 @@ public class HTCS extends AppCompatActivity {
                 btnc.setText(String_cau.get(Arrays.mixed_position_tn[Arrays.Index_cau_tn.get(index_tunhien)][2]));
                 btnd.setText(String_cau.get(Arrays.mixed_position_tn[Arrays.Index_cau_tn.get(index_tunhien)][3]));
 
+//                for (int p=0; p<=Arrays.selection_tn.size()-1; p++){ Log.d("oppa", ""+Arrays.selection_tn.get(p));}
                 //Tô đỏ câu chọn sai
                 String incorrect_ans = Arrays.selection_tn.get(Arrays.Index_cau_tn.get(index_tunhien));
+
+
+//                Log.d("fes", ""+incorrect_ans);
 
                 switch (incorrect_ans)
                 {
@@ -439,6 +456,7 @@ public class HTCS extends AppCompatActivity {
                     next.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
+                            index_tn++;
                             HienthiCauSaiTN(index_tunhien+1);
                             btna.setBackgroundColor(Color.WHITE);
                             btnb.setBackgroundColor(Color.WHITE);
@@ -453,7 +471,7 @@ public class HTCS extends AppCompatActivity {
                         next.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                HienThiCauSaiXH(index_xahoi);
+                                HienThiCauSaiXH(index_xh);
                                 btna.setBackgroundColor(Color.WHITE);
                                 btnb.setBackgroundColor(Color.WHITE);
                                 btnc.setBackgroundColor(Color.WHITE);
@@ -469,6 +487,7 @@ public class HTCS extends AppCompatActivity {
                     back.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
+                            index_tn = index_tn-1;
                             HienthiCauSaiTN(index_tunhien-1);
                             btna.setBackgroundColor(Color.WHITE);
                             btnb.setBackgroundColor(Color.WHITE);
@@ -483,6 +502,7 @@ public class HTCS extends AppCompatActivity {
                         back.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
+//                                Log.d("ples", ""+index_anh);
                                 HienThiCauSaiAnh(index_anh);
                                 btna.setBackgroundColor(Color.WHITE);
                                 btnb.setBackgroundColor(Color.WHITE);
@@ -503,7 +523,8 @@ public class HTCS extends AppCompatActivity {
 
     public void HienThiCauSaiXH(final int index_xahoi)
     {
-        datacauhoi = FirebaseDatabase.getInstance().getReference().child(keyxh).child("Cau" + String.valueOf(Arrays.Index_cau_xh.get(index_xahoi)));
+
+        datacauhoi = FirebaseDatabase.getInstance().getReference().child(Arrays.keyxh).child("Cau" + String.valueOf(Arrays.Index_cau_xh.get(index_xahoi)));
         datacauhoi.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -568,6 +589,7 @@ public class HTCS extends AppCompatActivity {
                     next.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
+                            index_xh++;
                             HienThiCauSaiXH(index_xahoi+1);
                             btna.setBackgroundColor(Color.WHITE);
                             btnb.setBackgroundColor(Color.WHITE);
@@ -583,6 +605,7 @@ public class HTCS extends AppCompatActivity {
                     back.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
+                            index_xh = index_xh-1;
                             HienThiCauSaiXH(index_xahoi-1);
                             btna.setBackgroundColor(Color.WHITE);
                             btnb.setBackgroundColor(Color.WHITE);
@@ -597,7 +620,7 @@ public class HTCS extends AppCompatActivity {
                         back.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                HienthiCauSaiTN(index_tunhien);
+                                HienthiCauSaiTN(index_tn);
                                 btna.setBackgroundColor(Color.WHITE);
                                 btnb.setBackgroundColor(Color.WHITE);
                                 btnc.setBackgroundColor(Color.WHITE);

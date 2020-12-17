@@ -20,6 +20,9 @@ public class Arrays {
     public static int[][] mixed_position_xh = new int [1000][4];
 
     public static String keynodemon = "Vật Lý";
+    public static String keytn = "Hóa Học";
+    public static String keyxh = "Lịch Sử";
+
     public static int kt = 0;
 
 }

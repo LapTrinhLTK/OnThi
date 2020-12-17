@@ -45,7 +45,9 @@ public class BLThiThu2 extends AppCompatActivity {
     int minutes;
     int seconds;
 //    int kt = 1;
-    String keytn, keyxh, chon;
+//    String keytn, keyxh, chon;
+    String chon;
+
     DatabaseReference datacauhoi;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,8 +63,8 @@ public class BLThiThu2 extends AppCompatActivity {
         btnd = (Button) findViewById(R.id.btnD);
 
         Intent chuyenbltunhien = getIntent();
-        keytn = chuyenbltunhien.getStringExtra("keytunhien");
-        keyxh = chuyenbltunhien.getStringExtra("keyxahoi");
+//        keytn = chuyenbltunhien.getStringExtra("keytunhien");
+//        keyxh = chuyenbltunhien.getStringExtra("keyxahoi");
         minutes = chuyenbltunhien.getIntExtra("timeminute", 150);
         seconds = chuyenbltunhien.getIntExtra("timesecond", 0);
         tongsocau = chuyenbltunhien.getIntExtra("tongcau", 20);
@@ -79,7 +81,7 @@ public class BLThiThu2 extends AppCompatActivity {
         //Add value into Store_index
         for (int k=0; k<=3; k++) { Store_index.add(k);}
 
-        TaoCauHoi(keytn);
+        TaoCauHoi(Arrays.keytn);
         CountDownTimer(minutes*60, timer);
     }
 
@@ -97,8 +99,8 @@ public class BLThiThu2 extends AppCompatActivity {
             chuyenblxahoi.putExtra("causai", socausai);
             chuyenblxahoi.putExtra("timeminute", minutes);
             chuyenblxahoi.putExtra("timesecond", seconds);
-            chuyenblxahoi.putExtra("keyxahoi", keyxh);
-            chuyenblxahoi.putExtra("keytunhien", keytn);
+//            chuyenblxahoi.putExtra("keyxahoi", keyxh);
+//            chuyenblxahoi.putExtra("keytunhien", keytn);
 
             //Truyền bộ mảng Anh Văn
 //            chuyenblxahoi.putExtra("index_cau_array_anh", Index_cau_Anh);
@@ -190,7 +192,7 @@ public class BLThiThu2 extends AppCompatActivity {
                         btna.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                String chon = "A";
+                                chon = "A";
                                 if (btna.getText().toString().equals(getdata.getDapan())) {
                                     socaudung++;
                                     TaoCauHoi(mon);
@@ -202,7 +204,7 @@ public class BLThiThu2 extends AppCompatActivity {
                         btnb.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                String chon = "B";
+                                chon = "B";
                                 if (btnb.getText().toString().equals(getdata.getDapan())) {
                                     socaudung++;
                                     TaoCauHoi(mon);
@@ -214,7 +216,7 @@ public class BLThiThu2 extends AppCompatActivity {
                         btnc.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                String chon = "C";
+                                chon = "C";
                                 if (btnc.getText().toString().equals(getdata.getDapan())) {
                                     socaudung++;
                                     TaoCauHoi(mon);
@@ -226,7 +228,7 @@ public class BLThiThu2 extends AppCompatActivity {
                         btnd.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                String chon = "D";
+                                chon = "D";
                                 if (btnd.getText().toString().equals(getdata.getDapan())){
                                     socaudung++;
                                     TaoCauHoi(mon);
@@ -264,7 +266,7 @@ public class BLThiThu2 extends AppCompatActivity {
         {
             Arrays.mixed_position_tn[numcau][m] = Store_index.get(m);
         }
-        TaoCauHoi(keytn);
+        TaoCauHoi(Arrays.keytn);
     }
 
     public void CountDownTimer(int giay, final TextView tv)
@@ -289,8 +291,8 @@ public class BLThiThu2 extends AppCompatActivity {
                 chuyenthongke.putExtra("tongcau", String.valueOf(tongsocau));
                 chuyenthongke.putExtra("caudung", String.valueOf(socaudung));
                 chuyenthongke.putExtra("causai", String.valueOf(socausai));
-                chuyenthongke.putExtra("keyxahoi", keyxh);
-                chuyenthongke.putExtra("keytunhien", keytn);
+//                chuyenthongke.putExtra("keyxahoi", keyxh);
+//                chuyenthongke.putExtra("keytunhien", keytn);
 //                chuyenthongke.putExtra("check", kt);
 
 //                //Truyền bộ mảng Anh Văn
