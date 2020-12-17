@@ -18,7 +18,7 @@ public class ThongKe extends AppCompatActivity {
 
         final Intent chuyenthongke = getIntent();
         //Nhan thong ke
-        int kt = chuyenthongke.getIntExtra("check", 0);
+//        int kt = chuyenthongke.getIntExtra("check", 0);
         String socau = chuyenthongke.getStringExtra("socau");
         String tongsocau = chuyenthongke.getStringExtra("tongcau");
         String socaudung = chuyenthongke.getStringExtra("caudung");
@@ -71,7 +71,7 @@ public class ThongKe extends AppCompatActivity {
 //        selection_xh = chuyenthongke2.getStringArrayListExtra("selection_array_xh");
 //        mixed_position_xh = (int[][]) getIntent().getSerializableExtra("mixed_position_array_xh");
 
-        kt = chuyenthongke2.getIntExtra("check", 0);
+//        kt = chuyenthongke2.getIntExtra("check", 0);
         socau = chuyenthongke2.getStringExtra("socau");
         tongsocau = chuyenthongke2.getStringExtra("tongcau");
         socaudung = chuyenthongke2.getStringExtra("caudung");
@@ -87,7 +87,7 @@ public class ThongKe extends AppCompatActivity {
         final String finalTongsocau = tongsocau;
         final String finalSocausai = socausai;
         final String finalSocau = socau;
-        final int finalKt = kt;
+//        final int finalKt = kt;
 //        final String finalKeynodemon = keynodemon;
 
         //Final mảng ôn luyện
@@ -121,7 +121,7 @@ public class ThongKe extends AppCompatActivity {
                 chuyenhtcs.putExtra("tongcau", String.valueOf(finalTongsocau));
                 chuyenhtcs.putExtra("caudung", String.valueOf(finalSocaudung));
                 chuyenhtcs.putExtra("causai", String.valueOf(finalSocausai));
-                chuyenthongke.putExtra("check", finalKt);
+//                chuyenthongke.putExtra("check", finalKt);
 
 //                //Truyền bộ mảng Ôn Luyện
 //                chuyenhtcs.putExtra("index_cau_array", finalIndex_cau);
@@ -167,7 +167,7 @@ public class ThongKe extends AppCompatActivity {
 
 
 
-        if (kt == 1){ txttongsocau.setText("Tổng số câu đã làm: " + tongsocau + "/" + "50");}
+        if (Arrays.kt == 1){ txttongsocau.setText("Tổng số câu đã làm: " + tongsocau + "/" + "50");}
         else {txttongsocau.setText("Tổng số câu đã làm: " + tongsocau + "/" + socau);}
         txtsocaudung.setText("Số câu đúng: " + socaudung + "/" + tongsocau);
         txtsocausai.setText("Số câu sai: " + socausai + "/" + tongsocau);

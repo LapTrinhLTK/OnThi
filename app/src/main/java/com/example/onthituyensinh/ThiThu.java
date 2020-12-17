@@ -1,11 +1,11 @@
 package com.example.onthituyensinh;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Random;
 
@@ -26,6 +26,8 @@ public class ThiThu extends AppCompatActivity {
                 startActivity(chuyenmain1);
             }
         });
+
+        Arrays.kt = 1;
 
         btndeso1 = (Button) findViewById(R.id.deso1);
         btndeso2 = (Button) findViewById(R.id.deso2);

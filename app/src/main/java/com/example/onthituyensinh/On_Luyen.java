@@ -23,6 +23,7 @@ public class On_Luyen extends AppCompatActivity {
             }
         });
 
+        Arrays.kt = 0;
         btnLy = (Button) findViewById(R.id.btnLy);
         btnLy.setOnClickListener(new View.OnClickListener() {
             @Override

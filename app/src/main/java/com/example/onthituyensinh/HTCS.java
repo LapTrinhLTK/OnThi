@@ -46,7 +46,7 @@ public class HTCS extends AppCompatActivity {
     int index_anh = 0;
     int index_tunhien = 0;
     int index_xahoi = 0;
-    int kt = 0;
+//    int kt = 0;
     String keytn, keyxh;
 
     @Override
@@ -65,7 +65,7 @@ public class HTCS extends AppCompatActivity {
 
         Intent chuyenhtcs = getIntent();
         //Nhận lưu trữ các giá trị thống kê
-        kt = chuyenhtcs.getIntExtra("check", 0);
+//        kt = chuyenhtcs.getIntExtra("check", 0);
         final String socau = chuyenhtcs.getStringExtra("socau");
         final String tongsocau = chuyenhtcs.getStringExtra("tongcau");
         final String socaudung = chuyenhtcs.getStringExtra("caudung");
@@ -105,7 +105,7 @@ public class HTCS extends AppCompatActivity {
                 chuyenthongke2.putExtra("tongcau", String.valueOf(tongsocau));
                 chuyenthongke2.putExtra("caudung", String.valueOf(socaudung));
                 chuyenthongke2.putExtra("causai", String.valueOf(socausai));
-                chuyenthongke2.putExtra("check", kt);
+//                chuyenthongke2.putExtra("check", kt);
 
                 //Truyền trở về bộ mảng ôn luyện
 //                chuyenthongke2.putExtra("index_cau_array", Index_cau);
@@ -136,13 +136,18 @@ public class HTCS extends AppCompatActivity {
             }
         });
 
-        Log.d("pikachu", "hdfwuifhiew");
-        Log.d("pikachu", ""+kt);
-        if (kt == 1)
+//        Log.d("pikachu", "hdfwuifhiew");
+//        Log.d("pikachu", ""+kt);
+        if (Arrays.kt == 1)
         {
             HienThiCauSaiAnh(index_anh);
         }
-        else {HienThiCauSaiOnLuyen(index);}
+        else
+        {
+            if (Arrays.kt ==0 )
+            {HienThiCauSaiOnLuyen(index);}
+
+        }
     }
 
     public void HienThiCauSaiOnLuyen(final int index)
@@ -155,7 +160,7 @@ public class HTCS extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 final GetData getdata = snapshot.getValue(GetData.class);
-//                assert getdata != null;
+                assert getdata != null;
 
                 ArrayList<String> String_cau = new ArrayList<>();
 

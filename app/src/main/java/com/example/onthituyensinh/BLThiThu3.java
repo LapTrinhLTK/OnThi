@@ -50,7 +50,7 @@ public class BLThiThu3 extends AppCompatActivity {
     int dem = 0;
     int minutes;
     int seconds;
-    int kt = 1;
+//    int kt = 1;
     String keyxh, keytn, chon;
     DatabaseReference datacauhoi;
     @Override
@@ -108,7 +108,7 @@ public class BLThiThu3 extends AppCompatActivity {
             chuyenthongke.putExtra("causai", String.valueOf(socausai));
             chuyenthongke.putExtra("keyxahoi", keyxh);
             chuyenthongke.putExtra("keytunhien", keytn);
-            chuyenthongke.putExtra("check", kt);
+//            chuyenthongke.putExtra("check", kt);
 
 //            //Truyền bộ mảng Anh
 //            chuyenthongke.putExtra("index_cau_array_anh", Index_cau_Anh);
@@ -306,7 +306,7 @@ public class BLThiThu3 extends AppCompatActivity {
                 chuyenthongke.putExtra("causai", String.valueOf(socausai));
                 chuyenthongke.putExtra("keyxahoi", keyxh);
                 chuyenthongke.putExtra("keytunhien", keytn);
-                chuyenthongke.putExtra("check", kt);
+//                chuyenthongke.putExtra("check", kt);
 
 //                //Truyền bộ mảng Anh
 //                chuyenthongke.putExtra("index_cau_array_anh", Index_cau_Anh);
