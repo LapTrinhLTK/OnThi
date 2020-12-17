@@ -1,11 +1,11 @@
 package com.example.onthituyensinh;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class On_Luyen extends AppCompatActivity {
     Button btnreturn2, btnLy, btnHoa, btnSinh, btnDia, btnSu, btnGD, btnAnh;
@@ -28,7 +28,8 @@ public class On_Luyen extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent chuyencb = new Intent(On_Luyen.this, CB_On_Luyen.class);
-                chuyencb.putExtra("monol","Vật Lý");
+                Arrays.keynodemon = "Vật Lý";
+//                chuyencb.putExtra("monol","Vật Lý");
                 startActivity(chuyencb);
             }
         });
@@ -38,7 +39,8 @@ public class On_Luyen extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent chuyencb = new Intent(On_Luyen.this, CB_On_Luyen.class);
-                chuyencb.putExtra("monol","Hoá Học");
+//                chuyencb.putExtra("monol","Hoá Học");
+                Arrays.keynodemon = "Hóa Học";
                 startActivity(chuyencb);
             }
         });
@@ -48,7 +50,8 @@ public class On_Luyen extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent chuyencb = new Intent(On_Luyen.this, CB_On_Luyen.class);
-                chuyencb.putExtra("monol","Sinh Học");
+//                chuyencb.putExtra("monol","Sinh Học");
+                Arrays.keynodemon = "Sinh Học";
                 startActivity(chuyencb);
             }
         });
@@ -58,7 +61,8 @@ public class On_Luyen extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent chuyencb = new Intent(On_Luyen.this, CB_On_Luyen.class);
-                chuyencb.putExtra("monol","Địa Lý");
+//                chuyencb.putExtra("monol","Địa Lý");
+                Arrays.keynodemon = "Địa Lý";
                 startActivity(chuyencb);
             }
         });
@@ -68,7 +72,8 @@ public class On_Luyen extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent chuyencb = new Intent(On_Luyen.this, CB_On_Luyen.class);
-                chuyencb.putExtra("monol","Lịch Sử");
+//                chuyencb.putExtra("monol","Lịch Sử");
+                Arrays.keynodemon = "Lịch Sử";
                 startActivity(chuyencb);
             }
         });
@@ -78,7 +83,8 @@ public class On_Luyen extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent chuyencb = new Intent(On_Luyen.this, CB_On_Luyen.class);
-                chuyencb.putExtra("monol","GDCD");
+//                chuyencb.putExtra("monol","GDCD");
+                Arrays.keynodemon = "GDCD";
                 startActivity(chuyencb);
             }
         });
@@ -88,7 +94,8 @@ public class On_Luyen extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent chuyencb = new Intent(On_Luyen.this, CB_On_Luyen.class);
-                chuyencb.putExtra("monol","Anh Văn");
+//                chuyencb.putExtra("monol","Anh Văn");
+                Arrays.keynodemon = "Anh Văn";
                 startActivity(chuyencb);
             }
         });

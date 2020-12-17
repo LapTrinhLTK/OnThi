@@ -27,9 +27,9 @@ public class BL_On_Luyen extends AppCompatActivity {
     //Bộ các mảng xử lý HTCS
     ArrayList<Integer> Store_index = new ArrayList<>();
 
-    ArrayList<Integer> Index_cau = new ArrayList();
-    ArrayList<String> selection = new ArrayList<>();
-    int[][] mixed_position = new int[10000][4];
+//    ArrayList<Integer> Index_cau = new ArrayList();
+//    ArrayList<String> selection = new ArrayList<>();
+//    int[][] mixed_position = new int[10000][4];
 
 
     ArrayList<Boolean> dd = new ArrayList<>();
@@ -41,7 +41,7 @@ public class BL_On_Luyen extends AppCompatActivity {
     int dem = 0;
     String chon;
 
-    String keynodemon;
+//    String keynodemon;
 
     DatabaseReference datacauhoi;
 
@@ -58,19 +58,20 @@ public class BL_On_Luyen extends AppCompatActivity {
         btnd = (Button) findViewById(R.id.btnD);
 
         Intent chuyenbl1 = getIntent();
-        keynodemon = chuyenbl1.getStringExtra("monchon");
+//        keynodemon = chuyenbl1.getStringExtra("monchon");
 
 
         int time  = chuyenbl1.getIntExtra("thoigian", 150);
         time = time*60;
 
         for(int a = 0; a<=9999; a++) { dd.add(false); }
-        for(int j = 0; j<=9999; j++) { selection.add("X");}
+        for(int j = 0; j<=9999; j++) { Arrays.selection.add("X");}
         //Add value into Store_index
         for (int k=0; k<=3; k++) { Store_index.add(k);}
 
 
         TaoCauHoi();
+
         CountDownTimer(time, timer);
 
         }
@@ -81,7 +82,7 @@ public class BL_On_Luyen extends AppCompatActivity {
     public void TaoCauHoi()
     {
         dem++;
-        if (keynodemon.equals("Anh Văn")) { socau = 20; numrandom = 40;}
+        if (Arrays.keynodemon.equals("Anh Văn")) { socau = 20; numrandom = 40;}
         else { socau = 15; numrandom = 30;}
 
         if (dem>socau)
@@ -92,12 +93,12 @@ public class BL_On_Luyen extends AppCompatActivity {
             chuyenthongke.putExtra("tongcau", String.valueOf(tongsocau));
             chuyenthongke.putExtra("caudung", String.valueOf(socaudung));
             chuyenthongke.putExtra("causai", String.valueOf(socausai));
-            chuyenthongke.putExtra("keynodemon", keynodemon);
+//            chuyenthongke.putExtra("keynodemon", keynodemon);
 
             //Truyền bộ mảng HTCS
-            chuyenthongke.putExtra("index_cau_array", Index_cau);
-            chuyenthongke.putExtra("selection_array", selection);
-            chuyenthongke.putExtra("mixed_position_array", mixed_position);
+//            chuyenthongke.putExtra("index_cau_array", Index_cau);
+//            chuyenthongke.putExtra("selection_array", selection);
+//            chuyenthongke.putExtra("mixed_position_array", mixed_position);
 
             startActivity(chuyenthongke);
         }
@@ -112,32 +113,40 @@ public class BL_On_Luyen extends AppCompatActivity {
                 dd.set(numcau, true);
 
 
-                switch (keynodemon)
+                switch (Arrays.keynodemon)
                 {
                     case "Vật Lý":
                         datacauhoi = FirebaseDatabase.getInstance().getReference().child("Vật Lý").child("Cau" + String.valueOf(numcau));
+                        datacauhoi.keepSynced(true);
                         break;
                     case "Hóa Học":
                         datacauhoi = FirebaseDatabase.getInstance().getReference().child("Hóa Học").child("Cau" + String.valueOf(numcau));
+                        datacauhoi.keepSynced(true);
                         break;
                     case "Sinh Học":
                         datacauhoi = FirebaseDatabase.getInstance().getReference().child("Sinh Học").child("Cau" + String.valueOf(numcau));
+                        datacauhoi.keepSynced(true);
                         break;
                     case "Lịch Sử":
                         datacauhoi = FirebaseDatabase.getInstance().getReference().child("Lịch Sử").child("Cau" + String.valueOf(numcau));
+                        datacauhoi.keepSynced(true);
                         break;
                     case "Địa Lý":
                         datacauhoi = FirebaseDatabase.getInstance().getReference().child("Địa Lý").child("Cau" + String.valueOf(numcau));
+                        datacauhoi.keepSynced(true);
                         break;
                     case "GDCD":
                         datacauhoi = FirebaseDatabase.getInstance().getReference().child("GDCD").child("Cau" + String.valueOf(numcau));
+                        datacauhoi.keepSynced(true);
                         break;
                     case "Anh Văn":
                         datacauhoi = FirebaseDatabase.getInstance().getReference().child("Anh Văn").child("Cau" + String.valueOf(numcau));
+                        datacauhoi.keepSynced(true);
                         break;
                     default:   datacauhoi = FirebaseDatabase.getInstance().getReference().child("Hóa Học").child("Cau" + String.valueOf(numcau));
-
+                        datacauhoi.keepSynced(true);
                 }
+
 
 
                 tongsocau++;
@@ -263,12 +272,12 @@ public class BL_On_Luyen extends AppCompatActivity {
     {
         socausai++;
 
-        Index_cau.add(numcau);
-        selection.set(numcau, chon);
+        Arrays.Index_cau.add(numcau);
+        Arrays.selection.set(numcau, chon);
 
         for (int m = 0; m<=3; m++)
         {
-            mixed_position[numcau][m] = Store_index.get(m);
+            Arrays.mixed_position[numcau][m] = Store_index.get(m);
         }
         TaoCauHoi();
     }
@@ -296,12 +305,12 @@ public class BL_On_Luyen extends AppCompatActivity {
                 chuyenthongke.putExtra("tongcau", String.valueOf(tongsocau-1));
                 chuyenthongke.putExtra("caudung", String.valueOf(socaudung));
                 chuyenthongke.putExtra("causai", String.valueOf(socausai));
-                chuyenthongke.putExtra("keynodemon", keynodemon);
+//                chuyenthongke.putExtra("keynodemon", keynodemon);
 
-                //Truyền bộ mảng HTCS
-                chuyenthongke.putExtra("index_cau_array", Index_cau);
-                chuyenthongke.putExtra("selection_array", selection);
-                chuyenthongke.putExtra("mixed_position_array", mixed_position);
+//                //Truyền bộ mảng HTCS
+//                chuyenthongke.putExtra("index_cau_array", Index_cau);
+//                chuyenthongke.putExtra("selection_array", selection);
+//                chuyenthongke.putExtra("mixed_position_array", mixed_position);
 
                 startActivity(chuyenthongke);
             }

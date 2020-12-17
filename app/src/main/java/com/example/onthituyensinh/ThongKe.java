@@ -8,8 +8,6 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.ArrayList;
-
 public class ThongKe extends AppCompatActivity {
     Button btnvtt, btnhtcs;
     TextView txttongsocau, txtsocaudung, txtsocausai;
@@ -29,9 +27,9 @@ public class ThongKe extends AppCompatActivity {
         String keyxh = chuyenthongke.getStringExtra("keyxahoi");
 
         //Nhan bo mang HTCS ôn luyện
-        ArrayList<Integer> Index_cau = chuyenthongke.getIntegerArrayListExtra("index_cau_array");
-        ArrayList<String> selection = chuyenthongke.getStringArrayListExtra("selection_array");
-        int [][] mixed_position = (int[][]) getIntent().getSerializableExtra("mixed_position_array");
+//        ArrayList<Integer> Index_cau = chuyenthongke.getIntegerArrayListExtra("index_cau_array");
+//        ArrayList<String> selection = chuyenthongke.getStringArrayListExtra("selection_array");
+//        int [][] mixed_position = (int[][]) getIntent().getSerializableExtra("mixed_position_array");
 
 //        //Nhận bộ mảng Anh
 //        ArrayList<Integer> Index_cau_Anh = chuyenthongke.getIntegerArrayListExtra("index_cau_array_anh");
@@ -48,15 +46,15 @@ public class ThongKe extends AppCompatActivity {
 //        ArrayList<String> selection_xh = chuyenthongke.getStringArrayListExtra("selection_array_xh");
 //        int [][] mixed_position_xh = (int[][]) getIntent().getSerializableExtra("mixed_position_array_xh");
 
-        String keynodemon = chuyenthongke.getStringExtra("keynodemon");
+//        String keynodemon = chuyenthongke.getStringExtra("keynodemon");
 
 
         final Intent chuyenthongke2 = getIntent();
 
         //Nhận bộ mảng ôn luyện truyền về
-        Index_cau= chuyenthongke2.getIntegerArrayListExtra("index_cau_array");
-        selection = chuyenthongke2.getStringArrayListExtra("selection_array");
-        mixed_position = (int[][]) getIntent().getSerializableExtra("mixed_position_array");
+//        Index_cau= chuyenthongke2.getIntegerArrayListExtra("index_cau_array");
+//        selection = chuyenthongke2.getStringArrayListExtra("selection_array");
+//        mixed_position = (int[][]) getIntent().getSerializableExtra("mixed_position_array");
 
 //        //Nhận bộ mảng môn Anh truyền về
 //        Index_cau_Anh = chuyenthongke2.getIntegerArrayListExtra("index_cau_array_anh");
@@ -78,7 +76,7 @@ public class ThongKe extends AppCompatActivity {
         tongsocau = chuyenthongke2.getStringExtra("tongcau");
         socaudung = chuyenthongke2.getStringExtra("caudung");
         socausai = chuyenthongke2.getStringExtra("causai");
-        keynodemon = chuyenthongke2.getStringExtra("keynodemon");
+//        keynodemon = chuyenthongke2.getStringExtra("keynodemon");
         keytn = chuyenthongke.getStringExtra("keytunhien");
         keyxh = chuyenthongke.getStringExtra("keyxahoi");
 
@@ -90,12 +88,12 @@ public class ThongKe extends AppCompatActivity {
         final String finalSocausai = socausai;
         final String finalSocau = socau;
         final int finalKt = kt;
-        final String finalKeynodemon = keynodemon;
+//        final String finalKeynodemon = keynodemon;
 
         //Final mảng ôn luyện
-        final int[][] finalMixed_position = mixed_position;
-        final ArrayList<Integer> finalIndex_cau = Index_cau;
-        final ArrayList<String> finalSelection = selection;
+//        final int[][] finalMixed_position = mixed_position;
+//        final ArrayList<Integer> finalIndex_cau = Index_cau;
+//        final ArrayList<String> finalSelection = selection;
 
 //        //Final mảng Anh
 //        final int[][] finalMixed_position_Anh = mixed_position_Anh;
@@ -125,10 +123,10 @@ public class ThongKe extends AppCompatActivity {
                 chuyenhtcs.putExtra("causai", String.valueOf(finalSocausai));
                 chuyenthongke.putExtra("check", finalKt);
 
-                //Truyền bộ mảng Ôn Luyện
-                chuyenhtcs.putExtra("index_cau_array", finalIndex_cau);
-                chuyenhtcs.putExtra("selection_array", finalSelection);
-                chuyenhtcs.putExtra("mixed_position_array", finalMixed_position);
+//                //Truyền bộ mảng Ôn Luyện
+//                chuyenhtcs.putExtra("index_cau_array", finalIndex_cau);
+//                chuyenhtcs.putExtra("selection_array", finalSelection);
+//                chuyenhtcs.putExtra("mixed_position_array", finalMixed_position);
 
 //                //Truyền bộ mảng Anh
 //                chuyenhtcs.putExtra("index_cau_array_anh", finalIndex_cau_Anh);
@@ -148,7 +146,7 @@ public class ThongKe extends AppCompatActivity {
                 chuyenthongke.putExtra("keyxahoi", finalKeyxh);
                 chuyenthongke.putExtra("keytunhien", finalKeytn);
 
-                chuyenhtcs.putExtra("keynodemon", finalKeynodemon);
+//                chuyenhtcs.putExtra("keynodemon", finalKeynodemon);
                 startActivity(chuyenhtcs);
             }
         });

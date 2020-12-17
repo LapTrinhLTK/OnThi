@@ -1,13 +1,13 @@
 package com.example.onthituyensinh;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class CB_On_Luyen extends AppCompatActivity {
     Button btnreturn3, btnstart;
@@ -30,8 +30,8 @@ public class CB_On_Luyen extends AppCompatActivity {
         tbmon = (TextView) findViewById(R.id.thongbao1);
         //Nhan thong bao mon
         Intent chuyencb = getIntent();
-        final String mon = chuyencb.getStringExtra("monol");
-        tbmon.setText("môn: " + mon);
+//        final String mon = chuyencb.getStringExtra("monol");
+        tbmon.setText("môn: " + Arrays.keynodemon);
 
         tbtime = (TextView) findViewById(R.id.thongbaotg);
 
@@ -58,7 +58,7 @@ public class CB_On_Luyen extends AppCompatActivity {
             public void onClick(View v) {
                 Intent chuyenbl1 = new Intent(CB_On_Luyen.this, BL_On_Luyen.class);
                 chuyenbl1.putExtra("thoigian", thoigian[0]);
-                chuyenbl1.putExtra("monchon", mon);
+//                chuyenbl1.putExtra("monchon", mon);
                 startActivity(chuyenbl1);
             }
         });

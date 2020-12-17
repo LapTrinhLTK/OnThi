@@ -39,9 +39,12 @@
         android:background="@drawable/vatly"
         android:layout_below="@id/gtchon2"
         android:layout_marginTop="30dp"
-        android:layout_marginLeft="100dp"
         android:layout_marginRight="15dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="100dp"
         />
+
+
 
     <Button
         android:id="@+id/btnSu"
@@ -71,6 +74,7 @@
         android:paddingLeft="20dp"
         android:gravity="center"
         android:background="@drawable/hoahoc"
+        android:layout_alignParentLeft="true"
         />
 
     <Button
@@ -100,6 +104,7 @@
         android:paddingRight="20dp"
         android:paddingLeft="20dp"
         android:background="@drawable/sinhhoc"
+        android:layout_alignParentLeft="true"
         />
 
     <Button

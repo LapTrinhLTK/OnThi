@@ -23,9 +23,9 @@ public class HTCS extends AppCompatActivity {
     TextView txtquestion, btnreturn5;
     Button btna, btnb, btnc, btnd, next, back;
 
-    ArrayList<Integer> Index_cau;
-    ArrayList<String> selection;
-    int [][] mixed_position;
+//    ArrayList<Integer> Index_cau;
+//    ArrayList<String> selection;
+//    int [][] mixed_position;
 
 //    ArrayList<Integer> Index_cau_Anh;
 //    ArrayList<String> selection_Anh;
@@ -41,7 +41,7 @@ public class HTCS extends AppCompatActivity {
 
     DatabaseReference datacauhoi;
 
-    String keynodemon;
+//    String keynodemon;
     int index = 0;
     int index_anh = 0;
     int index_tunhien = 0;
@@ -70,16 +70,16 @@ public class HTCS extends AppCompatActivity {
         final String tongsocau = chuyenhtcs.getStringExtra("tongcau");
         final String socaudung = chuyenhtcs.getStringExtra("caudung");
         final String socausai = chuyenhtcs.getStringExtra("causai");
-        keynodemon = chuyenhtcs.getStringExtra("keynodemon");
+//        keynodemon = chuyenhtcs.getStringExtra("keynodemon");
         keytn = chuyenhtcs.getStringExtra("keytunhien");
         keyxh = chuyenhtcs.getStringExtra("keyxahoi");
 
 
 
         //Nhận bộ mảng ôn luyện
-        Index_cau= chuyenhtcs.getIntegerArrayListExtra("index_cau_array");
-        selection = chuyenhtcs.getStringArrayListExtra("selection_array");
-        mixed_position = (int[][]) getIntent().getSerializableExtra("mixed_position_array");
+//        Index_cau= chuyenhtcs.getIntegerArrayListExtra("index_cau_array");
+//        selection = chuyenhtcs.getStringArrayListExtra("selection_array");
+//        mixed_position = (int[][]) getIntent().getSerializableExtra("mixed_position_array");
 
 //        //Nhận bộ mảng môn Anh
 //        Index_cau_Anh = chuyenhtcs.getIntegerArrayListExtra("index_cau_array_anh");
@@ -108,9 +108,9 @@ public class HTCS extends AppCompatActivity {
                 chuyenthongke2.putExtra("check", kt);
 
                 //Truyền trở về bộ mảng ôn luyện
-                chuyenthongke2.putExtra("index_cau_array", Index_cau);
-                chuyenthongke2.putExtra("selection_array", selection);
-                chuyenthongke2.putExtra("mixed_position_array", mixed_position);
+//                chuyenthongke2.putExtra("index_cau_array", Index_cau);
+//                chuyenthongke2.putExtra("selection_array", selection);
+//                chuyenthongke2.putExtra("mixed_position_array", mixed_position);
 
 //                //Truyền trở vềbộ mảng Anh
 //                chuyenthongke2.putExtra("index_cau_array_anh", Index_cau_Anh);
@@ -130,32 +130,36 @@ public class HTCS extends AppCompatActivity {
                 chuyenthongke2.putExtra("keyxahoi", keyxh);
                 chuyenthongke2.putExtra("keytunhien", keytn);
 
-                chuyenthongke2.putExtra("keynodemon", keynodemon);
+//                chuyenthongke2.putExtra("keynodemon", keynodemon);
 
                 startActivity(chuyenthongke2);
             }
         });
 
-        if (kt == 0)
+
+        if (kt == 1)
         {
-            HienThiCauSaiOnLuyen(index);
+            HienThiCauSaiAnh(index_anh);
         }
-        else {HienThiCauSaiAnh(index_anh);}
+        else {HienThiCauSaiOnLuyen(index);}
     }
 
     public void HienThiCauSaiOnLuyen(final int index)
     {
-        datacauhoi = FirebaseDatabase.getInstance().getReference().child(keynodemon).child("Cau" + String.valueOf(Index_cau.get(index)));
+        Log.d("hello", ""+Arrays.keynodemon);
+
+        datacauhoi = FirebaseDatabase.getInstance().getReference().child(Arrays.keynodemon).child("Cau" + String.valueOf(Arrays.Index_cau.get(index)));
 
         datacauhoi.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 final GetData getdata = snapshot.getValue(GetData.class);
-                assert getdata != null;
+//                assert getdata != null;
 
                 ArrayList<String> String_cau = new ArrayList<>();
 
                 //Add option into array
+                Log.d("byebye", ""+String_cau.size());
                 String_cau.add(getdata.getOptiona());
                 String_cau.add(getdata.getOptionb());
                 String_cau.add(getdata.getOptionc());
@@ -163,13 +167,13 @@ public class HTCS extends AppCompatActivity {
 
                 //Hiện câu hỏi đã sai
                 txtquestion.setText(getdata.getCauhoi());
-                btna.setText(String_cau.get(mixed_position[Index_cau.get(index)][0]));
-                btnb.setText(String_cau.get(mixed_position[Index_cau.get(index)][1]));
-                btnc.setText(String_cau.get(mixed_position[Index_cau.get(index)][2]));
-                btnd.setText(String_cau.get(mixed_position[Index_cau.get(index)][3]));
+                btna.setText(String_cau.get(Arrays.mixed_position[Arrays.Index_cau.get(index)][0]));
+                btnb.setText(String_cau.get(Arrays.mixed_position[Arrays.Index_cau.get(index)][1]));
+                btnc.setText(String_cau.get(Arrays.mixed_position[Arrays.Index_cau.get(index)][2]));
+                btnd.setText(String_cau.get(Arrays.mixed_position[Arrays.Index_cau.get(index)][3]));
 
                 //Tô đỏ câu chọn sai
-                String incorrect_ans = selection.get(Index_cau.get(index));
+                String incorrect_ans = Arrays.selection.get(Arrays.Index_cau.get(index));
 
                 switch (incorrect_ans)
                 {
@@ -206,7 +210,7 @@ public class HTCS extends AppCompatActivity {
 
                 //Kiểm tra giới hạn
                 //Giới hạn trên
-                if (index < Index_cau.size()-1)
+                if (index < Arrays.Index_cau.size()-1)
                 {
                     next.setOnClickListener(new View.OnClickListener() {
                         @Override
