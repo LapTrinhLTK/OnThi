@@ -216,6 +216,7 @@ public class HTCS extends AppCompatActivity {
 
                 //Kiểm tra giới hạn
                 //Giới hạn trên
+
                 if (index < Arrays.Index_cau.size()-1)
                 {
                     next.setOnClickListener(new View.OnClickListener() {
